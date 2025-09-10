@@ -1,12 +1,13 @@
 import os
-from dotenv import load_dotenv
+from dotenv import load_dotenv, find_dotenv
 
-ENVS = ["GEMINI_API_KEY", "ELASTIC_HOST", "CACHE_DIRECTORY", "OLLAMA_HOST"]
+ENVS = ["GEMINI_API_KEY"]
 
 class EnvHelper:
     """Class for gathering and saving all env for the application """
     def __init__(self):
-        load_dotenv(dotenv_path='.env', override=True)
+        env_path = find_dotenv()
+        load_dotenv(env_path, override=True)
         self.envs = {}
 
         self.gather_envs()
@@ -29,8 +30,5 @@ class EnvHelper:
     
     def assign_env(self):
         self.GEMINI_API_KEY = self.envs[ENVS[0]]
-        self.ELASTIC_HOST = self.envs[ENVS[1]]
-        self.CACHE_DIRECTORY = self.envs[ENVS[2]]
-        self.OLLAMA_HOST = self.envs[ENVS[3]]
 
 env_helper = EnvHelper()
