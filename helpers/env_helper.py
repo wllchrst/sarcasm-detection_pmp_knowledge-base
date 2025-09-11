@@ -1,7 +1,7 @@
 import os
 from dotenv import load_dotenv, find_dotenv
 
-ENVS = ["GEMINI_API_KEY"]
+ENVS = ["GEMINI_API_KEY", "SPACY_MODEL"]
 
 class EnvHelper:
     """Class for gathering and saving all env for the application """
@@ -30,5 +30,6 @@ class EnvHelper:
     
     def assign_env(self):
         self.GEMINI_API_KEY = self.envs[ENVS[0]]
+        self.SPACY_MODEL = self.envs[ENVS[1]]
 
 env_helper = EnvHelper()
