@@ -10,19 +10,18 @@ class NEREntry:
         self.spacy_model = spacy.load(env_helper.SPACY_MODEL)
         self.processor = NERProcessor(LLMType.GEMINI)
 
-    def get_sentence_nouns(self, text: str) -> Tuple[list, list, list]:
+    def get_sentence_token(self, text: str) -> Tuple[list, list, list]:
         doc = self.spacy_model(text)
 
-        nouns = [noun.text for noun in doc.noun_chunks]
         verbs = [token.text for token in doc if token.pos_ == "VERB"]
         entities = [entity.text for entity in doc.ents]
 
-        return nouns, verbs, entities
+        return verbs, entities
 
     def get_sentence_context(self, sentence: str) -> str:
         cleaned = WordHelper.clean_sentence(sentence)
-        nouns, verbs, entities = self.get_sentence_nouns(cleaned)
+        verbs, entities = self.get_sentence_token(cleaned)
 
-        self.processor.process_verbs(entities, cleaned)
-
+        verb_sentiments = self.processor.process_verbs(verbs, cleaned)
+        entities_informations = self.processor.get_entity_information(entities)
         return ""

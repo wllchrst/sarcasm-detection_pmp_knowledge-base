@@ -11,8 +11,7 @@ class GeminiLLM(BaseLLM):
         self.client = genai.Client(api_key=self.API_KEY)
 
     def answer(self, prompt: str):
-        # model = "gemini-2.0-flash-lite"
-        model = 'gemini-2.5-pro'
+        model = "gemini-2.0-flash-lite"
         contents = [
             types.Content(
                 role="user",

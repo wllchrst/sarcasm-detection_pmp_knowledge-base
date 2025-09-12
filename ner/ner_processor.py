@@ -1,11 +1,16 @@
 ﻿from interfaces import LLMType
 from llm import GeminiLLM, OllamaLLM, BaseLLM
-from typing import Optional, List
+from typing import Optional, List, TypedDict
 from transformers import pipeline
 
 
+class SentimentAnalysis(TypedDict):
+    label: str
+    score: float
+
+
 class NERProcessor:
-    def __init__(self, llm_type: LLMType, model_name: Optional[str]):
+    def __init__(self, llm_type: LLMType, model_name: Optional[str] = None):
         self.llm = self.initialize_llm(llm_type, model_name)
         self.pipe = pipeline("sentiment-analysis",
                              model="finiteautomata/bertweet-base-sentiment-analysis")
@@ -21,7 +26,20 @@ class NERProcessor:
                 raise ValueError("Model name cannot be None if llm type is OLLAMA")
             return OllamaLLM(model_name)
 
-    def process_verbs(self, verbs: List[str], original_sentence: str):
+    def process_verbs(self, verbs: List[str], original_sentence: str) -> List[SentimentAnalysis]:
+        sentiments: List[SentimentAnalysis] = []
         for verb in verbs:
+            if verb not in original_sentence:
+                continue
+
             result = self.pipe(verb)
-            print(f'{verb}: {result}')
+            analysis = SentimentAnalysis(**result[0])
+            sentiments.append(analysis)
+
+        return sentiments
+
+    def get_entity_information(self, entities: List[str]) -> List[str]:
+        for entity in entities:
+            prompt = f'Really Short and Compact information of {entity} in one paragraph'
+            result = self.llm.answer(prompt)
+            print(f'{entity}: {result}')
