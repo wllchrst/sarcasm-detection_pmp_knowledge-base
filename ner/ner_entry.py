@@ -4,6 +4,11 @@ from typing import Tuple
 from ner.ner_processor import NERProcessor
 from interfaces import LLMType
 
+SENTIMENT_LABEL_MAPPING_DESCRIPTION = {
+    'NEG': 'Negative meaning',
+    'NEU': 'Neutral meaning',
+    'POS': 'Positive meaning'
+}
 
 class NEREntry:
     def __init__(self):
@@ -24,4 +29,20 @@ class NEREntry:
 
         verb_sentiments = self.processor.process_verbs(verbs, cleaned)
         entities_informations = self.processor.get_entity_information(entities)
-        return ""
+
+        verb_conclusion = ''
+        for verb, sentiment in zip(verbs, verb_sentiments):
+            sentiment_label = SENTIMENT_LABEL_MAPPING_DESCRIPTION\
+                .get(sentiment['label'], 'Unknown sentiment')
+            
+            verb_conclusion += f'Verb: {verb}, Sentiment: {sentiment_label}\n'
+        
+        entity_conclusion = ''
+        for entity, information in zip(entities, entities_informations):
+            entity_conclusion+= ''.join(
+                f'Entity: {entity}\n'
+                f'Information: {information}\n'
+            )
+
+        final_result = f'{verb_conclusion}\n{entity_conclusion}'
+        return final_result

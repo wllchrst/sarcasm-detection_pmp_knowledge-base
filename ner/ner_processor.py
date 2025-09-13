@@ -39,7 +39,10 @@ class NERProcessor:
         return sentiments
 
     def get_entity_information(self, entities: List[str]) -> List[str]:
+        informations = []
         for entity in entities:
             prompt = f'Really Short and Compact information of {entity} in one paragraph'
             result = self.llm.answer(prompt)
-            print(f'{entity}: {result}')
+            informations.append(result)
+        
+        return informations
