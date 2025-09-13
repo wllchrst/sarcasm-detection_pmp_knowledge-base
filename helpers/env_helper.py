@@ -7,6 +7,7 @@ class EnvHelper:
     """Class for gathering and saving all env for the application """
     def __init__(self):
         env_path = find_dotenv()
+        print(f'Loading env from {env_path}')
         load_dotenv(env_path, override=True)
         self.envs = {}
 
