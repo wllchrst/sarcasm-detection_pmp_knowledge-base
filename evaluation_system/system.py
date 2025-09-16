@@ -1,11 +1,14 @@
 import pandas as pd
 import json
 import os
+import seaborn as sns
 from evaluation_system.dataset import load_semeval_dataset
 from interfaces import SystemArgument
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix
+from matplotlib import pyplot as plt
 
 evaluation_result_folder = 'evaluation_result'
+
 
 class System:
     def __init__(self, arguement: SystemArgument):
@@ -29,7 +32,7 @@ class System:
             if getattr(self.argument, "with_logging", False):
                 print(f"Evaluating row {index}: {text} with label {label}")
 
-            # TODO: MASUKIN SINI MICH LU PUNYA PIPELINE YANG UDA PAKE PUNYA GW NER
+            # TODO: replace with actual pipeline prediction
             classification_result = 1
             predictions.append(classification_result)
             true_labels.append(label)
@@ -48,18 +51,35 @@ class System:
             "confusion_matrix": cm.tolist()
         }
 
-        output_file = self.generate_evaluation_filename()
+        output_folder = self.generate_evaluation_foldername()
+        output_file_evaluation = os.path.join(output_folder, "evaluation.json")
+        output_file_confusion_matrix = os.path.join(output_folder, "confusion_matrix.jpg")
 
-        with open(output_file, "w", encoding="utf-8") as f:
+        # Save evaluation results as JSON
+        with open(output_file_evaluation, "w", encoding="utf-8") as f:
             json.dump(results, f, indent=4)
-    
 
-    def generate_evaluation_filename(self) -> str:
+        # Save confusion matrix as image
+        plt.figure(figsize=(6, 5))
+        sns.heatmap(cm, annot=True, fmt="d", cmap="Blues", cbar=False)
+        plt.xlabel("Predicted")
+        plt.ylabel("True")
+        plt.title("Confusion Matrix")
+        plt.tight_layout()
+        plt.savefig(output_file_confusion_matrix)
+        plt.close()
+
+        return results
+
+    def generate_evaluation_foldername(self) -> str:
         os.makedirs(evaluation_result_folder, exist_ok=True)
 
         # sanitize model names
         llm_model = self.argument.llm_model.replace("/", "_").replace(":", "_")
         sentiment_model = self.argument.sentiment_model.replace("/", "_").replace(":", "_")
 
-        filename = f"{llm_model}_{sentiment_model}_{self.argument.dataset}_results.csv"
-        return os.path.join(evaluation_result_folder, filename)
+        foldername = f"{llm_model}_{sentiment_model}_{self.argument.dataset}_results"
+        foldername = os.path.join(evaluation_result_folder, foldername)
+
+        os.makedirs(foldername, exist_ok=True)
+        return foldername
