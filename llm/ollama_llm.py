@@ -10,8 +10,8 @@ timeout_seconds = 180
 class OllamaLLM(BaseLLM):
     def __init__(self, model_name='qwen3:8b'):
         super().__init__()
-        self.API_KEY = env_helper.GEMINI_API_KEY
-        self.client = Client(host=env_helper.OLLAMA_HOST, timeout=timeout_seconds)
+        self.HOST = env_helper.OLLAMA_HOST
+        self.client = Client(host=self.HOST, timeout=timeout_seconds)
         self.model_name = model_name
 
     def answer(self, system_prompt: str, prompt: str) -> str:
