@@ -59,7 +59,7 @@ class PMPHandler(BasePromptHandler):
         judge_input += "\n- - - - - - - - - - - - - - - - - - - - - - - - - - - \n"
 
         final_decision_prompt = self.generate_final_decision_prompt()
-        final_response = self.llm_model.answer(final_decision_prompt, text)
+        final_response = self.llm_model.answer(final_decision_prompt, judge_input)
         print("final_response", final_response)
 
         return self.process_response(final_response)
