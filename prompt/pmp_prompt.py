@@ -1,7 +1,7 @@
 from prompt.base_prompt import BasePrompt
 
 class PMPPrompt(BasePrompt):
-    def generate_prompt(self, text: str) -> str:
+    def generate_prompt(self) -> str:
         pmp_prompt = f"""
         You will be given a piece of text. First, analyze the text to understand the speaker's intent.
         Then, reflect on the following aspects to determine if the statement is sarcastic or not:

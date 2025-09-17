@@ -4,6 +4,8 @@ import os
 import seaborn as sns
 from evaluation_system.dataset import load_semeval_dataset
 from interfaces import SystemArgument
+from llm import OllamaLLM
+from prompt import PMPPrompt
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix
 from matplotlib import pyplot as plt
 
@@ -14,6 +16,8 @@ class System:
     def __init__(self, arguement: SystemArgument):
         self.argument = arguement
         self.dataset = self.load_dataset()
+        self.llm_model = OllamaLLM()
+        self.prompt_method = PMPPrompt()
 
     def load_dataset(self) -> pd.DataFrame:
         if self.argument.dataset == "semeval":
@@ -32,15 +36,22 @@ class System:
             if getattr(self.argument, "with_logging", False):
                 print(f"Evaluating row {index}: {text} with label {label}")
 
-            # TODO: replace with actual pipeline prediction
-            classification_result = 1
+            system_prompt = self.prompt_method.generate_prompt()
+            classification_result = self.llm_model.answer(system_prompt, text).strip()
+            try:
+                classification_result = int(classification_result)
+                if classification_result not in [0, 1]:
+                    raise ValueError(f"Unexpected classification result: {classification_result}")
+            except ValueError:
+                raise ValueError(f"Failed to parse result to an integer: {classification_result}")
+            
             predictions.append(classification_result)
             true_labels.append(label)
 
         accuracy = accuracy_score(true_labels, predictions)
-        precision = precision_score(true_labels, predictions, zero_division=0)
-        recall = recall_score(true_labels, predictions, zero_division=0)
-        f1 = f1_score(true_labels, predictions, zero_division=0)
+        precision = precision_score(true_labels, predictions, average='macro', zero_division=0)
+        recall = recall_score(true_labels, predictions, average='macro', zero_division=0)
+        f1 = f1_score(true_labels, predictions, average='macro', zero_division=0)
         cm = confusion_matrix(true_labels, predictions)
 
         results = {
