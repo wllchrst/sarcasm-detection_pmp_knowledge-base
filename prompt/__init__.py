@@ -1,2 +1,2 @@
-﻿from prompt.base_prompt import BasePrompt
-from prompt.pmp_prompt import PMPPrompt
+﻿from prompt.base_prompt_handler import BasePromptHandler
+from prompt.pmp_handler import PMPHandler

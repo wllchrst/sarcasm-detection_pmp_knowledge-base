@@ -5,7 +5,7 @@ import seaborn as sns
 from evaluation_system.dataset import load_semeval_dataset
 from interfaces import SystemArgument
 from llm import OllamaLLM
-from prompt import BasePrompt, PMPPrompt
+from prompt import BasePromptHandler, PMPHandler
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix
 from matplotlib import pyplot as plt
 
@@ -17,7 +17,7 @@ class System:
         self.argument = arguement
         self.dataset = self.load_dataset()
         self.llm_model = OllamaLLM()
-        self.prompt_method = self.load_prompt_method()
+        self.prompt_handler = self.load_prompt_handler()
 
     def load_dataset(self) -> pd.DataFrame:
         if self.argument.dataset == "semeval":
@@ -25,9 +25,9 @@ class System:
         else:
             raise ValueError(f"Unknown dataset: {self.argument.dataset}")
         
-    def load_prompt_method(self) -> BasePrompt:
+    def load_prompt_handler(self) -> BasePromptHandler:
         if self.argument.prompt == "pmp":
-            return PMPPrompt()
+            return PMPHandler()
         else:
             raise ValueError(f"Unknown prompt: {self.argument.prompt}")
 
@@ -42,15 +42,8 @@ class System:
             if getattr(self.argument, "with_logging", False):
                 print(f"Evaluating row {index}: {text} with label {label}")
 
-            system_prompt = self.prompt_method.generate_prompt()
-            classification_result = self.llm_model.answer(system_prompt, text).strip()
-            try:
-                classification_result = int(classification_result)
-                if classification_result not in [0, 1]:
-                    raise ValueError(f"Unexpected classification result: {classification_result}")
-            except ValueError:
-                raise ValueError(f"Failed to parse result to an integer: {classification_result}")
-            
+            classification_result = self.prompt_handler.get_response(text)
+            print(index, "classification_result", classification_result)
             predictions.append(classification_result)
             true_labels.append(label)
 
