@@ -13,7 +13,6 @@ class PMPPrompt(BasePrompt):
         5. Pretense - Is there pretense in the speaker’s attitude?
         6. Meaning - What is the difference between the literal and implied meaning of the statement?
         
-        Reflect on the above aspects, and decide if the statement is sarcastic. Answer 'yes' or 'no'.
-        Text: "{text}"
+        Reflect on the above aspects, and decide if the statement is sarcastic. Answer ONLY 1 for sarcastic or 0 for not sarcastic. DO NOT show me what or how you are thinking and just keep that to yourself. I only need 1 or 0.
         """
         return pmp_prompt
