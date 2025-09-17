@@ -8,15 +8,19 @@ timeout_seconds = 180
 
 
 class OllamaLLM(BaseLLM):
-    def __init__(self, model_name='bangundwir/bahasa-4b-chat'):
+    def __init__(self, model_name='qwen3:8b'):
         super().__init__()
         self.API_KEY = env_helper.GEMINI_API_KEY
         self.client = Client(host=env_helper.OLLAMA_HOST, timeout=timeout_seconds)
         self.model_name = model_name
 
-    def answer(self, prompt: str) -> str:
+    def answer(self, system_prompt: str, prompt: str) -> str:
         try:
             response = self.client.chat(self.model_name, think=False, stream=False, messages=[
+                {
+                    'role': 'system',
+                    'content': system_prompt,
+                },
                 {
                     'role': 'user',
                     'content': prompt,
