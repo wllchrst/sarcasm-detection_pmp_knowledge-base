@@ -5,7 +5,7 @@ import seaborn as sns
 from evaluation_system.dataset import load_semeval_dataset
 from interfaces import SystemArgument
 from llm import OllamaLLM
-from prompt import PMPPrompt
+from prompt import BasePrompt, PMPPrompt
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix
 from matplotlib import pyplot as plt
 
@@ -17,13 +17,19 @@ class System:
         self.argument = arguement
         self.dataset = self.load_dataset()
         self.llm_model = OllamaLLM()
-        self.prompt_method = PMPPrompt()
+        self.prompt_method = self.load_prompt_method()
 
     def load_dataset(self) -> pd.DataFrame:
         if self.argument.dataset == "semeval":
             return load_semeval_dataset()
         else:
             raise ValueError(f"Unknown dataset: {self.argument.dataset}")
+        
+    def load_prompt_method(self) -> BasePrompt:
+        if self.argument.prompt == "pmp":
+            return PMPPrompt()
+        else:
+            raise ValueError(f"Unknown prompt: {self.argument.prompt}")
 
     def evaluate(self) -> dict:
         predictions = []
