@@ -6,11 +6,10 @@ from ollama import Client
 timeout_seconds = 180
 
 class OllamaLLM(BaseLLM):
-    def __init__(self, llm_model: str):
-        super().__init__()
+    def __init__(self, llm_model: str = None):
+        super().__init__(llm_model)
         self.HOST = env_helper.OLLAMA_HOST
         self.client = Client(host=self.HOST, timeout=timeout_seconds)
-        self.llm_model = llm_model
 
     def answer(self, system_prompt: str, prompt: str) -> str:
         try:
