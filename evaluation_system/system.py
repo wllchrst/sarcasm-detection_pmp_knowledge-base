@@ -10,6 +10,7 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 from matplotlib import pyplot as plt
 
 evaluation_result_folder = 'evaluation_result'
+checkpoint_filename = 'checkpoint.csv'
 
 
 class System:
@@ -24,7 +25,7 @@ class System:
             return load_semeval_dataset()
         else:
             raise ValueError(f"Unknown dataset: {self.argument.dataset}")
-        
+
     def load_prompt_handler(self) -> BasePromptHandler:
         if self.argument.prompt == "pmp":
             return PMPHandler()
@@ -32,21 +33,13 @@ class System:
             raise ValueError(f"Unknown prompt: {self.argument.prompt}")
 
     def evaluate(self) -> dict:
-        predictions = []
-        true_labels = []
+        output_folder = self.generate_evaluation_foldername()
+        true_labels, predictions = self.evaluate_dataset(
+            dataset=self.dataset,
+            output_folder=output_folder
+        )
 
-        for index, row in self.dataset.iterrows():
-            text = row['text']
-            label = row['label']
-
-            if getattr(self.argument, "with_logging", False):
-                print(f"Evaluating row {index}: {text} with label {label}")
-
-            classification_result = self.prompt_handler.get_response(text)
-            print(index, "classification_result", classification_result)
-            predictions.append(classification_result)
-            true_labels.append(label)
-
+        ########################################  GET EVALUATION  ##########################################################
         accuracy = accuracy_score(true_labels, predictions)
         precision = precision_score(true_labels, predictions, average='macro', zero_division=0)
         recall = recall_score(true_labels, predictions, average='macro', zero_division=0)
@@ -61,10 +54,10 @@ class System:
             "confusion_matrix": cm.tolist()
         }
 
-        output_folder = self.generate_evaluation_foldername()
         output_file_evaluation = os.path.join(output_folder, "evaluation.json")
         output_file_confusion_matrix = os.path.join(output_folder, "confusion_matrix.jpg")
 
+        ########################################  SAVE EVALUATION  ##########################################################
         # Save evaluation results as JSON
         with open(output_file_evaluation, "w", encoding="utf-8") as f:
             json.dump(results, f, indent=4)
@@ -80,6 +73,69 @@ class System:
         plt.close()
 
         return results
+
+    def evaluate_dataset(self,
+                         dataset: pd.DataFrame,
+                         output_folder: str,
+                         ):
+        ids = []
+        texts = []
+        predictions = []
+        true_labels = []
+        checkpoint_file_path = os.path.join(output_folder, checkpoint_filename)
+        predicted_ids = []
+        checkpoint_dataset = None
+
+        if os.path.exists(checkpoint_file_path):
+            checkpoint_dataset = pd.read_csv(checkpoint_file_path)
+            predicted_ids = checkpoint_dataset['id'].values
+
+        x = 0
+        try:
+            for index, row in dataset.iterrows():
+                id = row['id']
+                text = row['text']
+                label = row['label']
+
+                if id in predicted_ids:
+                    print(f'Skipped index {index} with dataset id: {id}')
+                    continue
+
+                classification_result = self.prompt_handler.get_response(text)
+                ids.append(id)
+                texts.append(text)
+                predictions.append(classification_result)
+                true_labels.append(label)
+
+                if getattr(self.argument, "with_logging", False):
+                    print(f"Evaluating row {index}: {text} with label {label}")
+                    print(index, "classification_result", classification_result)
+
+        except Exception as e:
+            new_checkpoint_dataset = pd.DataFrame({
+                "id": ids,
+                "text": texts,
+                "prediction": predictions,
+                "true_label": true_labels
+            })
+
+            if checkpoint_dataset is not None:
+                checkpoint_dataset = pd.concat([new_checkpoint_dataset, checkpoint_dataset])
+            else:
+                checkpoint_dataset = new_checkpoint_dataset
+
+            checkpoint_dataset = checkpoint_dataset[["id", "text", "prediction", "true_label"]]
+            checkpoint_dataset.to_csv(checkpoint_file_path, index=False)
+
+            print(checkpoint_dataset.head())
+            print(f"Error evaluation, checkpoint dataset saved: {checkpoint_file_path}")
+            raise e
+
+        if checkpoint_dataset is not None:
+            true_labels = list(true_labels) + list(checkpoint_dataset["true_label"].values)
+            predictions = list(predictions) + list(checkpoint_dataset['prediction'].values)
+
+        return true_labels, predictions
 
     def generate_evaluation_foldername(self) -> str:
         os.makedirs(evaluation_result_folder, exist_ok=True)
