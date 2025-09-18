@@ -2,8 +2,8 @@ from llm.ollama_llm import OllamaLLM
 from prompt import BasePromptHandler
 
 class PMPHandler(BasePromptHandler):
-    def __init__(self):
-        self.llm_model = OllamaLLM()
+    def __init__(self, llm_model: str):
+        self.ollama = OllamaLLM(llm_model)
 
     def generate_initial_prompt(self) -> str:
         initial_prompt = ("You will be given a tweet from twitter, and will analyze the statement. Repeat back the statement to analyze."
@@ -44,7 +44,7 @@ class PMPHandler(BasePromptHandler):
         judge_input = ""
 
         initial_prompt = self.generate_initial_prompt()
-        initial_response = self.llm_model.answer(initial_prompt, text)
+        initial_response = self.ollama.answer(initial_prompt, text)
 
         print(initial_response)
         judge_input += "\n- - - - - - - - - - - - - - - - - - - - - - - - - - - \n"
@@ -52,14 +52,14 @@ class PMPHandler(BasePromptHandler):
         print(judge_input)
 
         reflection_prompt = self.generate_reflection_prompt()
-        reflection_response = self.llm_model.answer(reflection_prompt, text + " " + judge_input)
+        reflection_response = self.ollama.answer(reflection_prompt, text + " " + judge_input)
 
         judge_input += "\n- - - - - - - - - - - - - - - - - - - - - - - - - - - \n"
         judge_input += reflection_response.strip()
         judge_input += "\n- - - - - - - - - - - - - - - - - - - - - - - - - - - \n"
 
         final_decision_prompt = self.generate_final_decision_prompt()
-        final_response = self.llm_model.answer(final_decision_prompt, judge_input)
+        final_response = self.ollama.answer(final_decision_prompt, judge_input)
         print("final_response", final_response)
 
         return self.process_response(final_response)

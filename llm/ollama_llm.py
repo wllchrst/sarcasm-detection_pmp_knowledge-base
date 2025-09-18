@@ -3,20 +3,18 @@ from llm.base_llm import BaseLLM
 from helpers import env_helper
 from ollama import Client
 
-OLLAMA_MODEL_LIST = ['deepseek-r1:latest', 'bangundwir/bahasa-4b-chat', 'gemma3:latest', 'qwen3:8b']
 timeout_seconds = 180
 
-
 class OllamaLLM(BaseLLM):
-    def __init__(self, model_name='qwen3:8b'):
+    def __init__(self, llm_model: str):
         super().__init__()
         self.HOST = env_helper.OLLAMA_HOST
         self.client = Client(host=self.HOST, timeout=timeout_seconds)
-        self.model_name = model_name
+        self.llm_model = llm_model
 
     def answer(self, system_prompt: str, prompt: str) -> str:
         try:
-            response = self.client.chat(self.model_name, think=False, stream=False, messages=[
+            response = self.client.chat(self.llm_model, think=False, stream=False, messages=[
                 {
                     'role': 'system',
                     'content': system_prompt,
@@ -31,3 +29,5 @@ class OllamaLLM(BaseLLM):
         except httpx.ReadTimeout as timeout:
             raise TimeoutError(
                 f'Ollama request exceeded timeout limit for model {self.model_name} with error: {timeout}')
+        except Exception as e:
+            raise RuntimeError(f"Error when processing in ollama: {str(e)}")

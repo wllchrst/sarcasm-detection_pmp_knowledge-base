@@ -1,5 +1,5 @@
 ﻿from interfaces import LLMType
-from llm import GeminiLLM, OllamaLLM, BaseLLM
+from llm import GeminiLLM, OllamaLLM
 from typing import Optional, List, TypedDict
 from transformers import pipeline
 
