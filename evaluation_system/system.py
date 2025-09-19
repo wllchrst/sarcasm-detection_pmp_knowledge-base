@@ -4,7 +4,7 @@ import os
 import seaborn as sns
 from evaluation_system.dataset import load_semeval_dataset
 from interfaces import SystemArgument
-from prompt import BasePromptHandler, PMPHandler
+from prompt import PromptHandler
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix
 from matplotlib import pyplot as plt
 
@@ -24,12 +24,13 @@ class System:
         else:
             raise ValueError(f"Unknown dataset: {self.argument.dataset}")
 
-    def load_prompt_handler(self) -> BasePromptHandler:
+    def load_prompt_handler(self) -> PromptHandler:
+        prompt = self.argument.prompt
         llm_model = self.argument.llm_model
-        if self.argument.prompt == "pmp":
-            return PMPHandler(llm_model)
+        if self.argument.prompt != None:
+            return PromptHandler(prompt, llm_model)
         else:
-            raise ValueError(f"Unknown prompt: {self.argument.prompt}")
+            raise ValueError(f"Unknown prompt: {prompt}")
 
     def evaluate(self) -> dict:
         output_folder = self.generate_evaluation_foldername()
@@ -100,7 +101,7 @@ class System:
                     print(f'Skipped index {index} with dataset id: {id}')
                     continue
 
-                classification_result = self.prompt_handler.get_response(text)
+                classification_result = self.prompt_handler.process(text)
                 ids.append(id)
                 texts.append(text)
                 predictions.append(classification_result)
