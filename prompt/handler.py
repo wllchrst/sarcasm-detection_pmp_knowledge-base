@@ -19,35 +19,20 @@ class PromptHandler:
         prompts = pmp_prompt.get_prompt()
 
         initial_prompt = prompts[0]
-        print("initial_prompt", initial_prompt)
         initial_response = self.ollama.answer(initial_prompt, text)
-        print("initial_response", initial_response)
 
         judge_input += line_seperator
-        # judge_input += initial_response.strip()
-        judge_input += "\nTHIS IS INITIAL RESPONSE EXAMPLE AAAA\n"
-        print("judge_input init")
-        print(judge_input)
-        print("judge_input init ENDDD")
+        judge_input += initial_response.strip()
 
         reflection_prompt = prompts[1]
-        print("reflection_prompt", reflection_prompt)
         reflection_response = self.ollama.answer(reflection_prompt, text + " " + judge_input)
-        print("REFLECTION input start")
-        print(text + " " + judge_input)
-        print("REFLECTION input end")
 
         judge_input += line_seperator
-        # judge_input += reflection_response.strip()
-        judge_input += "\nTHIS IS REFLECT RESPONSE EXAMPLE BBBBBBBBBBBBBB\n"
+        judge_input += reflection_response.strip()
         judge_input += line_seperator
-        print("judge_input FINALLLLL")
-        print(judge_input)
-        print("judge_input FINALLLLL ENDDD")
 
         final_decision_prompt = prompts[2]
         final_response = self.ollama.answer(final_decision_prompt, judge_input)
-        print("final_response", final_response)
 
         return self.process_response(final_response)
 
