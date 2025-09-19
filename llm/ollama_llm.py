@@ -13,7 +13,7 @@ class OllamaLLM(BaseLLM):
 
     def answer(self, system_prompt: str, prompt: str) -> str:
         try:
-            response = self.client.chat(self.llm_model, think=False, stream=False, messages=[
+            response = self.client.chat(self.llm_model, think=False, stream=False, keep_alive=-1, messages=[
                 {
                     'role': 'system',
                     'content': system_prompt,

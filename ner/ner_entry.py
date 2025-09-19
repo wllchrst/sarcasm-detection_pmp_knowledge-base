@@ -13,7 +13,7 @@ SENTIMENT_LABEL_MAPPING_DESCRIPTION = {
 class NEREntry:
     def __init__(self):
         self.spacy_model = spacy.load(env_helper.SPACY_MODEL)
-        self.processor = NERProcessor(LLMType.GEMINI)
+        self.processor = NERProcessor(LLMType.OLLAMA)
 
     def get_sentence_token(self, text: str) -> Tuple[list, list, list]:
         doc = self.spacy_model(text)
