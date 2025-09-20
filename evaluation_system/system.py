@@ -26,9 +26,10 @@ class System:
 
     def load_prompt_handler(self) -> PromptHandler:
         prompt = self.argument.prompt
+        use_ner = getattr(self.argument, "use_ner", False)
         llm_model = self.argument.llm_model
         if self.argument.prompt != None:
-            return PromptHandler(prompt, llm_model)
+            return PromptHandler(prompt, llm_model, use_ner)
         else:
             raise ValueError(f"Unknown prompt: {prompt}")
 

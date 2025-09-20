@@ -1,1 +1,1 @@
-python -m main --dataset semeval --llm_model qwen3:8b --prompt pmp --sentiment_model test
+python -m main --dataset semeval --llm_model qwen3:8b --prompt pmp --use_ner --sentiment_model test

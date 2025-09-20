@@ -1,4 +1,3 @@
-from llm.ollama_llm import OllamaLLM
 from prompt import BasePrompt
 from typing import List
 
@@ -9,12 +8,15 @@ class PMPPrompt(BasePrompt):
     def generate_initial_prompt(self) -> str:
         initial_prompt = ("You will be given a tweet from twitter, and will analyze the statement. Repeat back the statement to analyze. "
                           "Then, analyze the following:\n"
-                        "-What does the speaker imply about the situation with their statement?\n"
-                        "-What does the speaker think about the situation?\n"
-                        "-Are what the speaker implies and what the speaker thinks saying the same thing?\n"
-                        "Finally, decide if the speaker is pretending to have a certain attitude toward the conversation."
+                          "-What does the speaker imply about the situation with their statement?\n"
+                          "-What does the speaker think about the situation?\n"
+                          "-Are what the speaker implies and what the speaker thinks saying the same thing?\n"
         )
         return initial_prompt
+
+    def generate_initial_last_prompt(self) -> str:
+        initial_last_prompt = "Finally, decide if the speaker is pretending to have a certain attitude toward the conversation."
+        return initial_last_prompt
 
     def generate_reflection_prompt(self) -> str:
         reflection_prompt = ("You will be given a statement from twitter and a preliminary analysis on the statement. Summarize the preliminary analysis. "
@@ -38,6 +40,7 @@ class PMPPrompt(BasePrompt):
     def get_prompt(self) -> List[str]:
         return [
             self.generate_initial_prompt(),
+            self.generate_initial_last_prompt(),
             self.generate_reflection_prompt(),
             self.generate_final_decision_prompt()
         ]

@@ -7,4 +7,5 @@ class SystemArgument:
     with_logging: bool
     llm_model: str
     prompt: str
+    use_ner: bool
     sentiment_model: str
