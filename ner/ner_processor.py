@@ -1,5 +1,5 @@
 ﻿from interfaces import LLMType
-from llm import GeminiLLM, OllamaLLM
+from llm import GeminiLLM, OllamaLLM, BaseLLM
 from typing import Optional, List, TypedDict
 from transformers import pipeline
 
@@ -38,11 +38,11 @@ class NERProcessor:
 
         return sentiments
 
-    def get_entity_information(self, entities: List[str]) -> List[str]:
+    def get_word_information(self, words: List[str]) -> List[str]:
         informations = []
-        for entity in entities:
-            prompt = f'Really Short and Compact information of {entity} in one paragraph'
-            result = self.llm.answer(prompt)
+        for word in words:
+            system_prompt = f'Really Short and Compact information of the word I\'m going to give in one paragraph'
+            result = self.llm.answer(system_prompt=system_prompt, prompt=word)
             informations.append(result)
         
         return informations
