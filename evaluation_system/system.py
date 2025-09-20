@@ -111,6 +111,7 @@ class System:
                 if getattr(self.argument, "with_logging", False):
                     print(f"Evaluating row {index}: {text} with label {label}")
                     print(index, "classification_result", classification_result)
+                    print("\n\n---------------------------------------------------------------------------------------------------------------------------------------------------------------\n\n")
 
         except Exception as e:
             new_checkpoint_dataset = pd.DataFrame({
