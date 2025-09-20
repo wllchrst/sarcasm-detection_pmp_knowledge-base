@@ -41,7 +41,8 @@ class NERProcessor:
     def get_word_information(self, words: List[str]) -> List[str]:
         informations = []
         for word in words:
-            system_prompt = f'Really Short and Compact information of the word I\'m going to give in one paragraph'
+            word = word.strip()
+            system_prompt = f'Provide very short and compact 1 paragraph information about the word: {word}'
             result = self.llm.answer(system_prompt=system_prompt, prompt=word)
             informations.append(result)
         
