@@ -149,8 +149,21 @@ class System:
         # sanitize model names
         llm_model = self.argument.llm_model.replace("/", "_").replace(":", "_")
         sentiment_model = self.argument.sentiment_model.replace("/", "_").replace(":", "_")
+        ner_information = ""
 
-        foldername = f"{llm_model}_{sentiment_model}_{self.argument.dataset}_results"
+        if self.argument.use_ner:
+            if self.argument.use_wiki and self.argument.use_verb_info:
+                ner_information = "ner_wiki_verb"
+            elif self.argument.use_wiki:
+                ner_information = "ner_wiki"
+            elif self.argument.use_verb_info:
+                ner_information = "ner_verb"
+            else:
+                ner_information = "ner"
+        else:
+            ner_information = ""
+
+        foldername = f"{llm_model}_{sentiment_model}_{ner_information}{self.argument.dataset}_results"
         foldername = os.path.join(evaluation_result_folder, foldername)
 
         os.makedirs(foldername, exist_ok=True)

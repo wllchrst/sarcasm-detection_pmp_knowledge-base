@@ -32,7 +32,9 @@ def main():
         llm_model=arguments.llm_model,
         prompt=arguments.prompt,
         use_ner=arguments.use_ner,
-        sentiment_model=arguments.sentiment_model
+        sentiment_model=arguments.sentiment_model,
+        use_wiki=arguments.use_wiki,
+        use_verb_info=arguments.use_verb_info
     )
 
     system = System(system_argument)
