@@ -1,1 +1,3 @@
 python -m main --dataset semeval --llm_model qwen3:8b --prompt pmp --use_ner --use_wiki --use_verb_info --sentiment_model bert_tweet
+
+python -m spacy download en_core_web_sm

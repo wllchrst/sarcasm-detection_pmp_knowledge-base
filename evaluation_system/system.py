@@ -2,6 +2,7 @@ import pandas as pd
 import json
 import os
 import seaborn as sns
+import time
 from evaluation_system.dataset import load_semeval_dataset
 from interfaces import SystemArgument
 from prompt import PromptHandler
@@ -43,6 +44,7 @@ class System:
 
     def evaluate(self) -> dict:
         output_folder = self.generate_evaluation_foldername()
+        print(f'Output Folder: {output_folder}')
         true_labels, predictions = self.evaluate_dataset(
             dataset=self.dataset,
             output_folder=output_folder
@@ -91,6 +93,8 @@ class System:
         texts = []
         predictions = []
         true_labels = []
+        times = []  # ⏱️ new: store inference times
+
         checkpoint_file_path = os.path.join(output_folder, checkpoint_filename)
         predicted_ids = []
         checkpoint_dataset = None
@@ -99,7 +103,6 @@ class System:
             checkpoint_dataset = pd.read_csv(checkpoint_file_path)
             predicted_ids = checkpoint_dataset['id'].values
 
-        x = 0
         try:
             for index, row in dataset.iterrows():
                 id = row['id']
@@ -110,24 +113,32 @@ class System:
                     print(f'Skipped index {index} with dataset id: {id}')
                     continue
 
+                # ⏱️ measure classification time
+                start_time = time.perf_counter()
                 classification_result = self.prompt_handler.process(text)
+                elapsed_time = time.perf_counter() - start_time
+
                 ids.append(id)
                 texts.append(text)
                 predictions.append(classification_result)
                 true_labels.append(label)
+                times.append(elapsed_time)
 
                 if getattr(self.argument, "with_logging", False):
                     print(f"Evaluating row {index}: {text} with label {label}")
                     print(index, "classification_result", classification_result)
+                    print(f"Time taken: {elapsed_time:.4f} seconds")
                     print(
-                        "\n\n---------------------------------------------------------------------------------------------------------------------------------------------------------------\n\n")
+                        "\n\n---------------------------------------------------------------------------------------------------------------------------------------------------------------\n\n"
+                    )
 
         except Exception as e:
             new_checkpoint_dataset = pd.DataFrame({
                 "id": ids,
                 "text": texts,
                 "prediction": predictions,
-                "true_label": true_labels
+                "true_label": true_labels,
+                "time_taken": times,  # ⏱️ save timing
             })
 
             if checkpoint_dataset is not None:
@@ -135,7 +146,7 @@ class System:
             else:
                 checkpoint_dataset = new_checkpoint_dataset
 
-            checkpoint_dataset = checkpoint_dataset[["id", "text", "prediction", "true_label"]]
+            checkpoint_dataset = checkpoint_dataset[["id", "text", "prediction", "true_label", "time_taken"]]
             checkpoint_dataset.to_csv(checkpoint_file_path, index=False)
 
             print(checkpoint_dataset.head())
@@ -145,8 +156,9 @@ class System:
         if checkpoint_dataset is not None:
             true_labels = list(true_labels) + list(checkpoint_dataset["true_label"].values)
             predictions = list(predictions) + list(checkpoint_dataset['prediction'].values)
+            times = list(times) + list(checkpoint_dataset['time_taken'].values)
 
-        return true_labels, predictions
+        return true_labels, predictions, times
 
     def generate_evaluation_foldername(self) -> str:
         os.makedirs(evaluation_result_folder, exist_ok=True)
