@@ -42,5 +42,10 @@ def main():
     print(result)
 
 
+def populate_elastic_search():
+    from es import IndexBuilder
+    IndexBuilder(es=None)
+
+
 if __name__ == "__main__":
     main()
