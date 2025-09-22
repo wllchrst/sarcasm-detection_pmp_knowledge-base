@@ -11,13 +11,17 @@ class SentimentAnalysis(TypedDict):
 
 
 class NERProcessor:
-    def __init__(self, llm_type: LLMType, model_name: Optional[str] = None):
+    def __init__(self, llm_type: LLMType, sentiment_model: str = 'bert_tweet', model_name: Optional[str] = None):
         self.llm = self.initialize_llm(llm_type, model_name)
-        self.pipe = pipeline("sentiment-analysis",
-                             model="finiteautomata/bertweet-base-sentiment-analysis")
+        self.pipe = self.load_sentiment(sentiment_model)
         self.es_retriever = EsRetriever()
 
-        # finiteautomata/bertweet-base-sentiment-analysis
+    def load_sentiment(self, sentiment_model: str):
+        if sentiment_model == 'bert_tweet':
+            return pipeline("sentiment-analysis",
+                            model="finiteautomata/bertweet-base-sentiment-analysis")
+
+        raise ValueError(f"Sentiment model {sentiment_model} is not in the list of sentiment model that can be use")
 
     def initialize_llm(self, llm_type: LLMType, model_name: Optional[str]):
         if llm_type == LLMType.GEMINI:

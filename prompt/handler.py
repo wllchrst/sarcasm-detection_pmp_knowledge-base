@@ -7,6 +7,7 @@ class PromptHandler:
     def __init__(self,
                  prompt_method: str,
                  llm_model: str,
+                 sentiment_model: str,
                  use_ner: bool = False,
                  use_wiki: bool = False,
                  use_verb_info: bool = False
@@ -16,7 +17,7 @@ class PromptHandler:
         self.use_wiki = use_wiki
         self.use_verb_info = use_verb_info
         self.ollama = OllamaLLM(llm_model)
-        self.ner_entry = NEREntry()
+        self.ner_entry = NEREntry(model_name=llm_model, sentiment_model=sentiment_model)
 
     def process(self, text: str) -> int:
         if self.prompt_method == "pmp":
