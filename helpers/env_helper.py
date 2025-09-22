@@ -1,10 +1,12 @@
 ﻿import os
 from dotenv import load_dotenv, find_dotenv
 
-ENVS = ["GEMINI_API_KEY", "SPACY_MODEL", "OLLAMA_HOST"]
+ENVS = ["GEMINI_API_KEY", "SPACY_MODEL", "OLLAMA_HOST", "ELASTIC_HOST"]
+
 
 class EnvHelper:
     """Class for gathering and saving all env for the application """
+
     def __init__(self):
         env_path = find_dotenv()
         print(f'Loading env from {env_path}')
@@ -28,10 +30,12 @@ class EnvHelper:
             self.envs[env] = os.getenv(env)
 
         return True
-    
+
     def assign_env(self):
         self.GEMINI_API_KEY = self.envs[ENVS[0]]
         self.SPACY_MODEL = self.envs[ENVS[1]]
         self.OLLAMA_HOST = self.envs[ENVS[2]]
+        self.ELASTIC_HOST = self.envs[ENVS[3]]
+
 
 env_helper = EnvHelper()
