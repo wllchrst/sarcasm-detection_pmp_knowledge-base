@@ -13,8 +13,8 @@ checkpoint_filename = 'checkpoint.csv'
 
 
 class System:
-    def __init__(self, arguement: SystemArgument):
-        self.argument = arguement
+    def __init__(self, argument: SystemArgument):
+        self.argument = argument
         self.dataset = self.load_dataset()
         self.prompt_handler = self.load_prompt_handler()
 
@@ -31,8 +31,13 @@ class System:
         use_wiki = getattr(self.argument, "use_wiki", False)
         use_verb_info = getattr(self.argument, "use_verb_info", False)
 
-        if self.argument.prompt != None:
-            return PromptHandler(prompt, llm_model, use_ner, use_wiki, use_verb_info)
+        if self.argument.prompt is not None:
+            return PromptHandler(prompt_method=prompt,
+                                 llm_model=llm_model,
+                                 sentiment_model=self.argument.sentiment_model,
+                                 use_ner=use_ner,
+                                 use_wiki=use_wiki,
+                                 use_verb_info=use_verb_info)
         else:
             raise ValueError(f"Unknown prompt: {prompt}")
 
