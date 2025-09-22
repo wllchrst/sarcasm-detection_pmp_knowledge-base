@@ -28,8 +28,11 @@ class System:
         prompt = self.argument.prompt
         use_ner = getattr(self.argument, "use_ner", False)
         llm_model = self.argument.llm_model
+        use_wiki = getattr(self.argument, "use_wiki", False)
+        use_verb_info = getattr(self.argument, "use_verb_info", False)
+
         if self.argument.prompt != None:
-            return PromptHandler(prompt, llm_model, use_ner)
+            return PromptHandler(prompt, llm_model, use_ner, use_wiki, use_verb_info)
         else:
             raise ValueError(f"Unknown prompt: {prompt}")
 
@@ -111,7 +114,8 @@ class System:
                 if getattr(self.argument, "with_logging", False):
                     print(f"Evaluating row {index}: {text} with label {label}")
                     print(index, "classification_result", classification_result)
-                    print("\n\n---------------------------------------------------------------------------------------------------------------------------------------------------------------\n\n")
+                    print(
+                        "\n\n---------------------------------------------------------------------------------------------------------------------------------------------------------------\n\n")
 
         except Exception as e:
             new_checkpoint_dataset = pd.DataFrame({

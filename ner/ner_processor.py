@@ -2,6 +2,7 @@
 from llm import GeminiLLM, OllamaLLM, BaseLLM
 from typing import Optional, List, TypedDict
 from transformers import pipeline
+from es import EsRetriever
 
 
 class SentimentAnalysis(TypedDict):
@@ -14,6 +15,7 @@ class NERProcessor:
         self.llm = self.initialize_llm(llm_type, model_name)
         self.pipe = pipeline("sentiment-analysis",
                              model="finiteautomata/bertweet-base-sentiment-analysis")
+        self.es_retriever = EsRetriever()
 
         # finiteautomata/bertweet-base-sentiment-analysis
 
@@ -38,12 +40,29 @@ class NERProcessor:
 
         return sentiments
 
-    def get_word_information(self, words: List[str]) -> List[str]:
-        informations = []
+    def get_word_information(self, words: List[str], use_wiki: bool) -> List[str]:
+        information = []
         for word in words:
             word = word.strip()
-            system_prompt = f'Provide very short and compact 1 paragraph information about the word: {word}'
-            result = self.llm.answer(system_prompt=system_prompt, prompt=word)
-            informations.append(result)
-        
-        return informations
+            info = self.wiki_info(word) if use_wiki else self.llm_info(word)
+            information.append(info)
+
+        return information
+
+    def llm_info(self, word: str) -> str:
+        system_prompt = f'Provide very short and compact 1 paragraph information about the word: {word}'
+        result = self.llm.answer(system_prompt=system_prompt, prompt=word)
+        return result
+
+    def wiki_info(self, word: str) -> str:
+        documents = self.es_retriever.search_wiki_data(
+            index='wikipedia',
+            total_result=1,
+            query=word
+        )
+
+        if len(documents) == 0:
+            return '-'
+
+        document = documents[0]
+        return document['text']

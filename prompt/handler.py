@@ -1,10 +1,22 @@
+from ner import NEREntry
 from llm import OllamaLLM
+from prompt import NERPrompt
+
 
 class PromptHandler:
-    def __init__(self, prompt_method: str, llm_model: str, use_ner: bool = False):
+    def __init__(self,
+                 prompt_method: str,
+                 llm_model: str,
+                 use_ner: bool = False,
+                 use_wiki: bool = False,
+                 use_verb_info: bool = False
+                 ):
         self.prompt_method = prompt_method
         self.use_ner = use_ner
+        self.use_wiki = use_wiki
+        self.use_verb_info = use_verb_info
         self.ollama = OllamaLLM(llm_model)
+        self.ner_entry = NEREntry()
 
     def process(self, text: str) -> int:
         if self.prompt_method == "pmp":
@@ -22,10 +34,7 @@ class PromptHandler:
         initial_prompt = f'{prompts[0]}{prompts[1]}'
 
         if self.use_ner:
-            from prompt import NERPrompt
-            from ner import NEREntry
-            ner_entry = NEREntry()
-            ner_information = ner_entry.get_sentence_context(text)
+            ner_information = self.ner_entry.get_sentence_context(text, self.use_wiki, self.use_verb_info)
 
             if len(ner_information.strip()) > 0:
                 ner_prompt = NERPrompt()

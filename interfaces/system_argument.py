@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 
+
 @dataclass
 class SystemArgument:
     dataset: str
@@ -8,4 +9,6 @@ class SystemArgument:
     llm_model: str
     prompt: str
     use_ner: bool
+    use_wiki: bool
+    use_verb_info: bool
     sentiment_model: str
