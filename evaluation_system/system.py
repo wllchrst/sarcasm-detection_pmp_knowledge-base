@@ -1,4 +1,4 @@
-import pandas as pd
+﻿import pandas as pd
 import json
 import os
 import seaborn as sns
@@ -45,10 +45,12 @@ class System:
     def evaluate(self) -> dict:
         output_folder = self.generate_evaluation_foldername()
         print(f'Output Folder: {output_folder}')
-        true_labels, predictions = self.evaluate_dataset(
+        true_labels, predictions, times = self.evaluate_dataset(
             dataset=self.dataset,
             output_folder=output_folder
         )
+
+        print("Successful time elapsed:", sum(times))
 
         ########################################  GET EVALUATION  ##########################################################
         accuracy = accuracy_score(true_labels, predictions)
