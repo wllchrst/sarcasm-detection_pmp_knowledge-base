@@ -12,11 +12,12 @@ SENTIMENT_LABEL_MAPPING_DESCRIPTION = {
 
 
 class NEREntry:
-    def __init__(self, model_name: str, sentiment_model: str):
+    def __init__(self, model_name: str, sentiment_model: str, use_wiki: bool):
         self.spacy_model = spacy.load(env_helper.SPACY_MODEL)
-        self.processor = NERProcessor(LLMType.OLLAMA,
-                                      model_name=model_name,
-                                      sentiment_model=sentiment_model)
+        self.processor = NERProcessor(llm_type=LLMType.OLLAMA,
+                                      use_wiki=use_wiki,
+                                      sentiment_model=sentiment_model,
+                                      model_name=model_name)
 
     def get_sentence_token(self, text: str) -> Tuple[list, list]:
         doc = self.spacy_model(text)

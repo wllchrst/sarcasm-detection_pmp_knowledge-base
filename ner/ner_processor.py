@@ -11,10 +11,12 @@ class SentimentAnalysis(TypedDict):
 
 
 class NERProcessor:
-    def __init__(self, llm_type: LLMType, sentiment_model: str = 'bert_tweet', model_name: Optional[str] = None):
+    def __init__(self, llm_type: LLMType, use_wiki: bool, sentiment_model: str, model_name: Optional[str] = None):
         self.llm = self.initialize_llm(llm_type, model_name)
-        self.pipe = self.load_sentiment(sentiment_model)
-        self.es_retriever = EsRetriever()
+        if sentiment_model:
+            self.pipe = self.load_sentiment(sentiment_model)
+        if use_wiki == True:
+            self.es_retriever = EsRetriever()
 
     def load_sentiment(self, sentiment_model: str):
         if sentiment_model == 'bert_tweet':
