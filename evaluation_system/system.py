@@ -18,6 +18,7 @@ class System:
         self.argument = argument
         self.dataset = self.load_dataset()
         self.prompt_handler = self.load_prompt_handler()
+        self.argument.sentiment_model = self.argument.sentiment_model if self.argument.sentiment_model != None else ""
 
     def load_dataset(self) -> pd.DataFrame:
         if self.argument.dataset == "semeval":
