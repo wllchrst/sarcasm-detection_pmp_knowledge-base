@@ -5,6 +5,7 @@ import seaborn as sns
 import time
 from evaluation_system.dataset import load_semeval_dataset
 from datetime import datetime
+from evaluation_system.dataset import load_semeval_dataset, load_sarcasm_dataset
 from interfaces import SystemArgument
 from prompt import PromptHandler
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix
@@ -24,6 +25,8 @@ class System:
     def load_dataset(self) -> pd.DataFrame:
         if self.argument.dataset == "semeval":
             return load_semeval_dataset()
+        elif self.argument.dataset == "mustard":
+            return load_sarcasm_dataset()
         else:
             raise ValueError(f"Unknown dataset: {self.argument.dataset}")
 
