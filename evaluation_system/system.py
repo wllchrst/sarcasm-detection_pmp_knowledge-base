@@ -173,7 +173,7 @@ class System:
 
         # sanitize model names
         now = datetime.now()
-        timestamp_str = now.strftime("%Y-%m-%d %H:%M:%S")
+        timestamp_str = now.strftime("%Y-%m-%d_%H-%M-%S")
         llm_model = self.argument.llm_model.replace("/", "_").replace(":", "_")
         sentiment_model = self.argument.sentiment_model.replace("/", "_").replace(":", "_")
         ner_information = ""
@@ -191,8 +191,8 @@ class System:
             ner_information = ""
 
         foldername = f"{llm_model}_{sentiment_model}_{ner_information}{self.argument.dataset}_results"
-        foldername = os.path.join(evaluation_result_folder, foldername)
         foldername += f"_{timestamp_str}"
+        foldername = os.path.join(evaluation_result_folder, foldername)
 
         os.makedirs(foldername, exist_ok=True)
         return foldername
