@@ -176,7 +176,7 @@ class System:
 
         # sanitize model names
         now = datetime.now()
-        timestamp_str = now.strftime("%Y-%m-%d_%H-%M-%S")
+        timestamp_str = now.strftime("%Y-%m-%d_%H")
         llm_model = self.argument.llm_model.replace("/", "_").replace(":", "_")
         sentiment_model = self.argument.sentiment_model.replace("/", "_").replace(":", "_")
         ner_information = ""
