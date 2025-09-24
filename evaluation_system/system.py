@@ -118,7 +118,7 @@ class System:
 
                 # ⏱️ measure classification time
                 start_time = time.perf_counter()
-                classification_result = self.prompt_handler.process(text)
+                classification_result = self.prompt_handler.process(text, self.argument.with_logging)
                 elapsed_time = time.perf_counter() - start_time
 
                 ids.append(id)

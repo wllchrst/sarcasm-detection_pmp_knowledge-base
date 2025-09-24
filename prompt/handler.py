@@ -37,6 +37,10 @@ class PromptHandler:
         pmp_prompt = PMPPrompt()
         judge_input = ""
         line_seperator = "\n- - - - - - - - - - - - - - - - - - - - - - - - - - - \n"
+        log_separator = "=" * 100
+        
+        if with_logging:
+            print(log_separator)
 
         prompts = pmp_prompt.get_prompt()
         initial_prompt = f'{prompts[0]}{prompts[1]}'
