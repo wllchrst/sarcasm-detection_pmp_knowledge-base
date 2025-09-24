@@ -3,6 +3,7 @@ import json
 import os
 import seaborn as sns
 import time
+from evaluation_system.dataset import load_semeval_dataset
 from datetime import datetime
 from interfaces import SystemArgument
 from prompt import PromptHandler
@@ -30,6 +31,7 @@ class System:
         prompt = self.argument.prompt
         use_ner = getattr(self.argument, "use_ner", False)
         llm_model = self.argument.llm_model
+        with_logging = self.argument.with_logging
         use_wiki = getattr(self.argument, "use_wiki", False)
         use_verb_info = getattr(self.argument, "use_verb_info", False)
 
@@ -39,6 +41,7 @@ class System:
                                  sentiment_model=self.argument.sentiment_model,
                                  use_ner=use_ner,
                                  use_wiki=use_wiki,
+                                 with_logging=with_logging,
                                  use_verb_info=use_verb_info)
         else:
             raise ValueError(f"Unknown prompt: {prompt}")

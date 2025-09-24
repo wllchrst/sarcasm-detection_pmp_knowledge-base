@@ -11,7 +11,8 @@ class SentimentAnalysis(TypedDict):
 
 
 class NERProcessor:
-    def __init__(self, llm_type: LLMType, use_wiki: bool, sentiment_model: str, model_name: Optional[str] = None):
+    def __init__(self, llm_type: LLMType, use_wiki: bool, sentiment_model: str, with_logging: bool, model_name: Optional[str] = None):
+        self.with_logging = with_logging
         self.llm = self.initialize_llm(llm_type, model_name)
         if sentiment_model:
             self.pipe = self.load_sentiment(sentiment_model)
@@ -57,7 +58,7 @@ class NERProcessor:
 
     def llm_info(self, word: str) -> str:
         system_prompt = f'Provide very short and compact 1 paragraph information about the word: {word}'
-        result = self.llm.answer(system_prompt=system_prompt, prompt=word)
+        result = self.llm.answer(system_prompt=system_prompt, prompt=word, with_logging=self.with_logging)
         return result
 
     def wiki_info(self, word: str) -> str:

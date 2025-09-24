@@ -1,4 +1,4 @@
-from ner import NEREntry
+﻿from ner import NEREntry
 from llm import OllamaLLM
 from prompt import NERPrompt
 
@@ -10,7 +10,8 @@ class PromptHandler:
                  sentiment_model: str,
                  use_ner: bool = False,
                  use_wiki: bool = False,
-                 use_verb_info: bool = False
+                 use_verb_info: bool = False,
+                 with_logging: bool = False
                  ):
         self.prompt_method = prompt_method
         self.use_ner = use_ner
@@ -19,7 +20,8 @@ class PromptHandler:
         self.ollama = OllamaLLM(llm_model)
         self.ner_entry = NEREntry(model_name=llm_model,
                                   sentiment_model=sentiment_model,
-                                  use_wiki=use_wiki
+                                  use_wiki=use_wiki,
+                                  with_logging=with_logging
                                   )
 
     def process(self,
