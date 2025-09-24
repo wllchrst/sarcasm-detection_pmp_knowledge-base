@@ -4,6 +4,7 @@ import os
 import seaborn as sns
 import time
 from evaluation_system.dataset import load_semeval_dataset
+from datetime import datetime
 from interfaces import SystemArgument
 from prompt import PromptHandler
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix
@@ -167,6 +168,8 @@ class System:
         os.makedirs(evaluation_result_folder, exist_ok=True)
 
         # sanitize model names
+        now = datetime.now()
+        timestamp_str = now.strftime("%Y-%m-%d %H:%M:%S")
         llm_model = self.argument.llm_model.replace("/", "_").replace(":", "_")
         sentiment_model = self.argument.sentiment_model.replace("/", "_").replace(":", "_")
         ner_information = ""
@@ -185,6 +188,7 @@ class System:
 
         foldername = f"{llm_model}_{sentiment_model}_{ner_information}{self.argument.dataset}_results"
         foldername = os.path.join(evaluation_result_folder, foldername)
+        foldername += f"_{timestamp_str}"
 
         os.makedirs(foldername, exist_ok=True)
         return foldername
