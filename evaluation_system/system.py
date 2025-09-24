@@ -3,7 +3,6 @@ import json
 import os
 import seaborn as sns
 import time
-from evaluation_system.dataset import load_semeval_dataset
 from datetime import datetime
 from interfaces import SystemArgument
 from prompt import PromptHandler
@@ -135,6 +134,8 @@ class System:
                     print(
                         "\n\n---------------------------------------------------------------------------------------------------------------------------------------------------------------\n\n"
                     )
+                else:
+                    print(index)
 
         except Exception as e:
             new_checkpoint_dataset = pd.DataFrame({
