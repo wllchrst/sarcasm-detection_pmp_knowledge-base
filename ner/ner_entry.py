@@ -21,9 +21,17 @@ class NEREntry:
 
     def get_sentence_token(self, text: str) -> Tuple[list, list]:
         doc = self.spacy_model(text)
-
         verbs = [token.text for token in doc if token.pos_ == "VERB"]
+        proper_nouns = [token.text for token in doc if token.pos_ == "PROPN"]
         entities = [entity.text for entity in doc.ents]
+
+        additional_entity = []
+        for chunk in doc.noun_chunks:
+            for noun in proper_nouns:
+                if noun in chunk.text:
+                    additional_entity.append(chunk.text)
+
+        entities = entities + additional_entity
 
         return verbs, entities
 
