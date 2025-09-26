@@ -5,7 +5,7 @@ import seaborn as sns
 import time
 from evaluation_system.dataset import load_semeval_dataset
 from datetime import datetime
-from evaluation_system.dataset import load_semeval_dataset, load_sarcasm_dataset
+from evaluation_system.dataset import load_semeval_dataset, load_mustard_dataset
 from interfaces import SystemArgument
 from prompt import PromptHandler
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix
@@ -26,7 +26,7 @@ class System:
         if self.argument.dataset == "semeval":
             return load_semeval_dataset()
         elif self.argument.dataset == "mustard":
-            return load_sarcasm_dataset()
+            return load_mustard_dataset()
         else:
             raise ValueError(f"Unknown dataset: {self.argument.dataset}")
 
@@ -35,13 +35,15 @@ class System:
         use_ner = getattr(self.argument, "use_ner", False)
         llm_model = self.argument.llm_model
         with_logging = self.argument.with_logging
+        dataset = self.argument.dataset
         use_wiki = getattr(self.argument, "use_wiki", False)
         use_verb_info = getattr(self.argument, "use_verb_info", False)
 
-        if self.argument.prompt is not None:
+        if prompt is not None:
             return PromptHandler(prompt_method=prompt,
                                  llm_model=llm_model,
                                  sentiment_model=self.argument.sentiment_model,
+                                 dataset=dataset,
                                  use_ner=use_ner,
                                  use_wiki=use_wiki,
                                  with_logging=with_logging,

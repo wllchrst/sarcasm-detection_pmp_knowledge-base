@@ -8,12 +8,14 @@ class PromptHandler:
                  prompt_method: str,
                  llm_model: str,
                  sentiment_model: str,
+                 dataset: str,
                  use_ner: bool = False,
                  use_wiki: bool = False,
                  use_verb_info: bool = False,
                  with_logging: bool = False
                  ):
         self.prompt_method = prompt_method
+        self.dataset = dataset
         self.use_ner = use_ner
         self.use_wiki = use_wiki
         self.use_verb_info = use_verb_info
@@ -36,7 +38,7 @@ class PromptHandler:
                     text: str,
                     with_logging: bool) -> int:
         from prompt import PMPPrompt
-        pmp_prompt = PMPPrompt()
+        pmp_prompt = PMPPrompt(self.dataset)
         judge_input = ""
         line_seperator = "\n- - - - - - - - - - - - - - - - - - - - - - - - - - - \n"
         log_separator = "=" * 100
@@ -45,9 +47,10 @@ class PromptHandler:
             print(log_separator)
 
         prompts = pmp_prompt.get_prompt()
+        initial_first_prompt = prompts.get('initial_first_prompt')
         initial_prompt = prompts.get('initial_prompt')
         initial_last_prompt = prompts.get('initial_last_prompt')
-        combined_initial_prompt = f'{initial_prompt}{initial_last_prompt}'
+        combined_initial_prompt = f'{initial_first_prompt}{initial_prompt}{initial_last_prompt}'
 
         if self.use_ner:
             ner_information = self.ner_entry.get_sentence_context(text, self.use_wiki, self.use_verb_info)
@@ -55,15 +58,17 @@ class PromptHandler:
             if len(ner_information.strip()) > 0:
                 ner_prompt = NERPrompt()
                 context_prompt = ner_prompt.get_prompt().get('context_prompt')            
-                combined_initial_prompt = f'{initial_prompt}{context_prompt}{ner_information}{initial_last_prompt}'
+                combined_initial_prompt = f'{initial_first_prompt}{initial_prompt}{context_prompt}{ner_information}{initial_last_prompt}'
 
         initial_response = self.ollama.answer(combined_initial_prompt, text, with_logging)
 
         judge_input += line_seperator
         judge_input += initial_response.strip()
 
+        reflection_first_prompt = prompts.get('reflection_first_prompt')
         reflection_prompt = prompts.get('reflection_prompt')
-        reflection_response = self.ollama.answer(reflection_prompt, text + " " + judge_input, with_logging)
+        combined_reflection_prompt = f'{reflection_first_prompt}{reflection_prompt}'
+        reflection_response = self.ollama.answer(combined_reflection_prompt, text + " " + judge_input, with_logging)
 
         judge_input += line_seperator
         judge_input += reflection_response.strip()
