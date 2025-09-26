@@ -1,5 +1,5 @@
 from prompt import BasePrompt
-from typing import List
+from typing import Dict
 
 class NERPrompt(BasePrompt):
     def __init__(self):
@@ -9,7 +9,7 @@ class NERPrompt(BasePrompt):
         context_prompt = ("Context - Here is some information about important entities and verbs in the statement:")
         return context_prompt
 
-    def get_prompt(self) -> List[str]:
-        return [
-            self.generate_context_prompt()
-        ]
+    def get_prompt(self) -> Dict[str, str]:
+        return {
+            "context_prompt": self.generate_context_prompt(),
+        }

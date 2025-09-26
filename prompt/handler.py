@@ -45,29 +45,31 @@ class PromptHandler:
             print(log_separator)
 
         prompts = pmp_prompt.get_prompt()
-        initial_prompt = f'{prompts[0]}{prompts[1]}'
+        initial_prompt = prompts.get('initial_prompt')
+        initial_last_prompt = prompts.get('initial_last_prompt')
+        combined_initial_prompt = f'{initial_prompt}{initial_last_prompt}'
 
         if self.use_ner:
             ner_information = self.ner_entry.get_sentence_context(text, self.use_wiki, self.use_verb_info)
 
             if len(ner_information.strip()) > 0:
                 ner_prompt = NERPrompt()
-                context_prompt = ner_prompt.get_prompt()[0]
-                initial_prompt = f'{prompts[0]}{context_prompt}{ner_information}{prompts[1]}'
+                context_prompt = ner_prompt.get_prompt().get('context_prompt')            
+                combined_initial_prompt = f'{initial_prompt}{context_prompt}{ner_information}{initial_last_prompt}'
 
-        initial_response = self.ollama.answer(initial_prompt, text, with_logging)
+        initial_response = self.ollama.answer(combined_initial_prompt, text, with_logging)
 
         judge_input += line_seperator
         judge_input += initial_response.strip()
 
-        reflection_prompt = prompts[2]
+        reflection_prompt = prompts.get('reflection_prompt')
         reflection_response = self.ollama.answer(reflection_prompt, text + " " + judge_input, with_logging)
 
         judge_input += line_seperator
         judge_input += reflection_response.strip()
         judge_input += line_seperator
 
-        final_decision_prompt = prompts[3]
+        final_decision_prompt = prompts.get('final_decision_prompt')
         final_response = self.ollama.answer(final_decision_prompt, judge_input, with_logging)
 
         return self.process_response(final_response)

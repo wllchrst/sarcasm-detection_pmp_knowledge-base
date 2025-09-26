@@ -1,5 +1,5 @@
 from prompt import BasePrompt
-from typing import List
+from typing import Dict
 
 class PMPPrompt(BasePrompt):
     def __init__(self):
@@ -37,10 +37,10 @@ class PMPPrompt(BasePrompt):
         )
         return final_decision_prompt
 
-    def get_prompt(self) -> List[str]:
-        return [
-            self.generate_initial_prompt(),
-            self.generate_initial_last_prompt(),
-            self.generate_reflection_prompt(),
-            self.generate_final_decision_prompt()
-        ]
+    def get_prompt(self) -> Dict[str, str]:
+        return {
+            "initial_prompt": self.generate_initial_prompt(),
+            "initial_last_prompt": self.generate_initial_last_prompt(),
+            "reflection_prompt": self.generate_reflection_prompt(),
+            "final_decision_prompt": self.generate_final_decision_prompt(),
+        }
