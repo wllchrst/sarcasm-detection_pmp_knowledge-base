@@ -4,7 +4,6 @@ import os
 import seaborn as sns
 import time
 from evaluation_system.dataset import load_semeval_dataset
-from datetime import datetime
 from evaluation_system.dataset import load_semeval_dataset, load_mustard_dataset
 from interfaces import SystemArgument
 from prompt import PromptHandler
@@ -177,8 +176,6 @@ class System:
         os.makedirs(evaluation_result_folder, exist_ok=True)
 
         # sanitize model names
-        now = datetime.now()
-        timestamp_str = now.strftime("%Y-%m-%d_%H")
         llm_model = self.argument.llm_model.replace("/", "_").replace(":", "_")
         sentiment_model = self.argument.sentiment_model.replace("/", "_").replace(":", "_")
         ner_information = ""
@@ -196,7 +193,9 @@ class System:
             ner_information = ""
 
         foldername = f"{llm_model}_{sentiment_model}_{ner_information}{self.argument.dataset}_results"
-        foldername += f"_{timestamp_str}"
+        custom_foldername = self.argument.folder_name
+        if len(custom_foldername.strip()) > 0:
+            foldername += f"_{custom_foldername}"
         foldername = os.path.join(evaluation_result_folder, foldername)
 
         os.makedirs(foldername, exist_ok=True)

@@ -17,6 +17,7 @@ def parse_all_args():
     parser.add_argument("--use_context", help="Is the evaluation going to be run using the context of the dataset",
                         action='store_true')
     parser.add_argument("--with_logging", help="Is the evaluation going to log it into terminal", action='store_true')
+    parser.add_argument("--folder_name", help="Name appended at the end of the default folder name for evaluation")
     return parser.parse_args()
 
 
@@ -34,7 +35,8 @@ def main():
         use_ner=arguments.use_ner,
         sentiment_model=arguments.sentiment_model,
         use_wiki=arguments.use_wiki,
-        use_verb_info=arguments.use_verb_info
+        use_verb_info=arguments.use_verb_info,
+        folder_name=arguments.folder_name
     )
 
     system = System(system_argument)
