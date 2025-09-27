@@ -1,18 +1,27 @@
 from prompt import BasePrompt
 from typing import Dict
 
+
 class PMPPrompt(BasePrompt):
+    """
+    Class for generating PMP Prompts that is based on this GitHub repository
+    https://github.com/wyatt-fong/Pragmatic-Metacognitive-Prompting-Improves-LLM-Performance-on-Sarcasm-Detection
+    """
+
     def __init__(self, dataset: str):
         self.dataset = dataset
         super().__init__()
 
     def generate_initial_first_prompt(self) -> str:
         if self.dataset == "semeval":
-            initial_first_prompt = ("You will be given a tweet from twitter, and will analyze the statement. Repeat back the statement to analyze. ")
+            initial_first_prompt = (
+                "You will be given a tweet from twitter, and will analyze the statement. Repeat back the statement to analyze. ")
         elif self.dataset == "mustard":
-            initial_first_prompt = ("You will be given movie or tv show dialogue, and will analyze the statement marked between brackets. Summarize the conversation, and repeat back the statement to analyze. ")
+            initial_first_prompt = (
+                "You will be given movie or tv show dialogue, and will analyze the statement marked between brackets. Summarize the conversation, and repeat back the statement to analyze. ")
         else:
-            initial_first_prompt = ("You will be given a text, and will analyze the statement. Repeat back the statement to analyze. ")
+            initial_first_prompt = (
+                "You will be given a text, and will analyze the statement. Repeat back the statement to analyze. ")
         return initial_first_prompt
 
     def generate_initial_prompt(self) -> str:
@@ -20,20 +29,23 @@ class PMPPrompt(BasePrompt):
                           "-What does the speaker imply about the situation with their statement?\n"
                           "-What does the speaker think about the situation?\n"
                           "-Are what the speaker implies and what the speaker thinks saying the same thing?\n"
-        )
+                          )
         return initial_prompt
 
     def generate_initial_last_prompt(self) -> str:
         initial_last_prompt = "Finally, decide if the speaker is pretending to have a certain attitude toward the conversation."
         return initial_last_prompt
-    
+
     def generate_reflection_first_prompt(self) -> str:
         if self.dataset == "semeval":
-            reflection_first_prompt = ("You will be given a statement from twitter and a preliminary analysis on the statement. Summarize the preliminary analysis. ")
+            reflection_first_prompt = (
+                "You will be given a statement from twitter and a preliminary analysis on the statement. Summarize the preliminary analysis. ")
         elif self.dataset == "mustard":
-            reflection_first_prompt = ("You will be given a piece of movie dialogue, a statement marked in brackets, and a preliminary analysis on the marked statement. Summarize the preliminary analysis. ")
+            reflection_first_prompt = (
+                "You will be given a piece of movie dialogue, a statement marked in brackets, and a preliminary analysis on the marked statement. Summarize the preliminary analysis. ")
         else:
-            reflection_first_prompt = ("You will be given a statement and a preliminary analysis on the statement. Summarize the preliminary analysis. ")
+            reflection_first_prompt = (
+                "You will be given a statement and a preliminary analysis on the statement. Summarize the preliminary analysis. ")
         return reflection_first_prompt
 
     def generate_reflection_prompt(self) -> str:
@@ -44,7 +56,7 @@ class PMPPrompt(BasePrompt):
                              "\nThe polarity - Does the last sentence have a positive or negative tone?"
                              "\nPretense - Is there pretense in the speaker's attitude?"
                              "\nMeaning- What is the difference between the literal and implied meaning of the statement?"
-                              "Reflect on the preliminary analysis and what should change, then decide if the statment is sarcastic.")
+                             "Reflect on the preliminary analysis and what should change, then decide if the statment is sarcastic.")
         return reflection_prompt
 
     def generate_final_decision_prompt(self) -> str:
