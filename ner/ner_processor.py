@@ -11,7 +11,8 @@ class SentimentAnalysis(TypedDict):
 
 
 class NERProcessor:
-    def __init__(self, llm_type: LLMType, use_wiki: bool, sentiment_model: str, with_logging: bool, model_name: Optional[str] = None):
+    def __init__(self, llm_type: LLMType, use_wiki: bool, sentiment_model: str, with_logging: bool,
+                 model_name: Optional[str] = None):
         self.with_logging = with_logging
         self.llm = self.initialize_llm(llm_type, model_name)
         if sentiment_model:
@@ -37,7 +38,8 @@ class NERProcessor:
 
     def process_verbs(self, verbs: List[str], original_sentence: str) -> List[SentimentAnalysis]:
         sentiments: List[SentimentAnalysis] = []
-        for verb in verbs:
+        unique_verbs = set(verbs)
+        for verb in unique_verbs:
             if verb not in original_sentence:
                 continue
 
@@ -49,7 +51,8 @@ class NERProcessor:
 
     def get_word_information(self, words: List[str], use_wiki: bool) -> List[str]:
         information = []
-        for word in words:
+        unique_words = set(word.strip() for word in words)
+        for word in unique_words:
             word = word.strip()
             info = self.wiki_info(word) if use_wiki else self.llm_info(word)
             information.append(info)
