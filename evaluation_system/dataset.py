@@ -36,18 +36,22 @@ def load_mustard_dataset(file_path: str = 'mustard_sarcasm_data.json'):
     for _, row in df.iterrows():
         sarcasm = row['sarcasm']
         utterance = row['utterance']
+        speakers = row['speaker']
         context = row['context']
         context_speakers = row['context_speakers']
-        context_formatted = ''
 
-        for text, speaker in zip(context, context_speakers):
-            context_formatted = f'{speaker}: {text}\n'
+        context_formatted = ''
+        for text, context_speaker in zip(context, context_speakers):
+            context_formatted += f'{context_speaker}: {text} '
+
+        speakers_formatted = f'{speakers}: {utterance}'
+
+        text_formatted = f"{context_formatted}{{{speakers_formatted}}}"
 
         data.append({
             'id': row['id'],
-            'text': utterance,
-            'label': 1 if sarcasm else 0,
-            'context': context_formatted
+            'text': text_formatted,
+            'label': 1 if sarcasm else 0
         })
 
     formatted_df = pd.DataFrame(data)
