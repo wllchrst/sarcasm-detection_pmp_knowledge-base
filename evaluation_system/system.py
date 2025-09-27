@@ -194,8 +194,8 @@ class System:
 
         foldername = f"{llm_model}_{sentiment_model}_{ner_information}{self.argument.dataset}_results"
         custom_foldername = self.argument.folder_name
-        if len(custom_foldername.strip()) > 0:
-            foldername += f"_{custom_foldername}"
+        if custom_foldername:
+            foldername += f"_{custom_foldername.strip()}"
         foldername = os.path.join(evaluation_result_folder, foldername)
 
         os.makedirs(foldername, exist_ok=True)
