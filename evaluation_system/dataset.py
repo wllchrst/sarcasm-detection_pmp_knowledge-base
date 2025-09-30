@@ -10,7 +10,9 @@ ID Column Name: 'id'
 """
 import pandas as pd
 import json
+import re
 from typing import List, Dict
+from datasets import load_dataset
 
 
 def load_semeval_dataset(file_path: str = 'SemEval2018-T3_gold_test_taskA_emoji.txt') -> pd.DataFrame:
@@ -25,7 +27,7 @@ def load_mustard_dataset(file_path: str = 'mustard_sarcasm_data.json'):
 
     if data is None:
         raise Exception("Error getting data")
-    
+
     df = pd.DataFrame.from_dict(data, orient="index").reset_index()
 
     df = df.rename(columns={"index": "id"})
@@ -56,3 +58,52 @@ def load_mustard_dataset(file_path: str = 'mustard_sarcasm_data.json'):
 
     formatted_df = pd.DataFrame(data)
     return formatted_df
+
+
+def remove_angle_brackets(text: str) -> str:
+    """
+    Remove all substrings enclosed in < >, e.g., <username>, <link>.
+    Also collapses multiple spaces into one.
+    """
+    print(f"Before: {text}")
+    cleaned = re.sub(r"<.*?>", "", text)  # remove <...>
+    cleaned = re.sub(r"\s+", " ", cleaned)  # normalize spaces
+
+    print(f'After: {cleaned}')
+    return cleaned.strip()
+
+
+def add_partition_id_column(df: pd.DataFrame, partition: str) -> pd.DataFrame:
+    """
+    Add an 'id' column to the dataframe where each row is assigned
+    a unique identifier with the partition name as prefix.
+
+    Example:
+        partition="test" → test_0, test_1, ...
+    """
+    df = df.copy()
+    df["id"] = [f"{partition}_{i}" for i in range(len(df))]
+    return df
+
+
+def load_twitter_indonesian_dataset(
+        hugging_face_link: str = 'w11wo/twitter_indonesia_sarcastic',
+        partition: str = 'test'
+) -> pd.DataFrame:
+    dataset = load_dataset(hugging_face_link)
+
+    if partition != 'all':
+        dataframe = dataset[partition].to_pandas()
+    else:
+        dataframes = [ds.to_pandas() for ds in dataset.values()]
+        dataframe = pd.concat(dataframes, ignore_index=True)
+
+    if "tweet" in dataframe.columns:
+        dataframe["tweet"] = dataframe["tweet"].apply(remove_angle_brackets)
+
+    dataframe = add_partition_id_column(dataframe, partition)
+
+    return dataframe.rename(columns={
+        'tweet': 'text',
+        'label': 'label'
+    })
