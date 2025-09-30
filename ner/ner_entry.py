@@ -39,7 +39,11 @@ class NEREntry:
     def get_sentence_context(self,
                              sentence: str,
                              use_wiki: bool = False,
-                             use_verb_info: bool = False) -> str:
+                             use_verb_info: bool = False,
+                             context_full_llm: bool = False) -> str:
+
+        if context_full_llm:
+            self.processor.get_sentence_context_full_llm(sentence)
 
         cleaned = WordHelper.clean_sentence(sentence)
         verbs, entities = self.get_sentence_token(cleaned)

@@ -20,6 +20,8 @@ def parse_all_args():
     parser.add_argument("--folder_name", help="Name appended at the end of the default folder name for evaluation")
     parser.add_argument("--is_indonesian", help="Prompt that is contructed using indonesian language",
                         action='store_true')
+    parser.add_argument("--context_full_llm", help="Context using full llm (from ner to information)",
+                        action='store_true')
     return parser.parse_args()
 
 
@@ -38,7 +40,9 @@ def main():
         sentiment_model=arguments.sentiment_model,
         use_wiki=arguments.use_wiki,
         use_verb_info=arguments.use_verb_info,
-        folder_name=arguments.folder_name
+        folder_name=arguments.folder_name,
+        is_indonesian=arguments.is_indonesian,
+        context_full_llm=arguments.context_full_llm
     )
 
     system = System(system_argument)

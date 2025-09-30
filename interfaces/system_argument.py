@@ -14,3 +14,4 @@ class SystemArgument:
     sentiment_model: str
     folder_name: str
     is_indonesian: bool
+    context_full_llm: bool

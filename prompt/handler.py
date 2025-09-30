@@ -12,13 +12,15 @@ class PromptHandler:
                  use_ner: bool = False,
                  use_wiki: bool = False,
                  use_verb_info: bool = False,
-                 with_logging: bool = False
+                 with_logging: bool = False,
+                 context_full_llm: bool = False,
                  ):
         self.prompt_method = prompt_method
         self.dataset = dataset
         self.use_ner = use_ner
         self.use_wiki = use_wiki
         self.use_verb_info = use_verb_info
+        self.context_full_llm = context_full_llm
         self.ollama = OllamaLLM(llm_model)
         self.ner_entry = NEREntry(model_name=llm_model,
                                   sentiment_model=sentiment_model,
@@ -42,7 +44,7 @@ class PromptHandler:
         judge_input = ""
         line_seperator = "\n- - - - - - - - - - - - - - - - - - - - - - - - - - - \n"
         log_separator = "=" * 100
-        
+
         if with_logging:
             print(log_separator)
 
@@ -53,11 +55,12 @@ class PromptHandler:
         combined_initial_prompt = f'{initial_first_prompt}{initial_prompt}{initial_last_prompt}'
 
         if self.use_ner:
-            ner_information = self.ner_entry.get_sentence_context(text, self.use_wiki, self.use_verb_info)
+            ner_information = self.ner_entry.get_sentence_context(text, self.use_wiki, self.use_verb_info,
+                                                                  self.context_full_llm)
 
             if len(ner_information.strip()) > 0:
                 ner_prompt = NERPrompt()
-                context_prompt = ner_prompt.get_prompt().get('context_prompt')            
+                context_prompt = ner_prompt.get_prompt().get('context_prompt')
                 combined_initial_prompt = f'{initial_first_prompt}{initial_prompt}{context_prompt}{ner_information}{initial_last_prompt}'
 
         initial_response = self.ollama.answer(combined_initial_prompt, text, with_logging)
