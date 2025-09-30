@@ -13,3 +13,4 @@ class SystemArgument:
     use_verb_info: bool
     sentiment_model: str
     folder_name: str
+    is_indonesian: bool

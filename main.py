@@ -18,6 +18,8 @@ def parse_all_args():
                         action='store_true')
     parser.add_argument("--with_logging", help="Is the evaluation going to log it into terminal", action='store_true')
     parser.add_argument("--folder_name", help="Name appended at the end of the default folder name for evaluation")
+    parser.add_argument("--is_indonesian", help="Prompt that is contructed using indonesian language",
+                        action='store_true')
     return parser.parse_args()
 
 
