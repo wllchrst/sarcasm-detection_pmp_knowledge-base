@@ -5,6 +5,7 @@ from nltk.tokenize import word_tokenize
 
 nltk.download('punkt_tab')
 
+
 class WordHelper:
     @staticmethod
     def remove_non_alphabetic(text: str) -> str:
@@ -17,13 +18,13 @@ class WordHelper:
         # Remove newline escape characters (\n, \r)
         text = text.replace('\\n', '').replace('\\r', '')
         return text.strip()
-    
+
     @staticmethod
     def get_tokens(s):
         if not s:
             return []
         return WordHelper.normalize_text(s).split()
-    
+
     @staticmethod
     def normalize_text(text: str):
         def remove_articles(text):
@@ -41,7 +42,7 @@ class WordHelper:
             return text.lower()
 
         return white_space_fix(remove_articles(remove_punc(lower(text))))
-    
+
     @staticmethod
     def contains(text: str, target: str):
         """Check if text is contained in target string.
@@ -49,7 +50,24 @@ class WordHelper:
         Args:
             text (str): text to check for presence in target
             target (str): target string to check against
-        """        
+        """
         text = WordHelper.normalize_text(text)
         target = WordHelper.normalize_text(target)
         return text in target
+
+    @staticmethod
+    def normalize_repeated_chars(word: str) -> str:
+        """
+        Remove trailing repeated characters, keeping at most 2.
+        Example: "hufffffff" -> "huff"
+                 "nooooo" -> "noo"
+        """
+        return re.sub(r'(.)\1{2,}$', r'\1\1', word)
+
+    @staticmethod
+    def filter_alphanumeric(word: str) -> str:
+        """
+        Keep only alphanumeric characters (a-z, A-Z, 0-9).
+        Example: "he!!llo123" -> "hello123"
+        """
+        return re.sub(r'[^a-zA-Z0-9]', '', word)
