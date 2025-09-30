@@ -65,11 +65,9 @@ def remove_angle_brackets(text: str) -> str:
     Remove all substrings enclosed in < >, e.g., <username>, <link>.
     Also collapses multiple spaces into one.
     """
-    print(f"Before: {text}")
     cleaned = re.sub(r"<.*?>", "", text)  # remove <...>
     cleaned = re.sub(r"\s+", " ", cleaned)  # normalize spaces
 
-    print(f'After: {cleaned}')
     return cleaned.strip()
 
 
