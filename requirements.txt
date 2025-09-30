@@ -13,3 +13,4 @@ pandas==2.3.2
 seaborn==0.13.2
 matplotlib==3.10.0
 elasticsearch==9.0.2
+datasets==4.1.1
