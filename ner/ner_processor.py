@@ -1,4 +1,5 @@
-﻿from interfaces import LLMType
+﻿from helpers import WordHelper
+from interfaces import LLMType
 from llm import GeminiLLM, OllamaLLM, BaseLLM
 from typing import Optional, List, TypedDict
 from transformers import pipeline
@@ -76,3 +77,42 @@ class NERProcessor:
 
         document = documents[0]
         return document['text']
+
+    def get_unknown_words(self, text: str):
+        system_prompt = 'Anda akan diberikan sebuah teks dari twitter, tugas anda adalah untuk memberikan kata yang anda tidak mengerti dari teks yang diberikan'
+        response = self.llm.answer(
+            system_prompt=system_prompt,
+            prompt=text,
+            with_logging=False)
+
+        system_prompt = (
+                "Anda akan diberikan teks berisi penjelasan kata-kata yang tidak dimengerti\n"
+                + "Tugas anda adalah untuk memisahkan kata-kata tersebut menjadi commma separated values (csv)\n"
+                + "contoh:\n"
+                + "pertama,kedua,ketiga"
+        )
+
+        formatted_response = self.llm.answer(
+            system_prompt=system_prompt,
+            prompt=response,
+            with_logging=False
+        )
+
+        words = formatted_response.split(',')
+        final_words = []
+
+        for word in words:
+            word = WordHelper.remove_non_alphabetic(word)
+            word = WordHelper.normalize_repeated_chars(word)
+            final_words.append(word)
+
+        return final_words
+
+    def get_sentence_context_full_llm(self, sentence: str):
+        words = self.get_unknown_words(sentence)
+        contexts = []
+
+        for word in words:
+            break
+
+        raise Exception("Testing")
