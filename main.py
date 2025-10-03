@@ -2,7 +2,7 @@
     from evaluation_system import System
     from interfaces import SystemArgument
     from helpers.argument_helper import ArgumentHelper
-    arguments = ArgumentHelper.parse_all_args()
+    arguments = ArgumentHelper.parse_main_script()
 
     system_argument = SystemArgument(
         dataset=arguments.dataset,
