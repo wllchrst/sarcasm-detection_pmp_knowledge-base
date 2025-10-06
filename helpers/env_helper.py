@@ -1,7 +1,7 @@
 ﻿import os
 from dotenv import load_dotenv, find_dotenv
 
-ENVS = ["GEMINI_API_KEY", "SPACY_MODEL", "OLLAMA_HOST", "ELASTIC_HOST"]
+ENVS = ["GEMINI_API_KEY", "SPACY_MODEL", "OLLAMA_HOST", "ELASTIC_HOST", "GOOGLE_SEARCH_API_KEY", "SEARCH_ENGINE_ID"]
 
 
 class EnvHelper:
@@ -36,6 +36,8 @@ class EnvHelper:
         self.SPACY_MODEL = self.envs[ENVS[1]]
         self.OLLAMA_HOST = self.envs[ENVS[2]]
         self.ELASTIC_HOST = self.envs[ENVS[3]]
+        self.GOOGLE_SEARCH_API_KEY = self.envs[ENVS[4]]
+        self.SEARCH_ENGINE_ID = self.envs[ENVS[5]]
 
 
 env_helper = EnvHelper()
