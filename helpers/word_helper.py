@@ -71,3 +71,18 @@ class WordHelper:
         Example: "he!!llo123" -> "hello123"
         """
         return re.sub(r'[^a-zA-Z0-9]', '', word)
+
+    @staticmethod
+    def replace_enters_with_space(text: str) -> str:
+        """
+        Replaces all newline and carriage return characters in text with a single space.
+
+        Args:
+            text (str): The input text containing newlines.
+
+        Returns:
+            str: Cleaned text with newlines replaced by spaces.
+        """
+        text = re.sub(r'[\r\n]+', ' ', text)
+        text = re.sub(r'\s+', ' ', text)
+        return text.strip()
