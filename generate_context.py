@@ -3,6 +3,7 @@ import os
 import requests
 import re
 import traceback
+import ast
 
 from bs4 import BeautifulSoup
 from rank_bm25 import BM25Okapi
@@ -24,6 +25,7 @@ headers = {
                   "AppleWebKit/537.36 (KHTML, like Gecko) "
                   "Chrome/129.0.0.0 Safari/537.36"
 }
+INFORMATION_DATASET_FILENAME = 'information.csv'
 
 
 def load_objects():
@@ -101,7 +103,7 @@ def detect_unknown_words(processor: NERProcessor,
     })
 
 
-@memory.cache
+# @memory.cache
 def retrieve_relevant_website(word: str) -> List[str]:
     try:
         links = []
@@ -113,7 +115,11 @@ def retrieve_relevant_website(word: str) -> List[str]:
         }
 
         response = requests.get(url, params=params)
+        response.raise_for_status()
         response = response.json()
+
+        if 'items' not in response:
+            return []
 
         for item in response['items']:
             link = item['link']
@@ -124,8 +130,12 @@ def retrieve_relevant_website(word: str) -> List[str]:
 
         return links
     except Exception as e:
-        traceback.print_exc()
-        print(f'Error retrieving relevant website: {e}')
+        print(f'Error retrieving relevant website for {word}: {e}')
+
+        if 'Too Many Requests' in str(e):
+            raise e
+
+        return []
 
 
 def load_text_from_web(web_content: str, key_word: str, top_k: int = 5) -> List[Tuple[str, float]]:
@@ -141,6 +151,8 @@ def load_text_from_web(web_content: str, key_word: str, top_k: int = 5) -> List[
     Returns:
         list[tuple[str, float]]: List of (chunk, bm25_score) sorted by relevance.
     """
+    if web_content.strip() == '':
+        return []
 
     try:
         text_splitter = RecursiveCharacterTextSplitter(
@@ -181,8 +193,15 @@ def retrieve_important_chunks(links: List[str], key_word: str, top_k: int = 5) -
 
     for link in links:
         try:
-            response = requests.get(link, headers=headers, timeout=10)
-            response.raise_for_status()
+            response = None
+            try:
+                response = requests.get(link, headers=headers, timeout=10)
+                response.raise_for_status()
+            except Exception as e:
+                print(f'Error fetching {link}: {e}')
+
+            if response is None:
+                continue
 
             soup = BeautifulSoup(response.content, 'html.parser')
             web_content = soup.get_text()
@@ -196,7 +215,7 @@ def retrieve_important_chunks(links: List[str], key_word: str, top_k: int = 5) -
             retrieved_chunks.extend(chunks)
 
         except Exception as e:
-            print(f"Error retrieving {link}: {e}")
+            raise e
 
     sorted_chunks = sorted(retrieved_chunks, key=lambda x: x[1], reverse=True)
     return sorted_chunks[:top_k]
@@ -226,7 +245,14 @@ def conclude_retrieved_information(llm: OllamaLLM, word: str, informations: Tupl
 
 def get_word_definition(llm: OllamaLLM, word: str):
     links = retrieve_relevant_website(word)
+    if len(links) == 0:
+        return ''
+
     chunks = retrieve_important_chunks(links, key_word=word)
+
+    if len(chunks) == 0:
+        return ''
+
     return conclude_retrieved_information(
         llm=llm,
         word=word,
@@ -240,6 +266,44 @@ def generate_output_path(partition: str):
     return f'{OUTPUT_FOLDER}/{partition}.csv'
 
 
+def generate_information(process: NERProcessor, dataframe: pd.DataFrame):
+    information_filepath = f'{OUTPUT_FOLDER}/{INFORMATION_DATASET_FILENAME}'
+    information_dataframe = None
+    if os.path.exists(information_filepath):
+        information_dataframe = pd.read_csv(information_filepath)
+
+    word_list = information_dataframe['word'].values if information_dataframe is not None else []
+    words = []
+    definitions = []
+    try:
+        for index, row in dataframe.iterrows():
+            unknown_words = ast.literal_eval(row['unknown_words'])
+            for word in unknown_words:
+                print(word)
+                word = word.lower()
+                if word.strip() == '':
+                    continue
+
+                if word in word_list:
+                    definition = information_dataframe.loc[information_dataframe['word'] == word, 'definition'].iloc[0]
+                    definitions.append(definition)
+                else:
+                    definition = get_word_definition(process.llm, word)
+                    definitions.append(definition)
+                words.append(word)
+
+    except Exception as e:
+        traceback.print_exc()
+        print(f'Error generating information: saving information dataset')
+
+    df = pd.DataFrame({
+        'word': words,
+        'definition': definitions
+    })
+
+    df.to_csv(information_filepath, index=False)
+
+
 def start_generate_context(partition: Optional[str] = None):
     processor, dataframe_dictionary = load_objects()
 
@@ -251,6 +315,7 @@ def start_generate_context(partition: Optional[str] = None):
         else:
             raise ValueError(f"Partition '{partition}' not found in dataframe_dictionary")
 
+    # ====================== Get unknown words for the dataset ======================
     for partition, df in dataframe_dictionary.items():
         print(f"Processing partition: {partition}")
 
@@ -264,6 +329,16 @@ def start_generate_context(partition: Optional[str] = None):
         df_with_unknowns.to_csv(output_path, index=False)
 
         print(f"Saved processed data with unknown words to {output_path}")
+
+    # ====================== Generate information for every word ======================
+    for partition, df in dataframe_dictionary.items():
+        print(f'Generating information for {partition}')
+        dataframe_path = generate_output_path(partition)
+        dataframe = pd.read_csv(dataframe_path)
+
+        generate_information(processor, dataframe)
+
+        print(f'Finished Generating information for {partition}')
 
 
 if __name__ == "__main__":
