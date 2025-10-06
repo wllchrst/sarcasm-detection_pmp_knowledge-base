@@ -4,4 +4,6 @@ python -m main --dataset mustard --llm_model qwen3:8b --prompt pmp --use_ner --u
 
 python -m main --dataset twitter_indo --llm_model qwen3:8b --prompt pmp --use_ner --use_wiki --use_verb_info --is_indonesian --context_full_llm --sentiment_model bert_tweet --folder_name testing
 
+python generate_context.py --partition test
+
 python -m spacy download en_core_web_sm
