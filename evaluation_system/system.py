@@ -39,6 +39,7 @@ class System:
         use_wiki = getattr(self.argument, "use_wiki", False)
         use_verb_info = getattr(self.argument, "use_verb_info", False)
         context_full_llm = getattr(self.argument, "context_full_llm", False)
+        is_indonesian = getattr(self.argument, "is_indonesian", False)
 
         if prompt is not None:
             return PromptHandler(prompt_method=prompt,
@@ -49,7 +50,8 @@ class System:
                                  use_wiki=use_wiki,
                                  with_logging=with_logging,
                                  use_verb_info=use_verb_info,
-                                 context_full_llm=context_full_llm)
+                                 context_full_llm=context_full_llm,
+                                 is_indonesian=is_indonesian)
         else:
             raise ValueError(f"Unknown prompt: {prompt}")
 
