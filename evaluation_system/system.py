@@ -3,7 +3,8 @@ import json
 import os
 import seaborn as sns
 import time
-from evaluation_system.dataset import load_semeval_dataset, load_mustard_dataset, load_twitter_indonesian_dataset
+from evaluation_system.dataset import load_semeval_dataset, load_mustard_dataset, \
+    load_twitter_indonesian_dataset_for_evaluation
 from interfaces import SystemArgument
 from prompt import PromptHandler
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix
@@ -26,7 +27,7 @@ class System:
         elif self.argument.dataset == "mustard":
             return load_mustard_dataset()
         elif self.argument.dataset == 'twitter_indo':
-            return load_twitter_indonesian_dataset()
+            return load_twitter_indonesian_dataset_for_evaluation(partition='test')
         else:
             raise ValueError(f"Unknown dataset: {self.argument.dataset}")
 
@@ -123,6 +124,7 @@ class System:
                 id = row['id']
                 text = row['text']
                 label = row['label']
+                context = row['context']
 
                 if id in predicted_ids:
                     print(f'Skipped index {index} with dataset id: {id}')
@@ -130,6 +132,9 @@ class System:
 
                 # ⏱️ measure classification time
                 start_time = time.perf_counter()
+                if self.argument.use_context:
+                    text = f'{context}\n\n{text}'
+
                 classification_result = self.prompt_handler.process(text, self.argument.with_logging)
                 elapsed_time = time.perf_counter() - start_time
 

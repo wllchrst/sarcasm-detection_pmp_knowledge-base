@@ -11,8 +11,12 @@ ID Column Name: 'id'
 import pandas as pd
 import json
 import re
+import ast
+
 from typing import List, Dict
 from datasets import load_dataset
+
+PARTITION_LIST = ['train', 'test', 'validation']
 
 
 def load_semeval_dataset(file_path: str = 'SemEval2018-T3_gold_test_taskA_emoji.txt') -> pd.DataFrame:
@@ -105,3 +109,62 @@ def load_twitter_indonesian_dataset(
         'tweet': 'text',
         'label': 'label'
     })
+
+
+def load_twitter_indonesian_dataset_for_evaluation(folder_path: str = 'twitter_with_context',
+                                                   partition: str = 'test'):
+    information_df = pd.read_csv(f'{folder_path}/information.csv')
+    print(information_df.head())
+
+    def construct_dataset(dataframe: pd.DataFrame, information_df: pd.DataFrame) -> pd.DataFrame:
+        """
+        Construct dataset by joining the dataframe without list of information with the information df.
+
+        :param dataframe: main dataset source
+        :param information_df: dataset pure for the word definition
+        :return: Constructed Dataset
+        """
+        definitions: List[str] = []
+
+        for index, row in dataframe.iterrows():
+            unknown_words = ast.literal_eval(row['unknown_words'])
+            context_formatted = 'Definisi kata-kata penting:\n\n'
+
+            for word in unknown_words:
+                word = word.lower()
+                if word == '':
+                    continue
+                find_definitions = information_df.loc[information_df['word'] == word, 'definition']
+
+                if len(find_definitions) == 0:
+                    print(f'Uknown definition for: {word}')
+                    definition = ''
+                else:
+                    definition = find_definitions.iloc[0]
+
+                context_formatted += f'{word}: {definition}\n'
+
+            definitions.append(context_formatted)
+
+        dataframe['context'] = definitions
+        return dataframe.rename(columns={
+            'id': 'id',
+            'texts': 'text',
+            'label': 'label',
+            'context': 'context'
+        })
+
+    joined_df = None
+
+    for p in PARTITION_LIST:
+        df = pd.read_csv(f'{folder_path}/{partition}.csv')
+        if p == partition:
+            return construct_dataset(dataframe=df, information_df=information_df)
+        elif partition == 'all':
+            joined_df = df if joined_df is None else pd.concat([joined_df, df])
+
+    if partition == 'all':
+        return construct_dataset(dataframe=joined_df,
+                                 information_df=information_df)
+
+    raise ValueError('Partition value is wrong')
