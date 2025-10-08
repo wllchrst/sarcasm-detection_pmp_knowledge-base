@@ -1,0 +1,539 @@
+id,texts,label,unknown_words
+test_0,saraswati pintar sekali tida belajar dari pengalaman hufffffffffffff,1,['huff']
+test_1,Menag bicara sola celana cingkrang gak bisa ikut aturan keluar .. Nah lhoo,0,"['sola', 'celana', 'cingkrang']"
+test_2,Koruptor dihukum berat bukannya dikasih keringanan,0,['keringanan']
+test_3,Belum jadi pemimpin udah bikin hoax gmn kalau diberi jabatan ?? Bisa lebih parah,0,['hoax']
+test_4,Karena JUJUR membuatku malu dan merasa bersalah . Itulah kenapa JKW sulit melakukannya.,1,['JKW']
+test_5,Oi tolong lah itu yg pada demo suruh pulang .,0,['demo']
+test_6,Astagfirullah Medina Zein make narkoba ..saya tidak kaget make narkoba nya saya kaget karena saya tidak tahu siapa pula Medina Zein,1,['Medina Zein']
+test_7,bapak ngantornya di jalan tol saja bapak .. Balaikota yang bikin bukan masa pemerintahan jokowi lho bapak .. :D :D,1,['Balaikota']
+test_8,Tolong dong bapakÂ² DPR kasih kuliah khusus dulu buat Menag ini biar tidak bikin ribut mulu .,1,['bapak']
+test_9,Ah tolol Ã¢Å¡ Ã¢Å¡ Ã¢Å¡ Ã¢Å¡ Ã¢Å¡ Ã¢Å¡ Ã¢Å¡ Ã¢Å¡ Ã¢Å¡,0,['']
+test_10,mana nih klarifikasi nya yg lem Aibon CC,0,"['Aibon', 'CC']"
+test_11,Anaknya pinter mak nya tolol nih,0,"['pinter', 'tolol']"
+test_12,Selamat menikmati berkah warge jakarte ... Terimakasih juge ame bapak oke tidak tuh ??? Wkwkwkwkwkw ... kalau aye mah Ogah kebanjiran . Biar negara utang aye tidak ikut bayar ini .,1,"['warge jakarte', 'juge', 'ame', 'ogah kebanjiran', 'negara utang aye tidak ikut bayar ini']"
+test_13,Kamu terlalu samyang buat aku ya indomie ðŸ˜­,0,['samyang']
+test_14,Minta maaf krn rendah hati? Bisa aja &amp; baik adanya . Tp minta maaf atas kewenangan mutlak itu agaknya aneh . Tp itu bisa terjadi karna kepemimpinan yg lemah .,0,"['rendah hati', 'kewenangan mutlak', 'kepemimpinan yg lemah', 'aneh']"
+test_15,welcome to indonesia. ketika orang lengah harus di permalukan bersangkaan seluruh belahan dunia harus tahu akan dosa mereka. hei pendosa kita semua sama. hanya berbeda ladang dosa.,1,"['lengah', 'permalukan', 'bersangkaan', 'seluruh belahan dunia', 'dosa', 'ladang dosa']"
+test_16,Untung ane tidak jadi mahasiswa anda nyet . Malu bgt dah kalau jadi mahasiswa anda .,1,['nyet']
+test_17,Mantap mas tetap jangan dengerin omongan haters ya tetap optimis dan terus percaya,0,['haters']
+test_18,Terima kasih sudah pernah menemani hari hariku . Wkwk,0,['Wkwk']
+test_19,FIFA Berikan Perhatian Khusus Untuk Sepak Bola Papua,0,['Papua']
+test_20,Sokaps nich #,0,['Sokaps']
+test_21,Jadi pengin denger tanggapan bang pandji nih ayok bikin video bang Betapa lucunya negeri ini,1,['negeri']
+test_22,Betul Ã¢Å“Å Mari bersatu memerangi,0,['']
+test_23,Alhamdulilah sekarang jkt sudah ada gubernur santuy yang rendah hati bapak Ustad AA gym . Ayo lanjutken 3 periode .,1,['santuy']
+test_24,3 Mantan CEO yang Kini Jadi Menteri Jokowi -,0,['Mantan CEO']
+test_25,Ada ngaku ustadz ternyata croshijaber yah ... sony sontoloyo,0,"['croshijaber', 'sony sontoloyo']"
+test_26,Dia yang pertama ngomong people power . Kemarin bicara Polisi mirip PKI . Sorenya konpers ttg kedepankan cara konstitusional orang ini berdiri di sebelahnya . Terus minta kami percaya?,0,"['ngomong', 'people power', 'PKI', 'konpers', 'cara konstitusional', 'berdiri di sebelahnya', 'percaya']"
+test_27,Orang Indonesia ini sopan-sopan banget ya .. Mau nyapres saja misi dulu .,0,['nyapres']
+test_28,"Kepala bapak kau Sholeh,mati aja kau bodoh buat emosi satu Indonesia aja kau eee",1,"['Sholeh', 'Mat', 'Bodoh', 'Emosi satu Indonesia', 'EE']"
+test_29,ajarin saya dulu donk . Yuk kita sambil ngopi dimana aja deh,0,['donk']
+test_30,Gaji pramugari cuma sekian 15 jtan tapi penampilan macam sosialita jangan salahkan org2 yg menilai kalau dianggap gundik,0,['sosialita']
+test_31,Baru kali pertama atmosfir debat capres di Indonesia ngalahin atmosfir final bola piala dunia !! Jancok !!,1,['Jancok']
+test_32,Sangat memalukan !!!!,0,['memalukan']
+test_33,Welcome to indonesia yang katanya diversity tapi liat valentine saja sudah mampus setengah mati,1,['mampus']
+test_34,Semangat gaesss seperti adrk ini siap siaga,0,"['gaess', 'adrk']"
+test_35,sosialita banget gayanya nak,0,['sosialita']
+test_36,Susah memang orang pinter mah,1,['mah']
+test_37,Pak Prabowo bilang mau memberantas orang yang suka kongkalikong padahal kemarin bilangnya korupsi gapapa kalau ga seberapa . Emang ya semua cowok ngga ada yang bisa dipegang ucapannya !,0,"['kongkalikong', 'gapapa', 'cowok']"
+test_38,Kini Anda dapat membaca Koran Jakarta edisi digital (PDF) yang bisa didapatkan setiap harinya melalui email Anda baik edisi terkini dan edisi sebelumnya . . . Untuk berlangganan versi pdf Koran Jakarta bisaâ€¦,0,['']
+test_39,Gayane songong bener sok banget ini ! Beneran ini di mesjid klo benar kenapa ga langsung sowan baikÃ‚Â² menghadap Pak Ketua PBNU . Hahaha paling ga berani . Ilmu agama ga sebanding dg para ulama NU eh keminter ngajarin .,0,"['songong', 'sok banget', 'sowan', 'Pak Ketua PBNU', 'Ilmu agama ga sebanding dg para ulama NU', 'Keminter ngajarin']"
+test_40,Wooohoo ... selamat atas penghargaan Best Digital Startup 2019 . Semoga selalu terus berinovasi dan memberikan dampak positif bagi masyarakat Indonesia dalam menyajikan beragam berita dan informasi . Terus junjung kredibilitas dan memegang teguh etika .,0,['Junjung']
+test_41,Andi Arief Sebut Megawati Dendam Turun Temurun ke SBY Ini Kata Puan,0,['Temurun']
+test_42,Sejatinya sejak 2014 suara masyarakat Sultra vote for Kebenaran akan menemukan jalannya sendiri .,0,"['vote for', 'Kebenaran']"
+test_43,gaaaskeeun,0,['gaaaskeeun']
+test_44,Jaangan ... jangan dijawab ntar waras diemin saja biar otaknya kebalik kaya kampret,1,['kampret']
+test_45,Pasti krn pemerintah skrng yg utama rakyat,0,['krn']
+test_46,kemana ibu susi kemana ibu mentri yg tangguh srikandi terbaik indonesia yg dilupakan ðŸ˜°ðŸ˜°,0,"['susi', 'mentri', 'srikandi']"
+test_47,Koruptor / pejabat yang terkena kasus pasti alesanya sakit seperti sudah menjadi tradisi di indonesia .,0,['alesanya']
+test_48,Koau revolusi smua wrga negara digaji pkai ApBN tnpa hrus jd PNS Pejabat Pmnrntahan atau BUMN,0,"['Koau', 'ApBN', 'PNS', 'Pejabat Pmnrntahan', 'BUMN']"
+test_49,Awas jgn Asal ngomong masalah orde Baru apalagi main fitnah tanpa Bukti!!! Nanti kau lenyap bersama masadepan mu Pejabat skrg bisa besar krn jaman iTu,0,"['Orde Baru', 'Fitnah', 'Bukti', 'Lenyap bersama masa depan mu']"
+test_50,Level kepedulian tertinggi fans terhadap tim kesayangan adalah KRITIK . Kritik akan memacu apresiasi berlebih akan menjatuhkan . Maju terus berantas mafia fans kardus .,0,"['mafia', 'fans', 'kardus']"
+test_51,apa cuma gue yang klo buka youtube selalu ketemu orang ini ðŸ˜‚,0,['']
+test_52,Arif Satria rektor IPB,0,"['rektor', 'IPB']"
+test_53,Terima kasih sudah mengajak kami jadi bagian dari ceritamu !,0,['ceritamu']
+test_54,Tdi pas lg ngeliatin abg lg brsihin ember bkas racun dikolam tiba2 timbul rsa haru ðŸ˜¢ kasian ngeliatin ank kolam pd mabukðŸ¤¦â€â™‚ï¸ . sperti anak kecil yg gak dpt duduk dikursi yg didambakan .,0,"['Tdi', 'abg', 'brsihin', 'ember bkas racun', 'kursi yg didambakan']"
+test_55,ga pejabat ga pengusaha ga artis semua aja pake brompton apa dayaku yg ngidam fnhon aja belom kebeli,0,['brompton']
+test_56,Kenyataan terpahit adalah kenyataan yang tak setinggi harapan itu . Jadi jangan terlalu tinggi menggantung harapan .,0,['terpahit']
+test_57,Mengungkap Sosok Azura Luna Sosialita Asal Indoensia Diduga Penipu Kelas Kakap,0,"['Mengungkap', 'Sosok', 'Diduga', 'Kelas Kakap']"
+test_58,Jangan kasih kendor,0,['kendor']
+test_59,Ayo tanam persatuan selagi masih damai dan aman :),0,['tanam']
+test_60,Generasi milenial itu punya prestasi,0,['prestasi']
+test_61,Mending jadi pengusaha saja daripada negara ini jadi ancooor,1,['ancooor']
+test_62,Mampus loe !!!,0,"['Mampus', 'loe']"
+test_63,kita ingin menjadi bijaksana tapi mengapa menyuruh mereka untuk menjadi bijak .karena kita egois,0,['mereka']
+test_64,lho kok gitu? anda emang ikut partai apa bro?,0,"['lho', 'bro']"
+test_65,â€œPerang Propagandaâ€ di Papua,0,['Perang Propaganda']
+test_66,Mari merapat,0,['merapat']
+test_67,LO KALI YANG BACOT KPOPERS NGATAIN KPOPERS YANG LAIN NGACA AJA DEH LO TOLOL,0,['bacot']
+test_68,dah punya rambut jess ... §Ù„Ø¹Ø¨_Ù…Ø¹Ø§Ù‡Ù…,0,['']
+test_69,ðŸ˜† ngambek ternyata ada hikmahnya ðŸ˜‰ indonesia maju harus lebih ceria riang gembira lagi dari kabinet kerja yg lalu ðŸ’ƒ,0,['ngambek']
+test_70,Airnya sampai masuk Mall . Mau shopping kali ya? Santun banget ya,1,"['Santun', ' banet', ' ya']"
+test_71,rismaselamanya kok bisa ya ? para pendukungnya kompak-kompak ayo buk ndang dipilih penggantimu biar puas para pendukungmu,0,['buk ndang']
+test_72,Prabowo dan berfikir pengennya makan HokBen Mulu tiap hari,0,['Mulu']
+test_73,Alhamdulillah yang namanya berkah tidak akan lari kemana . Semoga TOA nya segera berfungsi kalau bisa pasang TOA nya tiap rumah jadi bisa joget bareng . Banjir Jilid 2 Jadi Trending Twitter,1,"['TOA', 'Joget bareng', 'Banjir Jilid ', 'Trending Twitter']"
+test_74,Disayangkan ada politikus tak kenal dosa tdk sadar telah mlecehkan ulama sepuh yg dihormati di negeri ini .,0,['mlecehkan']
+test_75,Penghargaan yang perlu diapresiasi !! Dulu kalau denger diskotek biasanya ada yang pengen lho sekarang mah kagak ada ... Soalnya; saya kenal beliau kata seseorang .,1,['beliau']
+test_76,Negara ini milik Rakyat bukan milik Pejabat/aparat,0,['aparat']
+test_77,2024 jadikan dan sebagai presiden dan wakil presiden .,0,"['jadikan', 'dan']"
+test_78,Dia ada sejarah hitam dengan orang Melayu ke apa sampai macam tu sekali dia punya triggered? Baca sini:,0,['triggered']
+test_79,BIKIN TAGAR YUK . JUDULNYA : KASIHAN 3X DAFTAR CAPRES TAPI GAGAL TERUS . MAU DAFTAR YG KE .4X ???,0,['TAGAR']
+test_80,Mabok lem mungkin nih orang ..,0,['lem']
+test_81,Sudah 2 tahun keleeessss ... Untung ada PSI DKI yg obok-obok sekarang ini lah klo enggak adem2 aja sampai disahkan RAPBD nya APBD 2017 2018 2019 pasti di bancakan semua klo dilihat dari situasi saat iniðŸ˜¡ðŸ˜¡ðŸ˜¡ðŸ˜¡ðŸ˜¡,0,"['keleeess', 'obokobok', 'RAPBD', 'APBD  ', 'bancakan', '']"
+test_82,setan dunia khianat,0,['khianat']
+test_83,Banjir air berkah katanya tidak suka silahkan minggat dari Jakarta ???? . Rangorang setengah mati belain warga DKI biar mendapatkan haknya ini malah dituduh yang enggak2 ..kadrun kadrun,1,"['Banjir air berkah', 'Rangorang', 'Belain', 'Kadrun', 'kadrun']"
+test_84,isu pemeriksaan ketertiban yang ternyata hoax kini berakibat tertibnya para siswa,0,['hoax']
+test_85,Membumi dengan caramu sendiri merakyat dengan cara kelompokmu . Pejabat emang gitu~,0,['Membumi']
+test_86,semoga tetap sehat Walafiat mbah kakuunggg ..,1,"['walafiat', ' mbah', ' kakuungg']"
+test_87,kubu 02 Fitnah&Hoax adalah hal yg biasa mereka lakukan menghalalkan segala cara menggiring opini dgn kebohongan membuat video utk memperkuat biar masyarakat percaya&ini berita di india di edit seolahâ€terjadi di INA lagiâ€ capres02 naplokin TAIK keMuka sendiri :D,0,"['Naplokin', 'TAIK keMuka', 'Capres']"
+test_88,MUSIBAH PALA LOE BAU MENYANNN ... Andi Arief Ditangkap karena Narkoba BPN Prabowo: Ini Musibah,0,"['MUSIBAH', 'PALA', 'LOE', 'BAU', 'MENYAN', 'BPN', 'NARKOBA', 'PRABOWO', 'DITANGKAP', 'INI']"
+test_89,Anda tidak paham tapi komen ini bukan aibon yg anda lihat di pasar ini aibon import dari yaman ujung . Paham kenapa mahal? ðŸ˜€ðŸ¤£,0,"['Aibon', 'Yaman ujung', '']"
+test_90,Si Sontoloyo Ini Suruh Jadi Menteri BUMN ?!! - Mardigu Wowiek lewat,0,"['Si Sontoloyo', 'Si', 'Sontoloyo']"
+test_91,kalungnya kek ibu ibu sosialita Ã°Å¸Ëœâ€˜,0,"['kek', '']"
+test_92,Kesuksesan perlu kita dokumentasi terus supaya tidak ada lagi daerah lain mengalami azab seperti ini.. Pemimpin seiman yang ternyata malah mengakibatkan musibah..,1,"['dokumentasi', 'azab', 'seiman', 'musibah']"
+test_93,Orang bebal selalu mengira bahwa tuhan ada di sampingnya . Sebaliknya orang bijak selalu berusaha mendekatkan diri kepada tuhan .,0,"['bembal', 'bebal']"
+test_94,mana tau aku aku kan nia ramadhani,0,['nia ramadhani']
+test_95,Semoga dpt jodoh yg cantik dan pintar amin,0,['jodoh']
+test_96,Setinggi pangkat apapun kalian bapak nyawa kawan kami tidak mampu kalian beli dengan gaji kalian seumur hidup .,1,['Setinggi pangkat apapun']
+test_97,Saya heran dg mereka2 yg suka nyiyirin presiden ..pdhl pak di arab sangat dihormati dimuliakan ..sedangkan yg nyiyir rakyat indonesia sendiri,0,['nyiyirin']
+test_98,Menghina ulama sama saja menghina banyak orang .,0,['ulama']
+test_99,Kok lucu pas ayuk palembang itu bilang : sontoloyo . Nadanya .,0,['sontoloyo']
+test_100,Inget ... Jangan nakal lagi ya wo jangan demo2 lagi . Iyee iyee wi elaahhh gw gak Kok mending kita makan yok,0,"['inget', 'nakal', 'Demo', 'iyee iyee', 'woi', 'Elaahh', 'Gw', 'Mending']"
+test_101,isu ni aja senjatanya tapi sampai sekarang tak ada bukti dasar sontoloyo menutpi kebodohannya,0,['sontoloyo']
+test_102,Ya terserah kamu dah ... Maaf tapi kamu ingat ya ... Aku dan kamu itu sudah bukan \'kita\'. Jadi kalau nanti kamu akhirnya sadar dan menyesal jangan cari-cari aku lagi .,0,['kita']
+test_103,Kenapa tidak indonesia (pemerintah) bikin channel youtube lalu di subscribe dan di tonton oleh rakyatnya . Kan lumay\u2026,0,['lumayan']
+test_104,Belahan sontoloyo,0,['sontoloyo']
+test_105,Fakultas kedokteran dan keperawatan di Jogja ini banyak biangeeet seimbang dengan kekurangan tim medis yang banyak buuaanget !!,1,"['biangeeet', 'buuaanget']"
+test_106,Sekarang ga ada lagi 01dan02 yang ada hanya Indonesia..,0,['dan']
+test_107,Daripada bahas apa tidak ingin mengajakku main?,0,['Daripada']
+test_108,Tuhan telah meciptakan manusia yang unik yang terletak di orang ini .. smga lekas sadar ya bapak ???,1,"['meciptakan', 'terletak di orang ini']"
+test_109,Ketua Komisi Agama DPR: Pelarangan Cadar Gaduh dan Dangkal | Republika Online,0,"['Gaduh', 'Dangkal']"
+test_110,Mantengin trendingnya twitter,0,['Mantengin']
+test_111,jadi begini ..Belajar dari masa orba dimana proyek pembangunan banyak yang mangkrak pilihlah pemimpin yang ahli,1,['mangkrak']
+test_112,pengen ke Diskotik,0,['Diskotik']
+test_113,TAIK ANJING Tetangga dangdutan keras banget gatau apa aku lagi nugas Kubukakan pintu dan jendela aku ikut nyanyi dan joget mantab,0,['TAIK ANJING']
+test_114,SEMANGAT DADDIES!!! APAPUN HASILNYA KALIAN HEBAT !! OPTIMIS !! LUFFVVV,0,['LUFFVV']
+test_115,Akhirnya mereka sadar wkwkwk takut di per alat bahan dapurnya ... gosong sdhðŸ˜‚ðŸ˜‚,0,"['per', 'alat', 'bahan', 'dapurnya']"
+test_116,kamu adalah kenangan singkat yang terangkum dengan rapih tanpa dapat di kacaukan bahkan dengan memoriku sendiri,0,"['terangkum', 'kacaukan']"
+test_117,Rusaklah sudah jekardah dipimpin gabener 4nies beserta parasit TGUPP nya . Kerja gak jelas anggaran segede2nya . Parasit!!!,0,"['jekardah', 'gabener', 'tgupp', 'parasit']"
+test_118,Ah si Jancuk nyari perkara Sontoloyo tenan ..,0,"['Jancuk', ' Sontoloyo']"
+test_119,Benar-benar Parpol yang penuh semangat. Berlatih lempar-tangkap kursi sambil diiringi musik Mars. Semua menjadi gempita dan penuh gairah berolahraga. Mungkin mbah amin mo buat kartel dengan nama bawang ????,1,"['gempita', 'mbah amin', 'kartel dengan nama bawang']"
+test_120,Nizar sekarang sudah pintar menghasut wkwkwkwkwk,1,['menghasut']
+test_121,semoga Generasi milenial harus bisa bertindak sebagai change agent dan memutus lingkaran setan tersebut .,0,['change agent']
+test_122,Emang dia pasti masuk sorga?,0,['sorga']
+test_123,Masok pak Eko Sebar Hoax Pemilik Akun FB Dilaporkan ke Polisi,0,['Masok']
+test_124,Mari kt sambit Artis nyokap kota yng sngt dicintai & disembah umatnya .???? jeng .. jeng ...,1,['nyokap']
+test_125,Tul bro gendang gendruwo siluman semua .. Rezim jae pinokio memang sontoloyo hhuuu ..Ã°Å¸ËœÂ¬Ã°Å¸Ëœ,0,"['Tul', 'bro', 'Gendang', 'Gendruwo', 'Siluman', 'Rezim', 'Jae', 'Pinokio', 'Sontoloyo']"
+test_126,Goblok,0,['Goblok']
+test_127,Dungu .... tolol .... bego ..... semua di borong ama bani kampret ..... ... knp ngak nanya prabowo aja junjungannmu ... brp nyawa yg dia hilangkan ..dgn provokasi kelompok beliau .....,0,"['Dungu', 'Tolol', 'Bego', 'Bani kampret', 'Prabowo', 'Junjunganmu', 'Provokasi kelompok beliau']"
+test_128,Sistem pemerintahan dah berubah dari presidensial menjadi menterisial :-),1,['menterisial']
+test_129,ðŸ¤£ðŸ¤£ðŸ¤£ðŸ¤£,0,['']
+test_130,Jangan takut banjir orang Jakarta sudah terlatih anggap saja ini berkah Imlek cukup pegang toa teriak banjir banjir ... Ayo ngopi bareng dilantai atas sambil nunggu antrian air masuk ke tanah!!. ????,1,"['toa', ' berkah Imlek']"
+test_131,Aku juga mau jadi nia ramadhani,0,['nia ramadhani']
+test_132,LONTE SEMUA GBLK,0,['GBLK']
+test_133,Yg negur koplak Mungkin mau praktekin slogan tuannya BOLEH KORUPSI ASAL SANTUN CC,0,"['Negur', 'Koplak', 'CC']"
+test_134,Kamu ini sapa ?? ko mau padahal selama ini kalian yg demen nyerang NU kalian yg paling nyinyir Islam Nusantara kalian yg paling benci Banser semua amaliah NU kalian anggap Bid\'ah ... Ojo nggaya-nggaya ndadak . .,0,"['Kamu ini sapa  ', 'Ojo nggayanggaya ndadak', 'Banser', 'Islam Nusantara', 'Bidah']"
+test_135,ternyata ga jadi menteri karena ga setuju ama reklamasi katanya gugel tapi gw pingin tau dari netijen,0,"['gugel', 'netijen']"
+test_136,Jangan menyalahkan anies .wg tidak kerja kk d salahkan .yang salah itu yang kerjs,1,"['wg', 'kk', 'd']"
+test_137,YUNIKA WULANDARI JAKARTA SELATAN A Anti lengket mudah dibersikan n cepet matang,0,['A']
+test_138,Hatimu panas? Hanguslah persahabatan' 0,0,['Hanguslah']
+test_139,prabowo emg kenamaan di google ... lah banyak yg nyari ... apakah prab terlibat ham ..anak prabowo apkh beneran homo ..jumatan dimana ..itu yg dicari smua org ..pgn tau kbnran ..dan pas tok ketik hasil prabowo ..muncul nyebarin hoax rs,1,"['kenamaan', 'ham', 'homo', 'jumatan', 'rs nothink']"
+test_140,Anies klaim 73% warga PUAS dengan kinerja Pemprov DKI . Iya Nies puas jadi Korban PHP janji mAnies mu,1,"['PUAS', 'PHP', 'mAnies', 'mu']"
+test_141,Ini dokter bedah plastik itu ya? Tolong betulin mulutmu dulu baru ngomong,0,['betulin']
+test_142,Takbeer ..... Allahu Akbar ... Colosseum .... M a n t a p !! GNPF Ulama Bela Pemprov DKI Soal Penghargaan Diskotek,1,"['takbeer', 'colosseum', 'GNPF', 'Ulama Bela Pemprov DKI', 'diskotek']"
+test_143,Cie ... cie ... yg gagal makan lobsterðŸ˜„ðŸ˜„ðŸ˜„,0,['cie']
+test_144,penting banget sumpah ini 7 fakta unik yuni shara . wow ! ternyata yuni suka mandi pakai air anget!!!,1,['sumpah']
+test_145,Semoga selalu sukses dalam bertugas untuk menjaga pertahanan dan keamanan NKRI,0,['bertugas']
+test_146,Gue pengen lihat dia terjatuh suatu saat nanti .,0,"['gue', 'saya']"
+test_147,penghargaan banyak umumkan saja gt saja repot . Paling Pintar dan smart banyak penghargaan saat kerja sekali kali diumumkan gt sebagai penghargaan,1,['gt']
+test_148,Bukan soal beda pilihan bos !! Soal etika tidak adanya rasa terimakasih terhadap pemerintah yg selama ini terlah banyak berkontribusi untuk kemajuan BL..,0,['BL']
+test_149,Ayo pak polisi cepat umumkan aktor intelektual & penyokong dana demo ricuh,0,"['Aktor intelektual', 'Penyokong dana demo ricuh']"
+test_150,Pohon tidak ditebang untuk Formula E tapi TETAP DITEBANG untuk REVITALISASI . MONAS tetap jadi gundul,1,['REVITALISASI']
+test_151,Halo semuanya~ Veneta System lagi butuh ni Silahkan drop CV nya bagi yang berminat . Full Time kantornya ada di daerah mangga dua ðŸ˜‰ Ditunggu ya ^^,0,['ni']
+test_152,Mantap bro aq stuju .,0,['stuju']
+test_153,Saat sadar orang berbuat sopan saat tidak sadar jadi tidak sopan sontoloyo,0,['sontoloyo']
+test_154,Indonesia butuh Presiden bukan tukang lenong & tukang pijit,1,"['tukang lenong', 'tukang pijit']"
+test_155,Pada keseleq kursi .... ðŸ¤£ðŸ¤£,0,['keseleq']
+test_156,MAR ingatkan kader jgn hnya kejar dunia,0,['MAR']
+test_157,Jancuk sarkasme keren wkwk,0,['Jancuk']
+test_158,hebat kamu mbak sudah memikirkan,0,['mbak']
+test_159,Hanya ada di Rezim sontoloyo,0,['sontoloyo']
+test_160,tangkap tukang nyinyir Pak,0,['nyinyir']
+test_161,Kadrunnya cuma 3% saja . Alhamdulilah Ã°Å¸â„¢ÂÃ°Å¸â„¢ÂÃ°Å¸â„¢Â,0,['']
+test_162,Dasar kamu min ðŸ™ƒ,0,['min']
+test_163,mengaku lah kalah masalah selesai . tirulah mertua bapak,0,['tirulah']
+test_164,Padahal udh masuk tapi gabener oversmart koq masih aja dan kacung2nya ribut belain kayak,0,"['gabener', 'oversmart', 'kacungnya', 'ribut belain']"
+test_165,Beri tangguhlah barang sesaat .. Sama sama kita saksikan mana Jihad Fi' Sabilillah .. Jihad di jalan Allah dengan Jihad di jalan Ks Tubun !!!,0,"['Tangguhlah', 'Jihad Fi Sabilillah', 'Jihad di jalan Ks Tubun']"
+test_166,Aku tidak peduli kalaupun harus mati ketika berjuang meraih mimpiku . Aku tidak akan menyesalinya .,0,['kalaupun']
+test_167,Berkat infotainment 98 67% Ibu Ibu menjadikan pencapaian Mayangsari &amp; Nia Ramadhani sebagai prestasi yang harus ditiru anak perempuannya .,0,['infotainment']
+test_168,Naik seweknya Nyi Roro Kidul koh,0,['seweknya']
+test_169,Naik kereta kencana Nyi Roro Kidul,0,['kencana']
+test_170,Mereka bukan hanya mengingkari konsitusi tp juga mengingkari ketetapan tuhan,0,['ketetapan']
+test_171,Terima kasih Indonesia team sekalian yang main top legen . Beri peluang raja Malaysia angkat piala harini,1,"['top legen', 'raja Malaysia']"
+test_172,Ini knp ya ko tranding ???,0,['tranding']
+test_173,Ok ... trims ya,0,"['trims', 'trimming', 'terima kasih']"
+test_174,bapak anies baswedan sudah menepati janjinya untuk menyediakan kolam bagi warga jakarta . Jadi yang bilang bapak anies tidak becus kerja coba di sentil hidungnya wkkwkwk,1,['sentil hidungnya']
+test_175,Buat yg UNBK hari ini semangat berjuangnya dan saya masi perjuangin kamu kok biar kita sama2 berjuang :),0,['UNBK']
+test_176,jadi gini ..Belum ada Kartu Pra Kerja saja Pak sdh bisa menurunkan angka kemiskinan sejauh ini . Apalagi nanti,0,['Kartu Pra Kerja']
+test_177,Teladan rekonsiliasi . Jokowi Prabowo bertemulah,0,"['Contoh', 'rekonsiliasi']"
+test_178,BPJS . Budget pas pas an jiwa sosialita,0,"['Budget pas pas an', 'jiwa sosialita']"
+test_179,Membela kaum yang lemah katanyaâ€¦ Pro wong cilik katanyaâ€¦ . Merangkul masyarakat bawah katanyaâ€¦ Tapi kok buktinya malah suka memaki-maki kalangan bawah?,0,['Pro wong cilik']
+test_180,Tuan memang luar biasa . Selain suka menghina Kyai ternyata suka bohong . Bahkan ada info soal hoax Sarumpaet dibelakangnya si ini ..,1,['Sarumpaet']
+test_181,Ada wacana cadar dan celansla cingkrang di larang ... Haha,0,['cingkrang']
+test_182,Pertemuan yg sangat menyejukkan .Selamat pJokoWi Selamat pPrabowo anda layak disebut Pahlawan Pemersatu Bangsa,0,"['pJokoWi', 'pPrabowo']"
+test_183,NU tidak pernah mengklaim mewakili segenap ummat Muslim . NU justru sering diklaim oleh sebagian orang yang kurang percaya diri .,1,"['NU', 'Nahdlatul Ulama']"
+test_184,Iya Dasar Kadrun Ã°Å¸ËœÅ,0,['']
+test_185,Sejarah baru DKI berkat Gabener Seiman Rasa Pesinden.,1,['Gabener Seiman Rasa Pesinden']
+test_186,"Emang warbiyasak, gabener sejarah mencatat. Tahun 2020, January-Februari sdh terjadi 6x banjir, ngalahin demo yg berjilid-jilid itu.Wajah menyeringai Gubernur di daerah manapun blm bisa menyaingi prestasi bliyo ini.",1,"['Warbiyasak', 'Bliyo']"
+test_187,Indonesia kan unggul dengan Esemka Romo . Pas kampanye beliau sih zaman dulu . Hehe Maaf :-),1,"['Esemka', 'Romo']"
+test_188,Arif Satria terdorong terus berbuat untuk kemajuan IPB .,0,"['IPB', 'Institut Pertanian Bogor']"
+test_189,Tahuuuu bulat . Enakenakenakenakenak,0,['Enakenakenakenakenak']
+test_190,Menyambut Siti Aisyah . Teruslah memberikan yang terbaik untuk bangsa .,0,['Siti Aisyah']
+test_191,Cara memulai adalah dengan berhenti berbicara dan mulai melakukan .,0,"['memulai', ' berhenti', ' melakukan']"
+test_192,pada ngapain si lempar botol lempar batu seharusnya tuh mikir kasian anak istri dirumah lah situ enak dateng demo dikasih nasbung lah anak istri dirumah mau makan apa? sejuta kerinduan?,0,"['ngapain', 'si lempar botol lempar batu', 'nasbung', 'sejuta kerinduan']"
+test_193,mana mungkin mau dia kan kaum KW keahliannya hanya qalam qalam doank,0,"['KW', 'qalam qalam doank']"
+test_194,Kenapa .. Aku kasih ini aja deh,0,['deh']
+test_195,Aku Bangga jadi Alumni UGM karena JOKOWI Aku Malu jadi Alumni UGM karena ANIES dan AMIEN . PAHAM ???,1,"['PAHAM', 'UGM']"
+test_196,Memang bola tak punya hati tapi soal membahagiakan dia lebih hebat darimu ðŸ˜ðŸ‘ðŸ‘,0,"['', '', '']"
+test_197,Uwu banget tapi yang ngelempar botol kok goblok?!,0,['Uwu']
+test_198,Terima kasih bapak Gub Anies .. baru di sadari kerja sebagai gubernur DKI ternyata tidak semudah berkata kata dan teori yang belum nyata ..harap semangat bapak dan agar buang ego yang tidak perlu .. kehebatan bapak akan berhasil pabila teruskan kerja yang baik dari pendahulu,1,"['gub anies', 'kerja sebagai gubernur dk', 'teori yang belum nyata', 'buang ego yang tidak perlu', 'kehebatan bapak akan berhasil pabila teruskan kerja yang baik dari pendahulu']"
+test_199,Klo buat w yg unggul yah pasti yg cerdas klo menurut lo2 pada Metro_TV yg mana ??? yg IQ nya berapa? :D :D : D :D,0,"['w', 'lo', 'IQ']"
+test_200,Tidak munculnya nama Susi Pudjiastuti di antara 34 nama menteri Kabinet Indonesia Maju dipertanyakan oleh banyak pihak .,0,['Kabinet Indonesia Maju']
+test_201,pertama . kamu tololÃ°Å¸ËœÂ­ tp ucullÃ°Å¸ËœÂ­,0,['']
+test_202,Benar-benar ide yang brilian Out of The Box .. Monas akan dijadikan kolam raksasa seluas Lapangan Bola oleh Gabener Wan Abud buat tangkap air kalau hujan di wilayah Jakarta sekalian nanti jadi t4 wisata halal ala Kadrun ..??,1,"['out of the box', 't wisata', 'Kadrun']"
+test_203,selamat malam rakyat negara bangun .. apakah sudah sembuh dari penyakit kamipolitiken?,1,['kamipolitiken']
+test_204,anjir goblok bgt ya malah marah fancamnya kehalang!!! bgst,0,['fancam']
+test_205,Berkat program Toa Jkt sudah tidak banjir lagi .... hanya Kelelep !!,1,['Kelelep']
+test_206,Oh ternyata Jokuwi Yang pakai consultant luar negeri ... Ngakuin ketololannya sendiri Dungunya mendunia,1,"['jokuwi', 'consultant', 'dungunya mendunia']"
+test_207,Kukira cuma pendukung Prabowo yang dengan gobloknya bikin hestek uninstall uninstall . Ternyata pendukung Jokowi juga bisa bikin hestek . Sama aja gobloknya . Siap2 kehilangan swing voters aja kalo masih tetep kayak gini . Pantesan kok banyak yg milih golput .,0,['hestek']
+test_208,Ketika malam minggu seperti ini datang : Sendiri sudah biasa Berdua sudah biasa Bertiga juga biasa Bertempat kita remi aja,0,['remi']
+test_209,Presiden RI lantik Kapolri baru ..,0,['lantik']
+test_210,terimakasih kepada telah menyalurkan csrnya kepada lelayan tradisional khususnya dikabupaten,0,"['CSR', 'Leylan tradisional', 'Kabupaten']"
+test_211,Memimpin dan menginspirasi Sehat selalu Pa Presiden,0,"['Sehat', 'selalu']"
+test_212,Barusan ngecek . Jakarta masih baik2 saja . Tapi kerugian besar terjadi . Pentolan paling atas tetap harus bertanggungjawab siapa suruh ngomong hoax tidak habis2?,1,['pentolan']
+test_213,Ini pengusaha apa pejabat atau pensiunan atau apa ya .. buanyak banget dapat dri mana itu ??,0,['buanyak']
+test_214,Kok bisa . Jd acuan kemenag...?,0,"['acuan', 'kemenag']"
+test_215,Ngaco .. laporkan ke badan Hukum kalau kamu tidak lapor saudara termasuk orang-orang yang gak berbadan Hukum ..tau Barbar .. padahal Barbar harus dihapuskan dari muka Bumi ..Camkan itu pak Prabowo saya sama sekali tidak bela pk jokowi saya bela kebenaran maksutnya kebenaran bukan ala,0,"['ngaco', 'badan hukum', 'saudara', 'barbar', 'camkan itu pak Prabowo', 'pk jokowi', 'kebenaran bukan ala']"
+test_216,Mulia sekali para elit politikku mereka tidak sungkan untuk menumpuk kursi agar memudahkan pihak EO pada saat memberikan ruangan tsb.,1,"['elit politik', 'tumpuk kursi', 'EO', 'memberikan ruangan tsb']"
+test_217,Bisa jadi karena kurang dikelon tiap malam akhirnya muncul hastag .. Kalau dikelon biasanya sih bisa adem ..,0,['dikelon']
+test_218,Gubernur yang santun yang hebat dan pandai masa iya tidak tahu .,1,['masa iya']
+test_219,Yups tp merusak kepercayaan rakyat boleh lah kan pak,0,['tp']
+test_220,Abis kalau ke akun lain sedang berenang om . Mantul banget lah sarkasme nya,0,"['Abis', ' Sarkasme']"
+test_221,Maenan lu kaya pengangguran kaga pernah sekolah PRETT !,0,['PRETT']
+test_222,Hanya karena gak rutin qunut subuh dituduh anti pancasila dan intoleran .,0,['qunut']
+test_223,Lem aibon 82 8 M Pulpen 124 M Jamban 166 M Jalur sepeda 73 M Selamat kepada seluruh rakyat JKT58 gubernur kalian memang luar binasa nikmatilah kinerja gubernur kalian sampai mabok .,1,"['Lem aibon', 'JKT']"
+test_224,Belio penterjemah bahasa Twitter . Tolong hargailah . Sesungguhnya bahasa Twitter tu njelimet .,0,['njlimet']
+test_225,Kamu memang mantap,0,['mantap']
+test_226,Sandiaga Uno janjikan program Kartu Jakarta Jomblo Hingga Sandi maju menjadi Cawapres kartu ini tidak pernah terwujud dasar hoak nipu masyarakat ...,1,"['Hingga', 'Hoak', 'Nipu']"
+test_227,Kalo yang lebih pintar bikin musik daripada marketing Sajama Cut bang .,0,['Sajama Cut']
+test_228,Luwar biasa kan Gubernur seiman ini . Gelar Ph .D luar negri mantan rektor Paramadina dan mantan Mentri Pendidikan ini sudah berhasil membuat senang anakÂ² dengan menghadirkan kolam renang buat warganya . Ngerti ora bong!!!,1,"['Ngerti', 'ora', 'bong']"
+test_229,deuh emak emak sosialita huh,0,['sosialita']
+test_230,Bukan buat pebisnis pastinya dan sosialita yg kelebihan uang . Masak buat IG story doang ? Kan konyol Ã°Å¸Â¤Â£,0,['']
+test_231,Untung saya tidak punya Bukalapak tapi keluarga besar saya sudah uninstallbukalapak tidak tahu diri!!!,1,['uninstallbukalapak']
+test_232,JAdi manusia itu lebih baik jangan angkuh dan sombong sampai berani merendahkan ulama NU kita bukan orang lugu yang tidak mengerti bahsa ambigumu .,1,['ambigumu']
+test_233,Terlebih nanti Presiden masih akan berkunjung ke Universitas Aisyiyah . Jadi kalau ada yang bilang presiden\u2026,0,['Presiden']
+test_234,"gila gila gila keren keren keren .... rakyat dihajar abis abisan , koruptor dibiarkan liar... inilah pertumbuhan 7% , pertumbuhan koruptor",1,"['dihajar abis abisan', 'dibiarkan liar']"
+test_235,Semoga Kejujuran dinegri ini bisa ditegakkn .. bila MK melanggar tujuan dibentuknya MK .. ayo bangkit kt lawan tirani yg telh melecehkan konstitusi dinegri ini .. Kedaulatan Rakyat & demokrasi hrs ditegakkn sesuai dngn konstitusi .. Allahuakbar .. Merdeka ..,0,"['Dinegri ini', 'MK', 'Tirani', 'Kedaulatan Rakyat', 'Konstitusi', 'Allahuakbar', 'Merdeka']"
+test_236,Bukan Karena tdk ada Rintangan hidup kita Optimis tapi krn kita Optimis maka Rintangan mjd tdk terasa,0,"['tdk', ' krn']"
+test_237,Pintar banget sih kalau suruh membolak balikkan fakta . belajar dimana?,1,['bolak balikkan']
+test_238,Tak perlu iri atas keberhasilan orang lain . Jadikan itu motivasi agar semangatmu terpacu .,0,['ir']
+test_239,Kalo lu sok komentarin lu lonte anjing..... sampah goblok biadab . Kalo bodoh ya bodoh aja mba jgn goblok lg ... tiap hari makan taik ya makanya gda otak .,0,"['Lu', 'Sok', 'Lonte', 'Anjing', 'Sampah goblok biadab', 'Mba', 'Taik', 'Gda otak']"
+test_240,produsen petasan kaya mendadak . asli seberangnya pihak yg paling diuntungkan ya tukang petasan . Jadi lebaran lah pokoknya,0,['seberangnya']
+test_241,Ada yg bisa membantu adik kita ini Ã°Å¸â„¢Â,0,['']
+test_242,Haha kasian lho dokðŸ˜…,0,['']
+test_243,Jokowi cukur rambut aja dia iri . Apalagi Jokowi berprestasi .,0,['cukur']
+test_244,Semoga dapat menjadi generasi penerus bangsa yang cerdas dan dapat mengharumkan serta mengangkat martabat bangsa,0,"['mengangkat', 'martabat', 'bangsa']"
+test_245,Ketika fungsi jempol mendahului fungsi otak ðŸ¤­,0,['jempol']
+test_246,Permasalahannya apa sih ngak ngerti ??? ???,0,"['ngak', '']"
+test_247,Fi semalem si sam jakpot goblok bgt wkkwkwkwkw,0,"['jakpot', 'goblok']"
+test_248,Tetaplah semangat dan teruslah berjuang . Karna tanpa semangatmu akupun berhenti berjuang .,0,"['berhenti', 'berjuang']"
+test_249,Pemimpin jakarta si anies alhamdulillah amanah dengan kolam banjirnya,1,['amanah']
+test_250,Tagar ini bukankah terliat seperti hinaan halus ya? Gw justru kasian dengan pak prabowo yg kalah tpi malah dapat hinaan kyk gini,0,['kyk']
+test_251,Yang telah berlalu biarkan ia berlalu yang mendatang hadapi dengan cemerlang .,0,['cemerlang']
+test_252,Yang seharusnya jd korban kerusuhan itu wakil rakyat kyk fadly ini .jgn rakyatnya ..,0,"['korban', 'kerusuhan']"
+test_253,Sekolah tinggi2 untuk jadi pintar . Tapi negeri ini tidak butuh orang pintar butuhnya orang yg jujur .,0,"['tinggi', 'negeri']"
+test_254,Iblis2 pun melakukan sidang istimewa membahas kedudukan mereka yang sudah turun derajatnya karena oknum wakil rakyat yang sudah menghina Ulama .,1,"['Iblis', 'Sidang istimewa', 'Kedudukan mereka yang sudah turun derajatnya', 'Oknum wakil rakyat']"
+test_255,Kami merasa bangga memiliki president seperti bapak jokowi . Smoga tahun ini bpk jokowi tetap mnjdi president kami#,0,['mnjdi']
+test_256,Yg krg waras biasanya jago menghibur yg waras jd penyejuk . Klop kan Berteman itu bth insting tajam kenyamanan . Yg krg waras dan yg waras sama sama asal sreg dihati knp tidak ?,0,"['krg waras', 'jago menghibur', 'penyejuk', 'klop kan', 'berteman', 'insting tajam', 'kenyamanan', 'sama sama asal sreg dihati', 'knp tidak ']"
+test_257,Melakukan aksi uninstallbukalapak bukan ketololan tapi sebuah sikap yang tegas dan protes atas attitude buruk Justru yang tolol adl orang yang membela attitude buruk tsb.,1,['uninstallbukalapak']
+test_258,.......anda serius ga ngerti? Ato sarkasme?,0,['sarkasme']
+test_259,juara bohong,1,['bohong']
+test_260,Mulia sekali cita2 mu nak bapak nyesal tidak gugurin kamu ??,1,"['cita', 'nakesal', 'gugurin']"
+test_261,Bangsat kau hina agama Islam mksd lo apa ... dasar otak butek,0,"['mksd', 'lo', 'apa']"
+test_262,mereka yg menyerukan Jihad untuk membela kebenaran dgn cara Jahad,0,['Jahad']
+test_263,pejabat optimis dg kenaikan kesejahterannya dan menyejahterakan pemilik modal ..,0,['dg']
+test_264,Nia ramadhani ga bisa buka salak . Kalau gue mau belaga ga bisa buka rambutan .ðŸ¥º,0,['belaga']
+test_265,Gabener terbaik? Terbaik menata kata memang iya .,1,['Gabener']
+test_266,Manusia ini tidak ada kontribusi kepada bangsa dan negara bisanya cuma ngebacot dan nyinyir,0,"['ngerbacot', ' nyinyir']"
+test_267,Semoga sukses terus ya FPI muuu,0,"['FPI', 'Front Pembela Islam']"
+test_268,Filosofi duduk di tangga ala pak jokowi apasi ada yang tau??,0,"['apasi', 'apakah', 'apa sih']"
+test_269,Jika benar ada penyalah gunaan ambulance oleh pihak lain tidak menghapus atau mengurangi kesalahan Rocky Gerung dan Said Didu apalagi menghapuskan . Jgn jd pengcut mengalihkan dosamu pada pelanggaran org lain . Moral rendah tdk berintegritas yang dua ini contohnya .,0,"['penyalahgunaan', 'pengcut', 'moral rendah', 'tidak berintegritas']"
+test_270,Gmna yaa kok kayak nyi roro kidul,0,"['Gmna yaa', 'kok kayak nyi roro kidul']"
+test_271,wooww ... kehidupan syekali pendukung prabohong memaksa dan mendoktrin agar memilih c wowo :d takut ya kalau 2019 kalahlagi :d :d,1,"['syekali', 'prabohong', 'doktrin', 'C', 'wowo']"
+test_272,yang penting bahagia y seiman ini,1,['y seiman']
+test_273,Teu keren kumaha atuh nguruskeun hirup batur :)),1,"['Teu', 'Kumaha', 'Nguruskeun']"
+test_274,haters dijadiin jubir .. ambyarrr,0,"['jubir', 'juru bicara']"
+test_275,Manusia ... tidak semata mata meninggalkan sesuatu yg sangat berharga .. kalau gk bosan /lelah .. pasti lebih mengguntungkan / lebih baik .,0,"['gk', 'bosanlelah', 'mengguntungkan']"
+test_276,Salut ðŸ˜Š,0,['']
+test_277,Ngapain coba ngajakin orang uninstallbukalapak padahal lagi ada serbu seru . aja otak kamu yang bodoh udah disakitin tetep aja bertahan .,0,"['ngajakin', 'uninstallbukalapak', 'serbu seru', 'aja otak kamu yang bodoh', 'udah disakitin tetep aja bertahan']"
+test_278,prabohong berpidato terlalu lantang sampai lupa yang disampaikan isinya tidak karuan alias kacau .,1,['prabohong']
+test_279,Yang baik dicaci yang jelek di rangkul,1,"['dicaci', ' dirangkul']"
+test_280,Lihat yuk seperti apa sih sosok bapak Menteri Perindustrian periode 2019-2024?,0,['periode ']
+test_281,indonesiaku sedang berberdaya gunaan yang menolak perdamaian berarti mereka menolak nkri dan pancasila .,1,['berberdaya gunaan']
+test_282,Belanjanya di kedai tek er dekat rumah aja .. gak bayar parkir,0,['tek er']
+test_283,Jangan kasih kendor maju terus,0,['kendor']
+test_284,Udah Dungu ... Buta Hati pulak .,0,"['Dungu', 'Buta Hati']"
+test_285,Korupsi 10m diganjar 1th 4bln termasuk diobral nih vonis . Benar era sontoloyo .,0,"['gananjar', 'diobral', 'sontoloyo']"
+test_286,Lah ada lagi level tukang kebon klo dari kacamata Anies mah Dah cari duit lagi sana ga usah ganggu otak kapitalis sok sok an masuk wilayah birokrasi yang ada korupsi ...,0,"['lah', 'level tukang kebon', 'kacamata anies', 'kapitalis', 'birokrasi yang ada korupsi']"
+test_287,Seneng loh baca2 komen disini ... banyak yang pinter ternyata rakyat indonesia .... yang kepinteran juga banyak ... yang dong dong juga buanyak banget ... ðŸ˜‹,0,"['baca', 'dong dong', '']"
+test_288,Kesaksian tentang penilaian terhadap Kesimpulannya didampingi cawap\u2026,0,['cawap']
+test_289,Lempar botol? Anjing kok tolol si bangsat,0,['bangsat']
+test_290,Apa jadinya negeri ini kalau dipimpin oleh bandar dan pengguna narkoba,0,"['Bandar', 'Pengguna narkoba']"
+test_291,WASPADA MANUVER POLITIK NU GARIS BENGKOK CARI KURSI MENTRI,0,['MANUVER']
+test_292,.....katanya kecewa dengan pinjaman dari saudi.....ko malah ke sana.....,0,['ko']
+test_293,Emng gk cocok bu irma .ah jngn mimpi presiden deh .jauh ... kata2 dl br tindkan ..ibratnya wooii kebakaran ... ngomng dl bru ambil air ..keburu habis pak2 ..Ã°Å¸ËœÂ,0,"['emng', 'gk', 'jngn', 'dl', 'ibratnya', 'wooii', 'ngomng', 'dl', 'bru', 'ambil', 'air', 'keburu', 'habis', 'pak']"
+test_294,BANJIR HUJAN dan BANJIR ANGGARAN Akhirnya BERJALAN BERIRINGAN Nikmati Pilihan PEMIMPI(n)mu ??????????,1,"['BANJIR HUJAN', 'BANJIR ANGGARAN', 'BERJALAN BERIRINGAN', 'PEMIMPIn', ' ']"
+test_295,Terkadang kita harus berfikir secerdik penipu dan bermain selicik pembunuh,0,['selicik']
+test_296,Karena baru masih g ngerti pat gulipat yg umum terjadi dan normal ya .,0,['pat gulipat']
+test_297,prabowo sudah tau kalah sejak dia klaim 62% dan hanya cara kerusuhan ini prabowo bisa menjadi presiden drama yang terstruktur dan sistematis . dengan cara menggiring opini publik,0,"['klaim', 'kerusuhan', 'drama', 'terstruktur dan sistematis', 'menggiring opini publik']"
+test_298,ni nih yang gua suka . Capek kadang rasanya 2 kubu yang saling menjatuhkan satu sama lain terus2 an nyindir lewat twitter.,1,['nyindir']
+test_299,nelayan itu berangkat melaut malam hari dan kembali pada siang hari . lalu waktu jam 12 malam pergi berdua supir ke pantai siapa yang dia temui itu ya? ini namanya bohong pangkat 12,1,"['bohong', 'pangkat']"
+test_300,DÃ mai untuk papua,0,"['D', 'Dari', 'Dalam']"
+test_301,Lord Luhut trending topik . Menteri kesayangan nih .,0,['Luhut']
+test_302,Hahahhaha .. Maha benar anies dgn segala ceritanya,0,"['Maha', 'Benar']"
+test_303,Diskotik halal Main catur haram Nonton film korea haram . Ok . Selamat datang dinegaraku .,0,"['diskotik halal', 'main catur haram', 'nonton film korea haram']"
+test_304,Kayaknya sudah pinter banget dokter satu ini memang kamu sudah pernah nyusun RAPBD ???,1,['RAPBD']
+test_305,Ngapain kamu di pantai? Mau jadi budaknya nyi roro kidul?,0,"['Nyi', 'Roro Kidul']"
+test_306,"negara ini keren, koruptor aja yang milih rakyat. bhahahak..",1,['bhahahak']
+test_307,Masa kampanye sudah lewat pemenang Pilpres sudah ada . Kenapa kalian hancurkan Indonesia .,0,['hancurkan']
+test_308,Lebih baek banjir daripada ngutang katenye lebih baek anggaran bocor daripada genteng bocor . Genteng kagak bocor sih tapi rumah nyilem,1,['nyilem']
+test_309,Apa saja konsekuensi membuat dan menyebarkan berita menyesatkan?,0,['menyesatkan']
+test_310,Mantan Ketua Dewan Guru Besar UGM Koentjoro khawatir Nadiem akan diperalat oleh pembantunya mengingat pengalamannya mengurusi pendidikan tinggi sangat minim . Begini katanya:,0,"['Dewan Guru Besar', 'UGM', 'Universitas Gadjah Mada']"
+test_311,Et nia ramadhani bakrie,0,['Et nia ramadhani bakrie']
+test_312,otak penuh dengan sarkasme yang ga tega dikeluarkan,0,"['sarkasme', 'ga tega']"
+test_313,Macan itu tempatnya dihutan ! Kalau sudah keluar hutan trus naik panggung jadi bahan tertawaan... tidak garang lagi !,0,['panggung']
+test_314,Teruntuk Pak &amp; Pak jujur saya sangat senang karena bapak berdua mencalonkan diri sebagai Presiden\u2026,0,"['Teruntuk', 'Terima', 'kasih', 'ucapan', 'dukungan', 'apresiasi', 'mencalonkan', 'diri', 'Presiden']"
+test_315,Cina jgn dimanja dong para pejabat harus waspada nih .,0,['manja']
+test_316,Amin .... smoga menang Jokowi = \Jaa Al-Qawi (datang orang yang kuat),0,"['Jaa AlQawi', 'Jaa AlQawi']"
+test_317,Apa yang lain tidak menjadi iri dgn penghasilan yang luar biasa utk menjadi pejabat . Para pensiunan jenderal berlomba lomba utk aktif menjadi bergelimbang harta setelah karir di militer hanya mendapatkan gaji yang pas saja TDK lebih cari an,0,"['TDK', 'cari an']"
+test_318,Pacar kamu memang Cantik tapi sayang nya dia Licik â–”â–¡â–”)/,0,['Licik']
+test_319,Tuhhh pak ..dengerin tat zul yg TRANSPARAN dan BERTANGGUNG JAWAB jgn cuma nata Kata2 tp ngorbanin rang lain jgn aja yg sllu Apes .,0,"['Tat zul', 'Ngorbanin rang lain', 'Apes']"
+test_320,seratus buat kamu anak pintar ! cariin alesan yang lebih tepat dong,1,"['seratus', ' buar', ' buat', ' anak pintar', ' cariin', ' alesan', ' lebih tepat']"
+test_321,Semua poling dimenangkan pasangan bahkan 3 diantaranya diatas 88 % !! Robot2 kampret pada habis kontrak atau pada kelojotan sekarat gegara melihat GBK kemarin ??,0,"['kampret', 'kelojotan sekarat']"
+test_322,Anies dan Hidayat Nur Wahid (HNW) menghadiri acara Pembukaan Rakernas ke-15 Ikatan Persaudaraan Haji Indonesia (IPHI). Begini pantauannya:,0,"['Rakernas', 'Rapat Kerja Nasional']"
+test_323,Penyakit anies dari dulu sampe sekarang ga sembuh2 dok.......yaitu penyakit selalu menyalahkan gubernur yg dulu ... tolong dok itu mukanya di permak sekalian ya kalo ketemu bikin seperti mukannya bowo tiktok ðŸ˜ðŸ˜ðŸ˜ sama2 rai gedek dablek songong sisann ..,0,"['Penyakit anies', 'ga sembuh dok', 'Penyakit selalu menyalahkan gubernur yg dulu', 'Mukanya di permak sekalian ya', 'Bowo Tiktok', 'Rai gedek dablek songong sisann']"
+test_324,Si buniyani kemakan omongannya sendiri !! Dasar buniyani memang bodoh !! :D :D,1,['Buniyani']
+test_325,Polisi baik hanya polisi tidur,1,['polisi tidur']
+test_326,memang harus diakui kalau anies pintar . Buat live IG di tempat yang tidak banjir . PR ????,1,"['PR', 'Public Relations', 'Hubungan Masyarakat', 'Pembangunan Rakyat', 'dalam konteks politik', 'Pemimpin Rakyat', 'dalam konteks politik', 'Pemimpin Regional', 'dalam konteks politik']"
+test_327,Kalau mereka bilang ada brimob dari cina kalau ini gimana ya jeng jeng kena deh !,0,['jeng']
+test_328,Mmg sontoloyo,0,['sontoloyo']
+test_329,Bentar lg dipecat jd jubir,0,"['jubir', 'juru bicara']"
+test_330,Ketua DPR RI Puan Maharani Perintahkan DKI Kembalikan Monas sedia kala .,0,['sedia kala']
+test_331,Fadli Zon si Penista Ulama .. !! :X :X :X :X,0,"['Penista', 'Ulama']"
+test_332,Buang ae yg kek giniannnn,0,['giniann']
+test_333,woy itu orang berpendidikan ! bahkan yg ndak berpendidikan juga ndak boleh digitukan ! sontoloyo maksimal sih ini kalo aku diginikan ku putar dia punya kepala!!!,0,"['woy', 'sontoloyo', 'diginikan', 'putar dia punya kepala']"
+test_334,Kopi sontoloyo,0,['sontoloyo']
+test_335,Dgn logika yg sama ketika PResiden mmilih Nadiem mjadi Mendikbud shrsnya para pria mjadikan baby sitter sbg istrinya . Ini jika mganalogikan solusi dari mgerjakan standarisasi sekolah yg tsebar di sluruh negeri dgn solusi dari pgasuhan anak dgn kuantitas yg cukup .,0,"['Dgn logika yg sama', 'Presiden mmilih Nadiem mjadi Mendikbud', 'shrsnya para pria mjadikan baby sitter sbg istrinya', 'mganalogikan solusi dari mgerjakan standarisasi sekolah yg tsebar di sluruh negeri', 'dgn solusi dari pgasuhan anak dgn kuantitas yg cukup']"
+test_336,wkwkwkwkwkwkwkwk ormas ormas goblok makannya modal sewa sound sama stage tolol,0,"['ormas', 'goblok', 'modal sewa sound sama stage', 'tolol']"
+test_337,Ferdinand Murka Edhy Prabowo Disebut Menteri Sontoloyo,0,['Sontoloyo']
+test_338,aws hoax mlai Bertebaran menjelang putusan sidang MK . te2p,0,"['aws', 'hoax', 'tep']"
+test_339,Na lah sigoe ngen rombongan nyi roro kidul troeh ðŸ˜¹ðŸ˜¹ðŸ˜¹,0,"['sigoe', 'troeh']"
+test_340,DKI banjir lagi ya .. kata abang2 jawara banjir itu berkah .. jadi kita ucapkan selamat saja buat warga DKI atas berkah air berlimpahnya selamat ya .. selamat juga buat bapak atas pengadaan TOA 4 milyar saya yakin banyak berkah bisa dipetik disitu,1,"['Jawara', 'TOA', 'Berkah']"
+test_341,Aduh kepencet .... Rekor Utang Meroket .. :P :P,1,"['Rekor', 'Utang', 'Meroket']"
+test_342,Gelar boleh dokter tapi isi otak level tk,0,['level tk']
+test_343,Radikalisme diganti kata menjadi Manipulator Agama .. Tujuannya sama ingin menghancurkan sistem pemerintahan menjadi sistem Khilafah .,0,['Khilafah']
+test_344,Ibukota ... Presiden telah berinisiatif mencari Ibu Kota baru . That\'s a good step . And what about the FLAG... ???,0,"['Ibukota', '']"
+test_345,Jangan ambigu mas bro . Yang dimaksud transparansi itu bukan semua diumbar . Itu dokumen negara bukan bungkus kacanh .,0,['bungkus kacanh']
+test_346,sudah bang tidak harus demo turun ke jalan lah wong katanya banjir berkah yaudah biar dinikmati saja .,1,"['banjir', 'berkah']"
+test_347,Aku bergegas menuju rumahmu . Berjalan kaki . Tentu saja aku punya alasan kenapa aku berjalan kaki ketimbang naik sepeda motor . Supaya bunga-bunga cantik yang kubeli tidak rusak diterpa angin . Haha aku pintar bukan? Tentu saja . Bunga-bunga untukmu harus masih terlihat segar,0,['bungabunga']
+test_348,Si pengagum karl marx dan lenin makin kurang ajar Setelah hina Ulama NU kini dia hina ulama Muhammadiyah,0,['kurang ajar']
+test_349,Berdasarkan informasi yang dikumpulkan ada seorang profesor di perguruan tinggi negeri yang merupakan anggota HTI . Kemudian ada kepala dinas pegawai negeri sipil (PNS) dosen hingga tentara yang masuk dalam HTI .,0,"['HTI', 'Himpunan Tionghoa Indonesia']"
+test_350,Bahaya sampe kesehatan china yg urusin ..,0,['sampe']
+test_351,saya aj nyelundupin contekan pas uas aja degdekan apalagi nyelundupin harley dalam pesawat,0,['degdekan']
+test_352,Harusnya jawab ajaa ... yaaa kalian yang orang lama udah pada bau tanah sih ... ðŸ˜ðŸ˜ðŸ˜,0,"['bau', 'tanah']"
+test_353,aibon alpa ketik bolpoin alpa input penghargaan diskotek colosseum alpa kadis sekarang ... . rekomendasi formula e alpa ketik lagi. bukannya alpa otak tuhÃ°Ã¿Â¤Â£,1,"['Aibon', 'Alpa', 'Bolpoin', 'Kadis', 'Diskotek Colosseum', 'Formula e', 'Rekomendasi formula e alpa ketik lagi', 'Bukannya alpa otak tuh']"
+test_354,Tangkap dan Adili MANUSIA yg tak berguna ini . Membuat profokasi dan mencoreng nama baik TNI . Mau jadi apa Indonesia kalau mreka terus mnginjak hrga diri TNI Lagu kelanjutan nya terlalu sensitif .. Nah berarti lagu nya memang ada d buat dan panjang .,0,"['yg', 'profokasi', 'coreng', 'mreka', 'hrga', 'kelanjutan', 'sensitif', 'ada', 'd', 'buat', 'panjang']"
+test_355,Walaupun sibuk tapi masih sempat meluangkan waktu berbagi ilmu dengan mahasiswa FH Indonesia Esa Unggul dan FISIP UNS .,0,"['FH Indonesia Esa Unggul', 'FISIP UNS']"
+test_356,Sontoloyo tenan,0,['Sontoloyo']
+test_357,Saya optimis MU menang,0,"['MU', 'Manchester United']"
+test_358,Saya memang pintar dan kamu aja memang goblok,0,['goblok']
+test_359,Komunis punya makar tapi makar Allah lebih besar !!!!!!,0,['makar']
+test_360,di medan lagi ada gerakan . bergaya juga ya mantan kamu banyak yang peduli.,1,"['di medan lagi', 'ada gerakan', 'bergaya juga ya', 'mantan kamu banyak yang peduli']"
+test_361,Berkhayal jd nia ramadhani,0,"['Berkhayal', 'Nia Ramadhani']"
+test_362,gw terinsipirasi untuk kondisi indonesia saat ini seperti film olympus has fallen .............. edannn,1,['edann']
+test_363,desain ini hanya peduli pada skala raksasa skala pemodal perusahaan dan abai terhadap skala manusia dan kepentingan konservasi lingkungan yang mana mestinya jadi prioritas pembangunannya cc,0,"['cc', 'carbon credit', 'copy']"
+test_364,FD: itu oknum partai People : bapak partainya apa? FD : gerindra People : well bapak oknumnya,0,"['FD', 'oknum']"
+test_365,Wanita bijak seperti angsa diatas air . Anggun namun tetap bekerja . Tetap tegar meski terluka .,0,['anggun']
+test_366,saya membolehkan 02 beroleh hadiah tapi itu dlu pas pemilu 2014,1,"['beroleh', 'menerima', 'memperoleh']"
+test_367,Banyak yang menginginkan istri seperti nia ramadhani tapi mereka lupa menjadi suami seperti ardi bakrie status buk ibuk jaman nowðŸ˜‚,0,"['status', 'buk ibuk', 'jaman now']"
+test_368,Terima kasih bapak Anies . Hasil naturalisasi sudah terlihat .,1,['naturalisasi']
+test_369,Bahaya nih org kadal gurun sontoloyo .... cm fitnah dan provokator ... suruh liat Arab dan negara islam lainnya aja membuka pintu lebar2 skrg sm China .... goblok koq bangga ..idiot permanen tuh kadrun,0,"['sontoloyo', 'fitnah', 'provokator', 'kadrun', 'goblok', 'idiot permanen']"
+test_370,POLITIK BANGSAATTT MINGGAT COK NGELU DELOK WONG TOLOL GELUD,0,"['bangsaat', 'cok', 'ngelu', 'delok', 'wong tolo', 'gelud']"
+test_371,santun tapi pembohong !,1,['pembohong']
+test_372,Kok ribet amat sihh Kalo ngak percaya medsos Percaya aja sama media massa Kek koran atau tv kalo masih ngak percaya ya udah percaya aja sama tuhan semoga indonesia diberikan yang terbaik,0,"['ribet', 'medsos', 'media massa', 'koran', 'TV', 'Tuhan', 'Indonesia diberikan yang terbaik']"
+test_373,Terima kasih JKT58 Berkah politisasi ayat dan mayat,1,"['Berkah', 'Politikasi', 'Ayat', 'Mayat']"
+test_374,Percayakn semuanya kepada pa kerja dulu baru koment blm apa apa dah koment terlalu jauh,0,"['Percayakn', 'pa']"
+test_375,Ada yg nyimpen thread cewe2 travelling ke jogja yg dideketi nyi roro kidul gak? Perasaan aku udh nyimpen tp ilang :(,0,['nyimpen']
+test_376,Nitip tagar uni,0,['Nitip']
+test_377,Gak usah heran dengan kelakuan yang tak beradab . Lha ulamanya aja Sugik Nur .,0,['Sugik Nur']
+test_378,Katanya sih pengusaha muda berpengalaman tapi ..,1,"['katanya', 'sih', 'pengusaha', 'muda', 'berpengalaman', 'tapi']"
+test_379,Pilpres sdh selesai .. Satu yg mungkin menyelamatkan mrk ya cari2 trs kasus hukum ke 02 ..,0,"['pilpres', 'mrk', 'trs', 'ke ']"
+test_380,Sabar bapak .. Setelah bulan april 2019 semua pasti,1,"['Sabar', 'bapak']"
+test_381,Haduduu .. EVA CELIAðŸ’”,0,"['Haduduu', 'EVA CELIA']"
+test_382,Prabowo nuduh tanpa bukti Demo berakhir rusuh dalam waktu -1 hari . YANG DIMINTA MUNDUR JOKOWI . LOLLLL . OTAK PENDUKUNG 02 ANJERRRR . SEMPIT BANGET PANTES GAMPANG DI HOAX LOE PADA 43% DOANG TAPI BACOT NYA SETINGGI LANGIT,0,"['nuduh', 'tanpa bukti', 'demo berakhir rusuh', 'YANG DIMINTA MUNDUR JOKOWI', 'LOLL', 'OTAK PENDUKUNG  ANJERR', 'SEMPIT BANGET PANTES GAMPANG DI HOAX LOE PADA  DOANG TAPI BACOT NYA SETINGGI LANGIT']"
+test_383,Menurut Prof Mahfud md \Disetiap aturan yang dibuat pasti ada politik hukum yang mempengaruhi\ mun\u2026,0,['munu']
+test_384,Mulia sekali anak2 itu tidak ingin otaknya cepat rusak maka jarang digunakan : ) hallo....,1,"['Mulia sekali', 'anak', 'jarang digunakan']"
+test_385,Padahal musim hujan kok kepanasan yah,0,['kok']
+test_386,Makin banyak orang dungu ..,0,['dungu']
+test_387,Ujian sekolah sekarang lebih mentingin hasil daripada kejujurannya :(,1,['mentingin']
+test_388,bukan nya amatir .. tp memang mahir memanipulasi .. tp semahir2 nya tupai melompat suatu saat pasti kejengkang jg ..,1,"['bukan nya', 'tupai melompat', 'kejengkang']"
+test_389,Rasa optimisme dari Pak merupakan sebuah kekuatan utk para Sahabat milenial . Jokowi mensosialisasikan bahwa kebijakannya sangat berpihak kpd kaum milenial .,0,"['Sahabat', 'milenial', 'Pak']"
+test_390,"Kita harus bersyukur. Banjir besar ini selalu hari Libur. Ini kalau bukan Anies, Gubenur Sholeh, doanya, ini bisa terjadi senin, selasa, rabu. kata Wakil Ketua Bamus Betawi, Rahmat HS Woyy ini selasa. BNGST",1,['BNGST']
+test_391,Hai ..sobat ðŸ¤— Ada nasehat nih katanya klo pulang sekolah jangan langsung tidur sambil \'telentang\' yua .. nanti bisa modar ..ðŸ¤­ðŸ˜…ðŸ˜… walaupun ..,0,['telentang']
+test_392,Menjemput Tiga Poin Perdana di AFC Cup . Bismillah !,0,['AFC Cup']
+test_393,kempesin perutnya,0,['kempesin']
+test_394,Orang2 pada uninstallbukalapak tapi hr ini ada serba seru hadianya rumah 1M apa bisa naikin presentase menang gua yah? :D :D,0,"['uninstallbukalapak', 'serba seru', 'hadianya rumah M', 'presentase menang']"
+test_395,Udah fiks pilih polisi tidur aja \'(,0,['fiks']
+test_396,Saya rakyat Indonesia sy mendukung & sy menolak diwakili narasi,0,['narrasi']
+test_397,Cantik bgt woi!!! Auranya cantik aja gtu kaya lukisan nyi roro kidul . Senyum sama matanya pokonya auranya dah . Apa emang mbaknya cakep ya wkwkwk,0,['wkwkwk']
+test_398,Selamat Belajar Biologi itu asiiik banget !,0,['asiiik']
+test_399,Nia ramadhani deh contoh barangnya . Klo dia gak cantik (banget) emang ardi bakrie mau?,0,"['deh', 'klo', 'ardi bakrie']"
+test_400,Keren bgt tuntutannya . Pdhl partaimu bobrok . Serang anies biar hasto dan mba mega aman ya mba meskipun PAW harun ada tanda tangan keduanya . Uang ke wahyu dari hasto . Hasto darimana coba . Hehe,1,"['tuntutannya', 'partaimu bobrok', 'serang anies biar hasto dan mba mega aman ya mba', 'PAW harun ada tanda tangan keduanya', 'Uang ke wahyu dari hasto', 'Hasto darimana coba', 'Hehe']"
+test_401,silahkan yg mau julid dan menghujat ibu2 sosialita ini kami persilahkan di mohon menghujat sejahat2nya,0,"['julid', 'sosialita', 'menghujat sejahatnya']"
+test_402,Pengguna sudah dapat SMS ini? Ayo yang mau turun kelas segera turun kelas sekarang . Sebelum terlambat . Turun kelas juga bisa melalui aplikasi android jkn ... Cepet tanpa antri,0,['JKN']
+test_403,Dulu ada yang lucu namanya ondel2 betawi sekarang ada yang lebih lucu namanya wan aibon kota sering banjir pohon dicabutin .,1,['aibon']
+test_404,Manusia dungu seperti tompi Mana berani kritik jokowi . Coba kritik dollar 10rb tolak utang luar negeri berani ga ente kritik?,0,"['tompki', 'tomp']"
+test_405,Welcome to Indonesia. Dimana copy paste menjadi hal yang lumrah disini,1,['lumrah']
+test_406,Siap2 uninstall ya Mau dipakai alat politik :D :D :D,0,"['Siap', 'alat politik']"
+test_407,Kami butuh pemimpin sungguhan bukan boneka,1,['boneka']
+test_408,salah foto tolol,0,['tolol']
+test_409,Betul sekali sambil menyelam minum air,0,['sambil menyelam minum air']
+test_410,Jangan bersedih ketika melakukan salah . Karena kesalahan kita banyak belajar karena kesalahan kita menjadi pintar .,0,"['kesalahan', 'kita', 'banyak', 'belajar']"
+test_411,sangat disayangkan padahal keterbukaan anggaran di periode sebulmunya sudah sangat baik,0,['sebulmunya']
+test_412,Allahu akbar.,0,"['Allahu akbar', 'Allah Maha Besar']"
+test_413,Untuk Indonesia Maju Pilih - KMA . Fakta membuktikan bahwa angka pengangguran di era terjadi penurunan .,0,"['KMA', 'era', 'penurunan']"
+test_414,3)lu tak bisa memaknai arti ungkapan rantai yg dinarasikan pak sungguh kasihan bangsa ini,0,['dinarasikan']
+test_415,Satu jiwa satu cita satu cinta Persija,0,"['cita', 'cinta']"
+test_416,Daritadi googling tentang Kanjeng Ratu Kidul dan Nyi Roro Kidul baca-baca tetep masih bingung ..,0,"['Kanjeng', 'Ratu', 'Kidul', 'Nyi', 'Roro']"
+test_417,Wahai tuan yth makasih ya mobil saya kerendem oleh air yang se-Iman dengan kita . Jaman bapak Ahok warga lingkungan sini sudah sempet lupa tuh sama yang namanya banjir setinggi ini . Selamat bekerja bapak eh .. selamat tidur .,1,"['kerendem', 'seIman', 'warga lingkungan sini', ' Selamat bekerja bapak eh  selamat tidur']"
+test_418,Rejim ini ada 34 mentri + 12 wamen 8 pejabat setingkat Mentri .Di dukung 14 stafsus (7 staf milenial). Di sokong KSP &amp; para Jubir istana Di tatar 6 BPIP . Di nasehati 9 wantimpres . Di riuhkan tim hore buzzer pro INDONESIA pasti hancur .,1,"['rejim', 'stafsus', 'KSP', 'jubir istana', 'BPIP', 'wantimpres', 'Tim hore buzzer pro INDONESIA']"
+test_419,Dari kasus dan boikotsariroti kita dapat belajar bahwa pendukung capres di Indo fanatiknya luar biasa . Yang diatas ketawa bahagia eh yang dibawah malah berantem wkwk,1,['sariroti']
+test_420,Logika jangan terbalik . Hrsnya Permisi dulu baru masuk rumah' jangan ngacak2 rumah baru permisi . Tolong suruh kembalikan Kawasan monas seperti semula Anies Kirim Surat Persetujuan Revitalisasi Monas ke Setneg,0,"['Ngacak', 'Kawasan monas', 'Revitalisasi Monas', 'Setneg']"
+test_421,Yg rame sekarang cuma radikal radikul tadz Ekonomi lesu bodo amat,0,"['Rame', 'Radikal radikul tadz', 'Ekonomi lesu', 'Bodo amat']"
+test_422,Mulia sekali bapak-bapak ini daripada rebutan kursi mereka malah saling memberikan kursi.,1,['rebutan']
+test_423,Coba anda pakai akal sehat nya deh .. Jargon KIS dan KIP Dibagikan untuk masyarkat kurang mampu .kan begitu .sudah berapa dibagikan ..hampir 60 juta ..artinya masyarakat Indonesia 60 juta yang tidak mampu . Katanya kemiskinan berkurang ..gak nyambung toh :D,1,"['KIS', 'KIP']"
+test_424,plus62 panas,1,['plus']
+test_425,Prabowo dan Jokowi saling berjabat untuk indonesia hebat,0,['hebat']
+test_426,Jangan sampai terjadi kalau tidak milih junjungannya silahkan hengkang dari Indonesia :P :D,1,['junjungannya']
+test_427,Ada yg tau ga? Kenapa sikap dinginnya gebetan malah bikin panas?? Kan harusnya dinginnn ... Anehh â˜¹ï¸,0,['gebetan']
+test_428,bismillah 3 poin,0,[' poin']
+test_429,Kopi menjadi haram ketika korupsi menjadi seni .,1,['seni']
+test_430,Ketua Dewan Kehormatan DPP Partai Amanat Nasional (PAN) Amien Rais memberikan waktu enam bulan kepada Kabinet Indonesia Maju bentukan Presiden Joko Widodo (Jokowi),0,['DPP']
+test_431,SETUJU PAK PRESIDEN LANJUTKAN PEMBANGUNAN KEDEPAN PAK!!! sy pribadi sangat puas dgn kepimipinan Bapak . Salam dari Merauke .,0,['KEDEPAN']
+test_432,kebanyakan minum anies jd mabok,0,['mabok']
+test_433,ibadah itu panggilan dari hati bukan pangilan capres,1,"['panggilan', 'panggilan', 'panggilan', 'panggilan dari hati']"
+test_434,Ada kakek tua.....Biang Provokator pula .... siapakah dia ???,0,['Biang Provokator']
+test_435,Tidak pake kipas angin kepanasan Giliran pake kipas angin besoknya pasti flu ðŸ˜«,0,['']
+test_436,kemaren sharing sama temen: yasssss . mulai tersadar bahwa panggilan kepada seseorang adalah salah satu menunjukkan tingkat pertemanan kita . ex: eh kampret (temen deket ni) kalau hey beb (temen sosialita tp bukan kepercayaan) tingkat ukur bukan hanya dari prioritas rep chat !,0,"['kemaren', 'yass', 'kampret', 'sosialita', 'rep chat']"
+test_437,Nia Ramadhani Asyik Karaoke Pakai Busana Terbuka Ramai Disentil Soal Akhirat d,0,['d']
+test_438,Pak Nadiem meskipun menurutmu tak berguna kami akan terus menghafal Al Quran dan ilmu2 lain sebagai awal penting dalam proses belajar yang lebih mendalam .,0,['ilmu']
+test_439,Melly Goeslaw marah ke beberapa rekan selebritas yang memparodikan gaya berpakaian dirinya dan disambut dengan tawa .,0,['parodikan']
+test_440,Aku tambahin lagi plus jadi nia ramadhani,0,['nia ramadhani']
+test_441,"Presiden Jokowi Minta 4nies Keruk Waduk untuk Atasi Banjir 4nies Disuruh Keruk Waduk, malah Keruk Anggaran.! Terlaluuuu",1,['nies']
+test_442,iya salah info karena mungkin gak konfirmasi dulu ðŸ˜‚,0,['']
+test_443,Semua akan menjadi baik pada akhirnya nanti . Jika belum baik itu berarti bukan akhir .,0,['nanti']
+test_444,Butuh pengorbanan untuk menuju sukses .,0,['pengorbanan']
+test_445,Jangan korbankan rakyat untuk kepentingan politik,0,['korbankan']
+test_446,Media Asing Soroti Prabowo yang Jabat Menteri Jokowi .,0,['Jabat']
+test_447,Jurus ampuhh di Indonesia biar ga disalahin Ã¢â‚¬Å“Mohon maaf sekadar mengingatkanÃ°Å¸â„¢ÂÃ°Å¸ÂÂ»Ã¢â‚¬Â,0,"['Jurus ampuhh', 'Mohon maaf sekadar mengingatkan']"
+test_448,Tiada hari tanpa HOAX :D,0,['HOAX']
+test_449,Katanya Ijtima Ulama tapi kok tidak paham basic Islami,1,['Ijtima Ulama']
+test_450,Kalau jualannya tdk laku ya jangan marah2 Kadrun Yang benar itu Tauhid tempatnya didalam hati kukan bendera anda dan Takbir itu tempatnya di Madjid bukan di jalanan Drun . Jadi berhentilah menjual Agama ORA LAKU krn Agama itu bukan untuk dijual Drun Sasar Sontoloyo .,0,"['Kadrun', 'Tauhid', 'Madjid', 'Drun', 'Sontoloyo', 'ORA LAKU']"
+test_451,Kenapa infrastruktur tidak berhasil pada era sebelumnya dan berjalan dgn mulus di era JOKOWI . Karena sebelumnya kasih ganti rugi sedangkan JOKOWI berika GANTI UNTUNG . Pakar managemen kelas dunia Rhenald Kasali Soetta sukses pembangunan runway3,0,"['Ganti rugi', 'Ganti untung', 'Runway']"
+test_452,Untuuung ibu gua emak emak posyandu pkk bukan sosialita .. Hadehhh,0,['posyandu']
+test_453,Anak buahnya pak nadiem makarimðŸ‹ðŸ»â€â™€ï¸ pengen post di wa nge blur :(,0,['Makarim']
+test_454,Gara-gara PRABOWO yang gila jabatan Indonesia yang kemarin dipuji karena telah menyelenggarakan pemilu terbesar di,0,"['gila', 'jabatan']"
+test_455,Belum ada penelitian yang membuktikan penggunaan cadar dan celana cingkrang identik dengan tindakan radikalisme .,0,['cingkrang']
+test_456,anda nyanyia saja bapak .. lebih merdu ketimbang ngomongin soal kerjaan bapak Anis ..,1,['nyanyia']
+test_457,Terkutuk lu koplakkk,0,['koplakk']
+test_458,Alhamdulillah nih di bdg ga ada org tolol yg pencet klakson pdhl lampu ijo baru nyala,0,['bdg']
+test_459,Ini anggota DPRD yg ga tau fungsi dan tugasnya deh . Emang sekolah ada yunior dan senior ... Pasti jiwa preman dia .... Kok bisa jadi anggota dewan ya .. Cc,0,"['younior', 'preman']"
+test_460,Ada yang ngomongin dari belakang? Senyumin ajaaaa ðŸ˜„ | MC Kondang,0,['Senyumin ajaa']
+test_461,Kerjasama IPB dan Gojek,0,"['IPB', 'Institut Pertanian Bogor']"
+test_462,Ibu-ibu sosialita jaksel ternyata ramah2 bgttt Jd td abis meeting terus sempet ketemu dan salaman sm client company itu . dan pas selesai gue makan . pas masuk tmpt makannya si ibu-ibu client tadi nyapa gue dadah2 dan mukanya ramah bgtt uwu,0,"['sosialita', 'jaksel', 'ramah bgtt', 'meeting', 'client company', 'tmpt makannya', 'dadah', 'uwu']"
+test_463,Ketika Jakarta lagi dalam darurat banjir pohon2 malah di tebangi .Masyakat bingung KESERIUSAN dlm menangani banjir .,0,['KESERIUSAN']
+test_464,Information Center: Memberikan informasi real terkait produk dan program : memberikan informasi berupa Hoax agar Hoax nya makin kuat tidak tertandingi . Sadeeessshhhh,1,['Hoax']
+test_465,Di IPB SPP mahasiswa bervariasi antara 15 .000 .000 per semester hingga 500 .000 . Tergantung penghasilan bulanan orang tua mereka . Bahkan ada pula yg gratis ..cmiiw ..,0,['SPP']
+test_466,Presiden jajan cilok jadi jadi prestasi?,0,['cilok']
+test_467,Anies jauh lebih hebat dari bu Susi bu Susi cuma bisa menenggelamkan kapal kalo Anies bisa menenggelamkan Jakarta owkwowkaakwowk HEBAT,0,['owkwowkaakwowk']
+test_468,Intinya pak bgmn nelayan bisa sejahtera dan kalau bisa kita tingkatkan eksport ikan ke luar negeri,0,['bgmn']
+test_469,syarat jadi anggota PDI PERJUANGAN apa ya? Kantor cabang PDI PERJUANGAN KABUPATEN ROKAN HILIR RIAU di mana ya? Saya mau daftar jd anggota PDI PERJUANGAN,0,"['PDI PERJUANGAN', 'Kantor cabang', 'Kabupaten Rokan Hilir', 'Kabupaten Riau', 'Daftar jd anggota']"
+test_470,Nanti kalo mau masuk tol ditanya dulu : kamu pilih 01/02?,0,['']
+test_471,Dia bilang jangan pilih pemimpin yang tidak memiliki pengalaman .. tapi dia amatiran :D :D :D :D,1,['amatiran']
+test_472,Rasa muntah ... Gnpf ulama bela pemprov dki soal penghargaan diskotek,0,"['Gnpf', 'diskotek']"
+test_473,Ketika ada bungkus rokok tergeletak diambil dan otomatis langsung di goyang-goyang dulu baru dibuang nah disitulah masih banyak orang mencari keberuntungan . Mbokmenowo bejo isih ono udude sek penting yakin karo digajal generasioptimis :D,0,"['Mbokmenowo bejo', 'Isih ono udude sek', 'Digajal generasioptimis']"
+test_474,Rakyat Papua rindu dengan pemimpinnya .,0,['rindu']
+test_475,Jum'atan biar diaku sebagai umat nabi Muhammad bukan biar diaku sebagai anggota/ pendukung partai . Situ sehat ???,1,"['jumatan', 'umat nabi muhammad', 'anggotapendukung partai', 'situ sehat ']"
+test_476,Ya sudah lah udah mirip kan,0,['mirip']
+test_477,Dasar JANCUK gampang banget obral janji Emang msh ada yg mau kau tipu ? Klo cebong gue maklumin,0,"['JANCUK', 'Obral janji']"
+test_478,KAMU KEREN JOOO ! KONSISTEN TERUS ðŸ¥°â¤ï¸,0,['']
+test_479,RINSO RINI SONTOLOYO,0,"['RINSO', 'RINI', 'SONTOLOYO']"
+test_480,Terimakasih bapak wowo sudah mau berterus terang bahwa anda berkiblat ke barat . jadi tidak perlu lagi di perdebatkan bahwa anda tidak pantas menjadi pemimpin negeri ini,1,['wowo']
+test_481,Bagusss Ã°Å¸ËœÂ­ apaka mereka akan ada di s2 Fyi pertama kalo aku baca nama Ã¢â‚¬Å“ZOOLÃ¢â‚¬Â kupikir Ã¢â‚¬Å“tololÃ¢â‚¬Â Ã°Å¸ËœÂ­Ã°Å¸ËœÂ­ maapkan huhu Ã°Å¸â„¢ÂÃ°Å¸ÂÂ»,0,"['', 's', 'Fyi', 'ZOOL', '']"
+test_482,kasian perempuan kalo terus2an kalian jadikan alat utk berkampanye hitam dari pintu ke pintu woy,0,['hitam']
+test_483,Banyaknya PR yang Menanti Nadiem Makarim di Kemdikbud Apakah Ia Sanggup?,0,['PR']
+test_484,Terlalu buat ungkapin rasa ini :,0,['ungkapin']
+test_485,Tidak ada orang yang malas yang ada hanya orang yang kehilangan motivasi .,0,"['malas', 'motivasi']"
+test_486,Beda pilihan calon presiden sampai tidak akur sama temen tetangga apalagi sama keluarga . Ada ada saja kelakuan negara berkembang ini.,1,['kelakuan']
+test_487,Gubernur ane mang warbiasa .... kosakata yang dipake langsung diturunken ke anak buah nya... abaikan yang laen tidak faham????????,1,['warbiasa']
+test_488,memang benar2 bangsat,0,['bangsat']
+test_489,Jualan asik pake politik laris manis ..,0,['laris manis']
+test_490,Terkadang anak muda merasa sesak nafas dan pekat dada karena tuntutan orang tua . Tapi itulah proses pendewasaan .,0,['pekat dada']
+test_491,goblok .,0,['goblok']
+test_492,Otak MALING YA TETAP AJA MALING ..MALING ANGGARAN APBD DKI ... PASTI SATU JARINGAN GA MUNGKIN SALAH INPUT KESALAHAN DARI BAWAHAN SAJA ....,0,"['ANGGARAN APBD DKI', 'APBD', 'DKI', 'Anggaran Pendapatan dan Belanja Daerah', 'Daerah Khusus Ibu Kota Jakarta']"
+test_493,Setelah PSI sekarang PDIP yang terang2an menolak perda syariah bukankah mereka yang paling kencang berteriak; KAMI PALING PANCASILA!!!,1,"['PSI', 'PDIP', 'Perda syariah', 'PANCASILA']"
+test_494,Kelebihan Aa adalah doa ?????? sehingga Wan Abut sebagai Gubernur tidak pernah lelah MERUSAK Jakarta .,1,['MERUSAK']
+test_495,Satgas Novel semoga berguna ya bukan gimik-gimik manja menjelang Pilpres .,0,"['Satgas', 'Novel']"
+test_496,kmaren ada yang bilang antek asing skrng malah minta dukungan dengan orang asing dari negara cina weleh weleh kok ngomul mulu sihh ommm ndut .... mau jdi seorang pemimpin kok Bisanya hanya bikin Hoax ya ... aneh .,1,"['kmaren', 'antek asing', 'ndut', 'Hoax']"
+test_497,Ko ndak mendampingi pak bu?...,0,['ndak']
+test_498,Baca jg tl ane Yg ada tulisan ASN tdk mlarang cadar & cingkrang dtempat umum kcuali tempat2 khusus ... Trus apa yg mesti ane Info ke ASN kalo cadar &amp; cingkrang boleh dtempat2 umum ??,0,"['ASN', 'Cadar', 'Cingkrang', 'Dtempat umum', 'Kecuali tempat khusus']"
+test_499,Wah kayanya gak pengen dikeritik ini tuan,0,['gak']
+test_500,Kita tunggu duet Wishnutama â¦© dan Angela â¦ memajukan pariwisata Indonesia mendulang devisaâ© â¦© â¦©,0,['']
+test_501,Judul Film = Maling Kondang Sutradara = Gubernur Produser = Parpol doyan duit Aktor = Suku Dinas Kritikus =,0,"['Parpol', 'doyan', 'duit']"
+test_502,Wait jadi publik ga boleh tau apa yg dibahas di dewan gitu?,0,['dewan']
+test_503,Politisi yg biasa suka mengkritik Jokowi tapi giliran dikritik ngeblock salah satu pengusung paslon 02 ditangkap karena narkoba . Ahok keluar yg masuk banyak . Allah maha adil .,0,"['Paslon ', 'Ahok keluar yg masuk banyak']"
+test_504,tolol,0,['tolol']
+test_505,Semua yg dia omongin adalah dusta ..,0,"['dusta', 'bohong', 'katakata yang tidak benar', 'pengakuan yang tidak jujur']"
+test_506,Dia bersikap semaunya tapi tidak tahu semuanya .Dia bukan egois tetapi hanya sedikit egosentris.,0,['egosentris']
+test_507,Eksistensi setan ki turun bro nyi roro kidul we saiki berhijab . Mending cosplay dadi anggota DPR .,0,"['ki', 'nyi', 'we', 'saiki', 'cosplay', 'DPR']"
+test_508,Nia ramadhani?,0,"['Nia', 'Ramadhani']"
+test_509,Gk ada salah nya jika presiden malah itu menunjukkan sikap rendah hati yg sangat baik . Respect ðŸ™,0,['Gk']
+test_510,Testimoni Papua Kitorang Basudara Kita Indonesia . . . Pentas Seni Budaya Papua Polres Kepulauan Seribu . . Kitorang Basudara Kita Indonesia . . .pmj,0,['Kitorang']
+test_511,Alhamdulillah akhirnya ada yang positif dari lucinta Luna,1,['lucinta luna']
+test_512,adem kembali ke solo saja ke habitat mu,1,['adem']
+test_513,Semoga Sukses Dulurrrr,0,['Dulurr']
+test_514,Keberhasilan Polri mengungkap rencana besar untuk menggagalkan pelantikan presiden,0,['rencana besar']
+test_515,tolong kasih tahu ke Pak Inggrad Joshua ya ... Anda kan lama disitu apalagi udah tua . saya harap JGN TERLALU DIAM jadi kerjanya ga jelas,0,"['Inggrad Joshua', 'JGN', 'DIAM', 'kerjanya ga jelas']"
+test_516,Anies tuh hebat bikin banjir gimana seh,1,['bikin banjir']
+test_517,Wooow keren mental koruptor toh,1,"['mental', 'koruptor']"
+test_518,lulusan kampus lokal aja belagunya ampe trending gimana yg lulusan LN?? minta dibayar pake emas batangan kali ya,0,['belagunya']
+test_519,Bikin Prestasi yang Positif lah jangan nyebar hoax terus bikin rush saja Kita bangun yang Positif yuk ...,0,['rush']
+test_520,ajakin ahok aja tom biar ga salah tanda tangan ngelolosin RAPBD jadi APBD di kasus UPS ðŸ™ˆðŸ™ˆðŸ™ˆ,0,"['RAPBD', 'APBD', 'UPS', 'Tom']"
+test_521,Rocky gerung pakai akal sehat . Antum pakai akal Busuk .,0,"['gerung', 'Busuk']"
+test_522,Mantap sekali pk maju terus ....,0,['pk']
+test_523,Pak Tito sj lempar anduk padahal janji ungkap kss Novel B . Sy mah cuma takut tuk para\'pelaku bhw di dunia nyata boleh selamat . Tolong ingat ada Hakim Yang Maha Adil pemilik kerajaan langit dan bumi .,0,"['sj lempar anduk', 'janji ungkap kss Novel B', 'parapelaku', 'Hakim Yang Maha Adil pemilik kerajaan langit dan bumi']"
+test_524,2 orang bodoh berdebat di tepi sungai yang keruh tentang apa yang ada di dalamnya . Yang bijak akan menunggu sampai airnya jernih .,0,"['bodoh', ' keruh', ' jernih']"
+test_525,Tapi para wartawan ada yangvsuka klo doi berkomentar Smoga ga jadi pimpinan dpr lgi zonk,0,['vsuka']
+test_526,Bapak Kapolri Idham Aziz . ðŸ˜ðŸ˜ Media aja selalu di awasi dan di jaga sepenuh Hati . Apa lagi aku ðŸ˜˜ðŸ˜˜ðŸ˜˜ðŸ˜˜,0,"['', '', 'Bapak Kapolri Idham Aziz', 'Media aja selalu di awasi dan di jaga sepenuh Hati']"
+test_527,PERIHBAHASA JAMAN OLD .Lempar batu sembunyi tangan JAMAN NOW .Lempar batu yang diSEMBUNYIKAN di AMBULANCE GERINDRA,0,"['PERIHBAHASA', 'GERINDRA']"
+test_528,Nyawa itu berharga karena ada batasnya . Dan batas itulah yang membuat kita berjuang,0,['batas']
+test_529,kamu cantik bgt tapi kamu anjing tai babi,0,"['anjing', 'tai', 'babi']"
+test_530,Hasil Itjima Ulama keagamaannya nihil .. Orang dekatnya malah menghina ulama dengan puisinya ..Kubu sebelah memang sudah rusak ..,1,"['Itjima', 'Ulama', 'Nihil', 'Kubu', 'sebelah']"
+test_531,Sontoloyo,0,['Sontoloyo']
+test_532,Well jadi unfaedah :D:D,0,['unfaedah']
+test_533,Ciyee petani bawang nih :D :D Udahlah yaa sandiwaramu FAZDLIZONK muluu,1,['Sandiwaramu']
+test_534,yg gue tangkep itu antara apart-nya serem dia digangguin setan sm dia diikutin nyi roro kidul,0,"['tangkep', 'apartnya', 'serem', 'digangguin', 'setan', 'diikutin', 'nyi roro kidul']"
+test_535,Wuih pak capres memang keren kalau pakai jas .... besok saya pilih deh yang pakai jas,1,['Wuih']
+test_536,Welcome to Indonesia!!!! Sedih bangetttt!!! Siap siap bakal ada lagi kasus sama seperti ini karna gapernah adaaa hukuman untuk pelaku bullying??????,1,"['Sedih bangett', 'Gapernah adaaa hukuman', 'Bullying', 'Pelaku bullying']"
+test_537,terimakasih sudah dikasih liburan gratis,1,['liburan gratis']

@@ -1,0 +1,6 @@
+id,texts,label,unknown_words
+train_0,Di sini saya berbicara dalam konteks sebagai warga negara non\u2026,0,['nonu']
+train_1,Beneran pengen tau tanggapan mereka . Gerakan dan acara tadi pagi ditaman bungkul,0,['tanggapan']
+train_2,Anda anggota DPRD lama tapi mungkin mental MALING .,0,['MALING']
+train_3,Sekali sekali dea pengen punya circle sosialita lin,0,['sosialita']
+train_4,Kamu tau tidak..? Pasti tidak .. Goblok kamu memang ..,0,['Goblok']
