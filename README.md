@@ -6,6 +6,25 @@ An experimental framework to enhance LLM-based sarcasm detection by augmenting P
 
 ---
 
+## 📑 Table of Contents
+
+- [Introduction](#-introduction)
+- [Core Methodology](#-core-methodology)
+- [Key Features](#-key-features)
+- [Tech Stack](#-tech-stack)
+- [Getting Started](#-getting-started)
+  - [Prerequisites](#1-prerequisites)
+  - [Installation](#2-installation)
+  - [Setup](#3-setup)
+- [Running Experiments](#-running-experiments)
+  - [Example Command](#example-command)
+  - [Command-Line Arguments](#command-line-arguments)
+- [Understanding the Output](#-understanding-the-output)
+- [Authors & Acknowledgments](#-authors--acknowledgments)
+- [License](#-license)
+
+---
+
 ## 📖 Introduction
 
 Standard Large Language Models (LLMs) often struggle with the nuances of sarcasm, as it heavily relies on real-world context, shared knowledge, and implicit cues that are not always present in the text itself. While advanced prompting techniques like Pragmatic Metacognitive Prompting (PMP) have shown significant promise by structuring the model's reasoning process, they can still be limited by the knowledge contained within the model's parameters.
@@ -62,8 +81,7 @@ Follow these instructions to set up the environment and run experiments.
 
 1.  **Clone the repository:**
     ```bash
-    git clone [your-repo-url]
-    cd [your-repo-name]
+    git clone https://github.com/wllchrst/sarcasm-detection_pmp_knowledge-base.git
     ```
 
 2.  **Install Python dependencies:**
@@ -133,5 +151,3 @@ This research is being conducted as a collaborative project by:
 ## 📄 License
 
 This project is licensed under the MIT License. See the `LICENSE` file for details.
-
-```
