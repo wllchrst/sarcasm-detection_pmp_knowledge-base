@@ -85,7 +85,8 @@ class PromptHandler:
         return self.process_response(final_response)
 
     def process_response(self, response: str) -> int:
-        if "yes" in response.lower():
+        response_lower = response.lower()
+        if "yes" in response_lower or "ya" in response_lower:
             return 1
         else:
             return 0
