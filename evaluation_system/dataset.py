@@ -128,6 +128,8 @@ def load_twitter_indonesian_dataset_for_evaluation(folder_path: str = 'twitter_w
 
         for index, row in dataframe.iterrows():
             unknown_words = ast.literal_eval(row['unknown_words'])
+            if len(unknown_words) <= 0:
+                continue
             context_formatted = 'Definisi kata-kata penting:\n\n'
 
             for word in unknown_words:
