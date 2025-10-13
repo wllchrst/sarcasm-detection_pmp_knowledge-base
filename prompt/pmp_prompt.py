@@ -44,7 +44,7 @@ class PMPPrompt(BasePrompt):
     def generate_initial_last_prompt(self, is_indonesian: bool, use_context: bool) -> str:
         if is_indonesian:
             if use_context:
-                return "Terakhir, tentukan apakah pembicara berpura-pura memiliki sikap tertentu terhadap percakapan tersebut. Selain itu, ada kemungkinan disediakan beberapa fakta entitas dari kalimat yang dapat Anda gunakan. Hanya gunakan fakta tersebut jika langsung relevan, JANGAN menciptakan fakta baru."
+                return "Terakhir, tentukan apakah pembicara berpura-pura memiliki sikap tertentu terhadap percakapan tersebut. Selain itu, ada disediakan beberapa fakta entitas dari kalimat yang dapat Anda gunakan. Hanya gunakan fakta tersebut jika langsung relevan, JANGAN menciptakan fakta baru."
             else:
                 return "Terakhir, tentukan apakah pembicara berpura-pura memiliki sikap tertentu terhadap percakapan tersebut."
         else:

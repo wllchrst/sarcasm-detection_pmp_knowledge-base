@@ -144,7 +144,7 @@ def load_twitter_indonesian_dataset_for_evaluation(folder_path: str = 'twitter_w
                 else:
                     definition = find_definitions.iloc[0]
 
-                context_formatted += f'{word}: {definition}\n'
+                context_formatted += f'{definition}\n'
 
             definitions.append(context_formatted)
 

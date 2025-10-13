@@ -135,7 +135,7 @@ class System:
                 # ⏱️ measure classification time
                 start_time = time.perf_counter()
                 if self.argument.use_context:
-                    text = f'{context}\n\n{text}'
+                    text = f'{text}\n{context}'
 
                 classification_result = self.prompt_handler.process(text, self.argument.with_logging)
                 elapsed_time = time.perf_counter() - start_time
