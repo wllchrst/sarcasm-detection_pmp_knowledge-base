@@ -41,12 +41,17 @@ class PMPPrompt(BasePrompt):
             "- Are what the speaker implies and what the speaker thinks saying the same thing?\n"
         )
 
-    def generate_initial_last_prompt(self, is_indonesian: bool) -> str:
-        return (
-            "Terakhir, tentukan apakah pembicara berpura-pura memiliki sikap tertentu terhadap percakapan tersebut."
-            if is_indonesian
-            else "Finally, decide if the speaker is pretending to have a certain attitude toward the conversation."
-        )
+    def generate_initial_last_prompt(self, is_indonesian: bool, use_context: bool) -> str:
+        if is_indonesian:
+            if use_context:
+                return "Terakhir, tentukan apakah pembicara berpura-pura memiliki sikap tertentu terhadap percakapan tersebut. Selain itu, ada kemungkinan disediakan beberapa fakta entitas dari kalimat yang dapat Anda gunakan. Hanya gunakan fakta tersebut jika langsung relevan, JANGAN menciptakan fakta baru."
+            else:
+                return "Terakhir, tentukan apakah pembicara berpura-pura memiliki sikap tertentu terhadap percakapan tersebut."
+        else:
+            if use_context:
+                return "Finally, decide if the speaker is pretending to have a certain attitude toward the conversation. There are also some entity facts from the sentence that you can use. Only use them if directly relevant, do NOT invent new facts."
+            else:
+                return "Finally, decide if the speaker is pretending to have a certain attitude toward the conversation."
 
     def generate_reflection_first_prompt(self, is_indonesian: bool) -> str:
         if is_indonesian:
@@ -94,12 +99,12 @@ class PMPPrompt(BasePrompt):
             "Read the output, then summarize the LLM's stance with ONLY a YES (they think the sentence is sarcastic) or NO (they think the sentence is not sarcastic)."
         )
 
-    def get_prompt(self, is_indonesian: bool = False) -> Dict[str, str]:
+    def get_prompt(self, is_indonesian: bool, use_context: bool) -> Dict[str, str]:
         """Return a dictionary containing all prompts in English or Indonesian."""
         return {
             "initial_first_prompt": self.generate_initial_first_prompt(is_indonesian),
             "initial_prompt": self.generate_initial_prompt(is_indonesian),
-            "initial_last_prompt": self.generate_initial_last_prompt(is_indonesian),
+            "initial_last_prompt": self.generate_initial_last_prompt(is_indonesian, use_context),
             "reflection_first_prompt": self.generate_reflection_first_prompt(is_indonesian),
             "reflection_prompt": self.generate_reflection_prompt(is_indonesian),
             "final_decision_prompt": self.generate_final_decision_prompt(is_indonesian),

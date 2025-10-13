@@ -14,7 +14,8 @@ class PromptHandler:
                  use_verb_info: bool = False,
                  with_logging: bool = False,
                  context_full_llm: bool = False,
-                 is_indonesian: bool = False
+                 is_indonesian: bool = False,
+                 use_context: bool = False,
                  ):
         self.prompt_method = prompt_method
         self.dataset = dataset
@@ -23,6 +24,7 @@ class PromptHandler:
         self.use_verb_info = use_verb_info
         self.context_full_llm = context_full_llm
         self.is_indonesian = is_indonesian
+        self.use_context = use_context
         self.ollama = OllamaLLM(llm_model)
         self.ner_entry = NEREntry(model_name=llm_model,
                                   sentiment_model=sentiment_model,
@@ -50,7 +52,7 @@ class PromptHandler:
         if with_logging:
             print(log_separator)
 
-        prompts = pmp_prompt.get_prompt(is_indonesian=self.is_indonesian)
+        prompts = pmp_prompt.get_prompt(is_indonesian=self.is_indonesian, use_context=self.use_context)
         initial_first_prompt = prompts.get('initial_first_prompt')
         initial_prompt = prompts.get('initial_prompt')
         initial_last_prompt = prompts.get('initial_last_prompt')

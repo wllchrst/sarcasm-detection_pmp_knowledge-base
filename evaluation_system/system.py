@@ -41,6 +41,7 @@ class System:
         use_verb_info = getattr(self.argument, "use_verb_info", False)
         context_full_llm = getattr(self.argument, "context_full_llm", False)
         is_indonesian = getattr(self.argument, "is_indonesian", False)
+        use_context = self.argument.use_context
 
         if prompt is not None:
             return PromptHandler(prompt_method=prompt,
@@ -52,7 +53,8 @@ class System:
                                  with_logging=with_logging,
                                  use_verb_info=use_verb_info,
                                  context_full_llm=context_full_llm,
-                                 is_indonesian=is_indonesian)
+                                 is_indonesian=is_indonesian,
+                                 use_context=use_context)
         else:
             raise ValueError(f"Unknown prompt: {prompt}")
 
