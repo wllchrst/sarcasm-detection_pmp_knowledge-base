@@ -4,7 +4,7 @@ python -m main --dataset mustard --llm_model qwen3:8b --prompt pmp --use_ner --u
 
 python -m main --dataset twitter_indo --llm_model qwen3:8b --prompt pmp --use_ner --use_wiki --use_verb_info --is_indonesian --context_full_llm --sentiment_model bert_tweet --folder_name testing
 
-python -m main --dataset twitter_indo --llm_model qwen3:8b --prompt pmp --is_indonesian --sentiment_model bert_tweet --folder_name testing --use_context
+python -m main --dataset twitter_indo --llm_model qwen3:8b --prompt pmp --use_few_shot --is_indonesian --sentiment_model bert_tweet --folder_name testing --use_context
 
 python generate_context.py --partition test
 
