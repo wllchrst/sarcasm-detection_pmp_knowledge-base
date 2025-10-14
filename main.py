@@ -10,6 +10,7 @@
         with_logging=arguments.with_logging,
         llm_model=arguments.llm_model,
         prompt=arguments.prompt,
+        use_few_shot=arguments.use_few_shot,
         use_ner=arguments.use_ner,
         sentiment_model=arguments.sentiment_model,
         use_wiki=arguments.use_wiki,

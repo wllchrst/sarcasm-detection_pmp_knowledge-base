@@ -11,6 +11,7 @@ class SystemArgument:
     use_ner: bool
     use_wiki: bool
     use_verb_info: bool
+    use_few_shot: bool
     sentiment_model: str
     folder_name: str
     is_indonesian: bool

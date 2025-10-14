@@ -8,6 +8,8 @@ class ArgumentHelper:
         parser.add_argument("--dataset", help="Dataset that is going to evaluated")
         parser.add_argument("--llm_model", help="LLM that is going to be used for ollama")
         parser.add_argument("--prompt", help="Prompting technique that is going to be used")
+        parser.add_argument("--use_few_shot", help="Integrate few-shot examples in system prompt",
+                            action='store_true')
         parser.add_argument("--use_ner", help="Is the prompting technique going to use ner information",
                             action='store_true')
         parser.add_argument("--use_wiki", help="Verb information from wiki or llm",
