@@ -89,6 +89,58 @@ class PMPPrompt(BasePrompt):
             "Meaning - What is the difference between the literal and implied meaning of the statement?\n"
             "Reflect on the preliminary analysis and what should change, then decide if the statement is sarcastic."
         )
+    
+    def generate_reflection_last_prompt(self, is_indonesian: bool) -> str:
+        if self.dataset == "semeval" or self.dataset == "twitter_indo":
+            return (
+                "\nBerikut contoh refleksi:\n"
+                "Tweet: \"Dapet jatah lembur dibatalin, jadi pulang cepet. Hidup memang adil 😅\"\n"
+                "Implikatur: Mengatakan \"Hidup memang adil\" setelah hal yang menyenangkan terjadi—konteks positif, kalimat bisa terdengar bercanda/tulus.\n"
+                "Presuposisi: Diasumsikan pembatalan lembur membuat situasi menjadi lebih enak (pulang cepat).\n"
+                "Niat pembicara: Mengekspresikan kegembiraan/perasaan positif; kemungkinan bercanda ringan, bukan sindiran pedas.\n"
+                "Polaritas: Literal positif dan implisit juga positif.\n"
+                "Kepura-puraan: Tidak ada pretense yang jelas; lebih ke candaan ringan.\n"
+                "Makna: Literal dan tersirat konsisten; kecenderungan tidak sarkastik.\n"
+                "Refleksi akhir: Lebih cocok sebagai komentar bercanda/senang, bukan sarkasme yang sinis.\n"
+                "Keputusan akhir: NO\n"
+                "Tweet: \"Bagus banget, listrik mati pas lagi final online. Sumpah rejeki beneran\"\n"
+                "Implikatur: Kalimat tampak memuji (\"Bagus banget\") tetapi konteks (listrik mati saat final) jelas negatif; pembicara menyindir situasi.\n"
+                "Presuposisi: Diasumsikan listrik mati dan menimbulkan masalah pada ujian/online.\n"
+                "Niat pembicara: Mengungkapkan kekesalan dengan ironi, bukan benar-benar memuji.\n"
+                "Polaritas: Literal positif, implisit negatif.\n"
+                "Kepura-puraan: Ada pretense — pura-pura menyatakan kejelekan sebagai \"bagus\".\n"
+                "Makna: Perbedaan jelas antara makna literal (pujian) dan tersirat (keluhan).\n"
+                "Refleksi akhir: Kontras kata vs konteks kuat; indikator sarkastik jelas.\n"
+                "Keputusan akhir: YES\n"
+                if is_indonesian else
+                "\nHere are example reflections:\n"
+                "Tweet: \"My extra shift got canceled so I got to go home early. Life is fair 😅\"\n"
+                "Implikatur: The speaker reports a favorable outcome (no overtime → early leave); \"Life is fair\" here reads as light, playful comment rather than sharp irony.\n"
+                "Presuppositions: It is assumed the cancellation is unexpected and results in a positive benefit (going home early).\n"
+                "Speaker intent: To express mild happiness or amusement about a small stroke of luck.\n"
+                "Polarity: Literal and implied polarity are both positive.\n"
+                "Pretense: No evident pretense — the utterance aligns with the situation.\n"
+                "Meaning: Literal meaning (positive) and implied meaning (positive) match.\n"
+                "Final reflection: No clear contradiction or ironic stance; this reads as a genuine or playful comment, not biting sarcasm.\n"
+                "Final decision: NO\n"
+                "Tweet: \"Great — the power went out during my online final. Perfect timing 😒\"\n"
+                "Implikatur: The literal praise (\"Great\", \"Perfect timing\") contradicts the negative situation (power outage during an important exam); the speaker likely means the opposite.\n"
+                "Presuppositions: It is assumed the outage disrupted the exam and caused stress.\n"
+                "Speaker intent: To express frustration and criticize the situation indirectly, not to genuinely praise it.\n"
+                "Polarity: Literal wording is positive, but implied polarity is negative.\n"
+                "Pretense: There is clear pretense — the speaker is pretending to praise while actually conveying annoyance.\n"
+                "Meaning: The literal and implied meanings diverge (literal praise vs. implied complaint), indicating irony.\n"
+                "Final reflection: Strong contrast between wording and situation supports a sarcastic reading.\n"
+                "Final decision: YES\n"
+            )
+        elif self.dataset == "mustard":
+            return (
+                "\nBerikut contoh refleksi:\n"
+                "// TODO: few-shot movie dialogues examples \n"
+                if is_indonesian else
+                "\nHere are example reflections:\n"
+                "// TODO: few-shot movie dialogues examples \n"
+            )
 
     def generate_final_decision_prompt(self, is_indonesian: bool) -> str:
         return (
@@ -107,5 +159,6 @@ class PMPPrompt(BasePrompt):
             "initial_last_prompt": self.generate_initial_last_prompt(is_indonesian, use_context),
             "reflection_first_prompt": self.generate_reflection_first_prompt(is_indonesian),
             "reflection_prompt": self.generate_reflection_prompt(is_indonesian),
+            "reflection_last_prompt": self.generate_reflection_last_prompt(is_indonesian),
             "final_decision_prompt": self.generate_final_decision_prompt(is_indonesian),
         }

@@ -9,6 +9,7 @@ class PromptHandler:
                  llm_model: str,
                  sentiment_model: str,
                  dataset: str,
+                 use_few_shot: bool = False,
                  use_ner: bool = False,
                  use_wiki: bool = False,
                  use_verb_info: bool = False,
@@ -18,6 +19,7 @@ class PromptHandler:
                  use_context: bool = False,
                  ):
         self.prompt_method = prompt_method
+        self.use_few_shot = use_few_shot
         self.dataset = dataset
         self.use_ner = use_ner
         self.use_wiki = use_wiki
@@ -75,6 +77,11 @@ class PromptHandler:
         reflection_first_prompt = prompts.get('reflection_first_prompt')
         reflection_prompt = prompts.get('reflection_prompt')
         combined_reflection_prompt = f'{reflection_first_prompt}{reflection_prompt}'
+
+        if self.use_few_shot:
+            reflection_last_prompt = prompts.get('reflection_last_prompt')
+            combined_reflection_prompt = f'{combined_reflection_prompt}{reflection_last_prompt}'
+
         reflection_response = self.ollama.answer(combined_reflection_prompt, text + " " + judge_input, with_logging)
 
         judge_input += line_seperator

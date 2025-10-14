@@ -33,6 +33,7 @@ class System:
 
     def load_prompt_handler(self) -> PromptHandler:
         prompt = self.argument.prompt
+        use_few_shot = self.argument.use_few_shot
         use_ner = getattr(self.argument, "use_ner", False)
         llm_model = self.argument.llm_model
         with_logging = self.argument.with_logging
@@ -45,6 +46,7 @@ class System:
 
         if prompt is not None:
             return PromptHandler(prompt_method=prompt,
+                                 use_few_shot=use_few_shot,
                                  llm_model=llm_model,
                                  sentiment_model=self.argument.sentiment_model,
                                  dataset=dataset,
