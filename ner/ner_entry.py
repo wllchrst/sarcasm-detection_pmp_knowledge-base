@@ -52,27 +52,27 @@ class NEREntry:
 
         entities = [entity for entity in entities if entity not in filtered_entities]
 
-        verb_sentiments = self.processor.process_verbs(verbs, cleaned)
+        # verb_sentiments = self.processor.process_verbs(verbs, cleaned)
         entities_information = self.processor.get_word_information(entities, use_wiki)
-        verbs_information = []
+        # verbs_information = []
 
-        if use_verb_info:
-            verbs_information = self.processor.get_word_information(verbs, use_wiki)
+        # if use_verb_info:
+        #     verbs_information = self.processor.get_word_information(verbs, use_wiki)
 
-        verb_conclusion = ''
-        for verb, sentiment in zip(verbs, verb_sentiments):
-            sentiment_label = SENTIMENT_LABEL_MAPPING_DESCRIPTION \
-                .get(sentiment['label'], 'Unknown sentiment')
+        # verb_conclusion = ''
+        # for verb, sentiment in zip(verbs, verb_sentiments):
+        #     sentiment_label = SENTIMENT_LABEL_MAPPING_DESCRIPTION \
+        #         .get(sentiment['label'], 'Unknown sentiment')
 
-            verb_conclusion += f'Verb: {verb}, Sentiment: {sentiment_label}\n'
+        #     verb_conclusion += f'Verb: {verb}, Sentiment: {sentiment_label}\n'
 
-        verb_info_conclusion = ''
-        for verb, information in zip(verbs, verbs_information):
-            verb_info_conclusion += f'Verb: {verb}\nInformation: {information}\n'
+        # verb_info_conclusion = ''
+        # for verb, information in zip(verbs, verbs_information):
+        #     verb_info_conclusion += f'Verb: {verb}\nInformation: {information}\n'
 
         entity_conclusion = ''
-        for entity, information in zip(entities, entities_information):
-            entity_conclusion += f'Entity: {entity}\nInformation: {information}\n'
+        for information in entities_information:
+            entity_conclusion += f'{information}\n'
 
-        final_result = f'\n{verb_conclusion}\n{verb_info_conclusion}\n{entity_conclusion}\n'
+        final_result = f'{entity_conclusion}\n'
         return final_result
