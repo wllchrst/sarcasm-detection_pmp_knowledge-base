@@ -3,6 +3,7 @@ from helpers import WordHelper, env_helper
 from typing import Tuple
 from ner.ner_processor import NERProcessor
 from interfaces import LLMType
+from typing import List
 
 SENTIMENT_LABEL_MAPPING_DESCRIPTION = {
     'NEG': 'Negative meaning',
@@ -38,6 +39,7 @@ class NEREntry:
 
     def get_sentence_context(self,
                              sentence: str,
+                             filtered_entities: List[str],
                              use_wiki: bool = False,
                              use_verb_info: bool = False,
                              context_full_llm: bool = False) -> str:
@@ -47,6 +49,8 @@ class NEREntry:
 
         cleaned = WordHelper.clean_sentence(sentence)
         verbs, entities = self.get_sentence_token(cleaned)
+
+        entities = [entity for entity in entities if entity not in filtered_entities]
 
         verb_sentiments = self.processor.process_verbs(verbs, cleaned)
         entities_information = self.processor.get_word_information(entities, use_wiki)

@@ -57,7 +57,9 @@ def load_mustard_dataset(file_path: str = 'mustard_sarcasm_data.json'):
         data.append({
             'id': row['id'],
             'text': text_formatted,
-            'label': 1 if sarcasm else 0
+            'label': 1 if sarcasm else 0,
+            'speaker': speakers,
+            'context_speakers': context_speakers,
         })
 
     formatted_df = pd.DataFrame(data)

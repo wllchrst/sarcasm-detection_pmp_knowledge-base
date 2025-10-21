@@ -1,7 +1,7 @@
 ﻿from ner import NEREntry
 from llm import OllamaLLM
 from prompt import NERPrompt
-
+from typing import List
 
 class PromptHandler:
     def __init__(self,
@@ -36,15 +36,17 @@ class PromptHandler:
 
     def process(self,
                 text: str,
-                with_logging: bool) -> int:
+                with_logging: bool,
+                filtered_entities: List[str]) -> int:
         if self.prompt_method == "pmp":
-            return self.pmp_process(text, with_logging)
+            return self.pmp_process(text, with_logging, filtered_entities)
         else:
             raise ValueError("Prompt method not set/found")
 
     def pmp_process(self,
                     text: str,
-                    with_logging: bool) -> int:
+                    with_logging: bool,
+                    filtered_entities: List[str]) -> int:
         from prompt import PMPPrompt
         pmp_prompt = PMPPrompt(self.dataset)
         judge_input = ""
@@ -61,7 +63,7 @@ class PromptHandler:
         combined_initial_prompt = f'{initial_first_prompt}{initial_prompt}{initial_last_prompt}'
 
         if self.use_ner:
-            ner_information = self.ner_entry.get_sentence_context(text, self.use_wiki, self.use_verb_info,
+            ner_information = self.ner_entry.get_sentence_context(text, filtered_entities, self.use_wiki, self.use_verb_info,
                                                                   self.context_full_llm)
 
             if len(ner_information.strip()) > 0:

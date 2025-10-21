@@ -129,6 +129,11 @@ class System:
                 text = row['text']
                 label = row['label']
                 context = row['context']
+                speaker = row['speaker']
+                context_speakers = row['context_speakers']
+
+                # filter speaker names (not exist = null, is ok)
+                filtered_entities = context_speakers + [speaker]
 
                 if id in predicted_ids:
                     print(f'Skipped index {index} with dataset id: {id}')
@@ -139,7 +144,7 @@ class System:
                 if self.argument.use_context:
                     text = f'{text}\n{context}'
 
-                classification_result = self.prompt_handler.process(text, self.argument.with_logging)
+                classification_result = self.prompt_handler.process(text, self.argument.with_logging, filtered_entities)
                 elapsed_time = time.perf_counter() - start_time
 
                 ids.append(id)
