@@ -59,8 +59,7 @@ class PromptHandler:
         prompts = pmp_prompt.get_prompt(is_indonesian=self.is_indonesian, use_context=self.use_context)
         initial_first_prompt = prompts.get('initial_first_prompt')
         initial_prompt = prompts.get('initial_prompt')
-        initial_last_prompt = prompts.get('initial_last_prompt')
-        combined_initial_prompt = f'{initial_first_prompt}{initial_prompt}{initial_last_prompt}'
+        combined_initial_prompt = f'{initial_first_prompt}{initial_prompt}'
 
         if self.use_ner:
             ner_information = self.ner_entry.get_sentence_context(text, filtered_entities, self.use_wiki, self.use_verb_info,
@@ -69,7 +68,7 @@ class PromptHandler:
             if len(ner_information.strip()) > 0:
                 ner_prompt = NERPrompt()
                 context_prompt = ner_prompt.get_prompt(is_indonesian=self.is_indonesian).get('context_prompt')
-                combined_initial_prompt = f'{initial_first_prompt}{initial_prompt}{context_prompt}{ner_information}{initial_last_prompt}'
+                combined_initial_prompt = f'{combined_initial_prompt} {context_prompt}'
 
         initial_response = self.ollama.answer(combined_initial_prompt, text, with_logging)
 

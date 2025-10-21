@@ -8,9 +8,9 @@ class NERPrompt(BasePrompt):
 
     def generate_context_prompt(self, is_indonesian: bool) -> str:
         return (
-            "Konteks - Berikut adalah beberapa informasi tentang entitas dan kata kerja penting dalam pernyataan:"
+            "Selain itu, ada disediakan beberapa fakta entitas dari kalimat yang dapat Anda gunakan. Hanya gunakan fakta tersebut jika langsung relevan, JANGAN menciptakan fakta baru."
             if is_indonesian
-            else "Context - Here is some information about important entities and verbs in the statement:"
+            else "There are also some entity facts from the sentence that you can use. Only use them if directly relevant, do NOT invent new facts."
         )
 
     def get_prompt(self, is_indonesian: bool = False) -> Dict[str, str]:
