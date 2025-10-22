@@ -56,7 +56,7 @@ class PromptHandler:
         if with_logging:
             print(log_separator)
 
-        prompts = pmp_prompt.get_prompt(is_indonesian=self.is_indonesian, use_context=self.use_context)
+        prompts = pmp_prompt.get_prompt(is_indonesian=self.is_indonesian)
         initial_first_prompt = prompts.get('initial_first_prompt')
         initial_prompt = prompts.get('initial_prompt')
         combined_initial_prompt = f'{initial_first_prompt}{initial_prompt}'
