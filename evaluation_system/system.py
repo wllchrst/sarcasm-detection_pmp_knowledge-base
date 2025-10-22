@@ -128,12 +128,19 @@ class System:
                 id = row['id']
                 text = row['text']
                 label = row['label']
-                context = row['context']
-                speaker = row['speaker']
-                context_speakers = row['context_speakers']
-
+                context = []
+                speaker = []
+                context_speakers = []
+                filtered_entities = []
+                
                 # filter speaker names (not exist = null, is ok)
-                filtered_entities = context_speakers + [speaker]
+                if self.argument.dataset == 'twitter_indo':
+                    context = row['context']
+                if self.argument.dataset == 'mustard':
+                    speaker = row['speaker']
+                    context_speakers = row['context_speakers']
+                    filtered_entities = context_speakers + [speaker]
+
 
                 if id in predicted_ids:
                     print(f'Skipped index {index} with dataset id: {id}')
@@ -143,7 +150,6 @@ class System:
                 start_time = time.perf_counter()
                 if self.argument.use_context:
                     text = f'{text}\n{context}'
-
                 classification_result = self.prompt_handler.process(text, self.argument.with_logging, filtered_entities)
                 elapsed_time = time.perf_counter() - start_time
 
