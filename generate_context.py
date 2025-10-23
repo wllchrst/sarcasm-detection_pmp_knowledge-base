@@ -9,7 +9,7 @@ from interfaces import LLMType
 from typing import Optional
 from helpers.argument_helper import ArgumentHelper
 from joblib import Memory
-from context_generation.context_retrieval import get_word_definition
+from context_retrieval import get_word_definition
 
 memory = Memory("cache_dir", verbose=0)
 OUTPUT_FOLDER = 'twitter_with_context'
@@ -56,6 +56,7 @@ def load_objects(dataset: str):
 
 
 def detect_unknown_words(processor: NERProcessor,
+                         is_indonesian: bool,
                          dataframe: pd.DataFrame,
                          file_path: str = None) -> pd.DataFrame:
     unknown_words = []
@@ -83,7 +84,8 @@ def detect_unknown_words(processor: NERProcessor,
                 words = saved_dataframe.loc[saved_dataframe['id'] == current_id, 'unknown_words'].iloc[0]
                 unknown_words.append(words)
             else:
-                words = processor.get_unknown_words(text=text)
+                words = processor.get_unknown_words(text=text, is_indonesian=is_indonesian)
+                print(f'{text}: {words}')
                 unknown_words.append(words)
 
             ids.append(current_id)
@@ -172,6 +174,7 @@ def start_generate_context(partition: Optional[str] = None, dataset: str = 'twit
         output_path = generate_output_path(partition, dataset=dataset)
         df_with_unknowns = detect_unknown_words(
             dataframe=df,
+            is_indonesian=is_indonesian,
             processor=processor,
             file_path=output_path
         )
@@ -193,8 +196,10 @@ def start_generate_context(partition: Optional[str] = None, dataset: str = 'twit
 
 if __name__ == "__main__":
     arguments = ArgumentHelper.parse_context_generation()
+    print(f'Running generation script using | arguments:\n{arguments}')
 
     if arguments.partition is None:
         raise ValueError("arguments.partition cannot be none")
 
-    start_generate_context(partition=arguments.partition)
+    start_generate_context(partition=arguments.partition,
+                           dataset=arguments.dataset)

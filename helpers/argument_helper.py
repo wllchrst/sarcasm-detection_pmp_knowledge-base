@@ -32,5 +32,6 @@ class ArgumentHelper:
     def parse_context_generation():
         parser = argparse.ArgumentParser()
         parser.add_argument("--partition", help="Dataset partition that context is going to be build on")
+        parser.add_argument("--dataset", help="Dataset that will be in used for the generation")
 
         return parser.parse_args()
