@@ -12,11 +12,14 @@ import pandas as pd
 import json
 import re
 import ast
+import os
 
 from typing import List, Dict
 from datasets import load_dataset
+from matplotlib import pyplot as plt
 
 PARTITION_LIST = ['train', 'test', 'validation']
+SAVE_PLOT_FOLDER = 'dataset_information'
 
 
 def load_semeval_dataset(file_path: str = 'SemEval2018-T3_gold_test_taskA_emoji.txt') -> pd.DataFrame:
@@ -172,3 +175,44 @@ def load_twitter_indonesian_dataset_for_evaluation(folder_path: str = 'twitter_w
                                  information_df=information_df)
 
     raise ValueError('Partition value is wrong')
+
+
+def generate_plot():
+    os.makedirs(SAVE_PLOT_FOLDER, exist_ok=True)
+
+    datasets = {
+        'semeval': load_semeval_dataset(),
+        'mustard': load_mustard_dataset(),
+        'twitter_indo': load_twitter_indonesian_dataset()
+    }
+
+    label_mapping = {1: "sarcasm", 0: "not sarcasm"}
+    label_order = ["not sarcasm", "sarcasm"]
+    colors = ["#3498db", "#e74c3c"]  # vibrant blue & red
+
+    for key, dataset in datasets.items():
+        dataset['label'] = dataset['label'].map(label_mapping)
+
+        label_counts = dataset['label'].value_counts()
+        label_counts = label_counts.reindex(label_order)
+
+        plt.figure(figsize=(8, 7))
+        ax = label_counts.plot(kind="bar", color=colors)
+
+        # Title & axes labels
+        plt.title(f"Label Distribution for {key.upper()} Dataset")
+        plt.xlabel("Label")
+        plt.ylabel("Count")
+        plt.xticks(rotation=0)
+
+        # Add count labels on top of each bar
+        for i, count in enumerate(label_counts):
+            ax.text(i, count + max(label_counts) * 0.02, str(count), ha='center', fontsize=11, fontweight='bold')
+
+        plt.tight_layout()
+
+        save_path = os.path.join(SAVE_PLOT_FOLDER, f"{key}_label_distribution.png")
+        plt.savefig(save_path)
+        plt.close()
+
+        print(f"Saved plot for {key} dataset at {save_path}")
