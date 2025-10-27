@@ -3,15 +3,19 @@ import json
 import os
 import seaborn as sns
 import time
+import traceback
 from evaluation_system.dataset import load_semeval_dataset, load_mustard_dataset, \
     load_twitter_indonesian_dataset_for_evaluation
 from interfaces import SystemArgument
 from prompt import PromptHandler
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix
 from matplotlib import pyplot as plt
+from typing import *
 
 evaluation_result_folder = 'evaluation_result'
 checkpoint_filename = 'checkpoint.csv'
+QWEN_MODEL_PARSE_NAME = 'qwen3_8b'
+BERT_TWEET_PARSE_NAME = 'bert_tweet'
 
 
 class System:
@@ -132,7 +136,7 @@ class System:
                 speaker = []
                 context_speakers = []
                 filtered_entities = []
-                
+
                 # filter speaker names (not exist = null, is ok)
                 if self.argument.dataset == 'twitter_indo':
                     context = row['context']
@@ -140,7 +144,6 @@ class System:
                     speaker = row['speaker']
                     context_speakers = row['context_speakers']
                     filtered_entities = context_speakers + [speaker]
-
 
                 if id in predicted_ids:
                     print(f'Skipped index {index} with dataset id: {id}')
@@ -225,3 +228,61 @@ class System:
 
         os.makedirs(foldername, exist_ok=True)
         return foldername
+
+    @staticmethod
+    def parse_evaluation_foldername(foldername: str) -> Dict[str, Optional[str]]:
+        llm_model = ''
+        sentiment_model = ''
+        use_ner = False
+        dataset = ''
+        foldername = foldername.lower()
+
+        if QWEN_MODEL_PARSE_NAME in foldername:
+            llm_model = 'qwen3:8b'
+
+        if BERT_TWEET_PARSE_NAME in foldername:
+            sentiment_model = 'bert_tweet'
+
+        if 'ner' in foldername.lower():
+            use_ner = True
+
+        if 'mustard' in foldername:
+            dataset = 'MUStARD'
+        elif 'twitter_indo' in foldername:
+            dataset = 'Indonesian Twitter'
+        elif 'semeval' in foldername:
+            dataset = 'SemEval 2018'
+
+        method = 'PMPCT' if use_ner else 'PMPGS'
+        method += '-FS' if 'few_shot' in foldername else ''
+
+        return {
+            "llm_model": llm_model,
+            "sentiment_model": sentiment_model,
+            "method": method,
+            "dataset": dataset,
+        }
+
+    @staticmethod
+    def make_csv_from_result(result_folder: str = evaluation_result_folder) -> bool:
+        try:
+            paths = os.listdir(result_folder)
+            results = []
+            for path in paths:
+                if '.' in path:
+                    continue
+
+                experiment_result_path = os.path.join(result_folder, f'{path}/evaluation.json')
+                result = System.parse_evaluation_foldername(path)
+                with open(experiment_result_path, 'r') as file:
+                    data = json.load(file)
+                    result = {**result, **data}
+                    results.append(result)
+
+            df = pd.DataFrame(results)
+            df.to_csv(os.path.join(result_folder, 'result.csv'))
+            return True
+
+        except Exception as e:
+            traceback.print_exc()
+            return False
