@@ -118,7 +118,7 @@ def generate_output_path(partition: str, dataset: str):
     return f'{folder}/{partition}.csv'
 
 
-def generate_information(process: NERProcessor, dataframe: pd.DataFrame):
+def generate_information(process: NERProcessor, dataframe: pd.DataFrame, is_indonesian: bool):
     information_filepath = f'{OUTPUT_FOLDER}/{INFORMATION_DATASET_FILENAME}'
     information_dataframe = None
     if os.path.exists(information_filepath):
@@ -140,7 +140,9 @@ def generate_information(process: NERProcessor, dataframe: pd.DataFrame):
                     definition = information_dataframe.loc[information_dataframe['word'] == word, 'definition'].iloc[0]
                     definitions.append(definition)
                 else:
-                    definition = get_word_definition(process.llm, word)
+                    definition = get_word_definition(process.llm, word, is_indonesian=is_indonesian)
+                    if definition == '':
+                        continue
                     definitions.append(definition)
                 words.append(word)
 
@@ -189,7 +191,7 @@ def start_generate_context(partition: Optional[str] = None, dataset: str = 'twit
         dataframe_path = generate_output_path(partition, dataset=dataset)
         dataframe = pd.read_csv(dataframe_path)
 
-        generate_information(processor, dataframe)
+        generate_information(processor, dataframe, is_indonesian)
 
         print(f'Finished Generating information for {partition}')
 

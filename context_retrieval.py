@@ -29,13 +29,14 @@ INFORMATION_DATASET_FILENAME = 'information.csv'
 
 
 def retrieve_relevant_website(word: str, is_indonesian: bool) -> List[str]:
+    global current_api_index
     query = f'Apa itu {word}' if is_indonesian else word
     try:
         links = []
         url = 'https://www.googleapis.com/customsearch/v1'
         params = {
             'q': query,
-            'key': env_helper.GOOGLE_SEARCH_API_KEY,
+            'key': api_keys[current_api_index],
             'cx': env_helper.SEARCH_ENGINE_ID
         }
 
@@ -57,8 +58,11 @@ def retrieve_relevant_website(word: str, is_indonesian: bool) -> List[str]:
     except Exception as e:
         print(f'Error retrieving relevant website for {word}: {e}')
 
-        if 'Too Many Requests' in str(e):
+        if 'Too Many Requests' in str(e) and current_api_index == len(api_keys) - 1:
             raise e
+        elif 'too many requests'.lower() in str(e).lower():
+            print(f'switch api index {current_api_index}')
+            current_api_index += 1
 
         return []
 
@@ -181,13 +185,16 @@ def conclude_retrieved_information(llm: OllamaLLM,
                 f"Word to define: {word}"
         )
 
-    return llm.answer(system_prompt=system_prompt,
-                      prompt=prompt, with_logging=False)
+    answer = llm.answer(system_prompt=system_prompt,
+                        prompt=prompt, with_logging=False)
+
+    return answer
 
 
 def get_word_definition(llm: OllamaLLM, word: str, is_indonesian: bool):
     links = retrieve_relevant_website(word, is_indonesian=is_indonesian)
     if len(links) == 0:
+        print(f'got 0 links for {word}')
         return ''
 
     chunks = retrieve_important_chunks(links, key_word=word)
@@ -199,5 +206,5 @@ def get_word_definition(llm: OllamaLLM, word: str, is_indonesian: bool):
         llm=llm,
         word=word,
         informations=chunks,
-        is_indonesian=is_indonesian
+        is_indonesian=is_indonesian,
     )
