@@ -253,8 +253,14 @@ class System:
         elif 'semeval' in foldername:
             dataset = 'SemEval 2018'
 
-        method = 'PMPCT' if use_ner else 'PMPGS'
-        method += '-FS' if 'few_shot' in foldername else ''
+        method = 'PMP'
+        if use_ner:
+            method = 'PMPCT'
+        elif 'context' in foldername:
+            method = 'PMPGS'
+
+        if 'few_shot' in foldername:
+            method += 'FS'
 
         return {
             "llm_model": llm_model,
