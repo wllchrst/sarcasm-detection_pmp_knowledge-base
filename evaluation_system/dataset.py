@@ -22,10 +22,46 @@ PARTITION_LIST = ['train', 'test', 'validation']
 SAVE_PLOT_FOLDER = 'dataset_information'
 
 
-def load_semeval_dataset(file_path: str = 'SemEval2018-T3_gold_test_taskA_emoji.txt') -> pd.DataFrame:
-    semeval_df = pd.read_csv(file_path, sep='\t')
+def load_semeval_dataset(file_path: str = 'SemEval2018-T3_gold_test_taskA_emoji.txt',
+                         information_file_path: str = 'twitter_with_context/information_semeval.csv',
+                         detected_file_path: str = 'twitter_with_context/semeval/test.csv') -> pd.DataFrame:
+    if not os.path.exists(information_file_path):
+        semeval_df = pd.read_csv(file_path, sep='\t')
+        return semeval_df.rename(columns={'Tweet text': 'text', 'Label': 'label', 'Tweet index': 'id'})
 
-    return semeval_df.rename(columns={'Tweet text': 'text', 'Label': 'label', 'Tweet index': 'id'})
+    information_df = pd.read_csv(information_file_path)
+    detected_df = pd.read_csv(detected_file_path)
+
+    definitions = []
+
+    for index, row in detected_df.iterrows():
+        unknowns = ast.literal_eval(row['unknown_words'])
+        context_formatted = 'Definition for keywords:\n\n'
+
+        for word in unknowns:
+            word = word.lower()
+            if word == '':
+                continue
+
+            find_definitions = information_df.loc[information_df['word'] == word, 'definition']
+
+            if len(find_definitions) == 0:
+                print(f'Unknown definition for: {word}')
+                definition = ''
+            else:
+                definition = find_definitions.iloc[0]
+
+            context_formatted += f'{definition}\n'
+
+        definitions.append(context_formatted if len(unknowns) > 0 else '')
+
+    detected_df['context'] = definitions
+    return detected_df.rename(columns={
+        'id': 'id',
+        'texts': 'text',
+        'label': 'label',
+        'context': 'context'
+    })
 
 
 def load_mustard_dataset(file_path: str = 'mustard_sarcasm_data.json'):
