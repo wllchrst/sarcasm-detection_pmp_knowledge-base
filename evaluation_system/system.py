@@ -138,7 +138,7 @@ class System:
                 filtered_entities = []
 
                 # filter speaker names (not exist = null, is ok)
-                if self.argument.dataset == 'twitter_indo':
+                if self.argument.dataset == 'twitter_indo' or self.argument.dataset == 'semeval':
                     context = row['context']
                 if self.argument.dataset == 'mustard':
                     speaker = row['speaker']
