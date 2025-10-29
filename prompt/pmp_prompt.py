@@ -105,7 +105,7 @@ class PMPPrompt(BasePrompt):
                 if is_indonesian else
                 "\nHere are example reflections:\n"
                 "Tweet: \"My extra shift got canceled so I got to go home early. Life is fair 😅\"\n"
-                "Implikatur: The speaker reports a favorable outcome (no overtime → early leave); \"Life is fair\" here reads as light, playful comment rather than sharp irony.\n"
+                "Implicature: The speaker reports a favorable outcome (no overtime → early leave); \"Life is fair\" here reads as light, playful comment rather than sharp irony.\n"
                 "Presuppositions: It is assumed the cancellation is unexpected and results in a positive benefit (going home early).\n"
                 "Speaker intent: To express mild happiness or amusement about a small stroke of luck.\n"
                 "Polarity: Literal and implied polarity are both positive.\n"
@@ -114,7 +114,7 @@ class PMPPrompt(BasePrompt):
                 "Final reflection: No clear contradiction or ironic stance; this reads as a genuine or playful comment, not biting sarcasm.\n"
                 "Final decision: NO\n"
                 "Tweet: \"Great — the power went out during my online final. Perfect timing 😒\"\n"
-                "Implikatur: The literal praise (\"Great\", \"Perfect timing\") contradicts the negative situation (power outage during an important exam); the speaker likely means the opposite.\n"
+                "Implicature: The literal praise (\"Great\", \"Perfect timing\") contradicts the negative situation (power outage during an important exam); the speaker likely means the opposite.\n"
                 "Presuppositions: It is assumed the outage disrupted the exam and caused stress.\n"
                 "Speaker intent: To express frustration and criticize the situation indirectly, not to genuinely praise it.\n"
                 "Polarity: Literal wording is positive, but implied polarity is negative.\n"
