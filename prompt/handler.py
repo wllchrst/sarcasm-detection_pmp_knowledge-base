@@ -72,6 +72,12 @@ class PromptHandler:
                 combined_initial_prompt = f'{combined_initial_prompt} {context_system_prompt}'
                 text = f'{text}\n{context_user_prompt}{ner_information}'
 
+        if self.use_context:
+            ner_prompt = NERPrompt()
+            context_system_prompt = ner_prompt.get_prompt(is_indonesian=self.is_indonesian).get('context_system_prompt')
+            context_user_prompt = ner_prompt.get_prompt(is_indonesian=self.is_indonesian).get('context_user_prompt')
+            combined_initial_prompt = f'{combined_initial_prompt} {context_system_prompt}'
+
         initial_response = self.ollama.answer(combined_initial_prompt, text, with_logging)
 
         judge_input += line_seperator
