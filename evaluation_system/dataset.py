@@ -216,6 +216,16 @@ def load_twitter_indonesian_dataset_for_evaluation(folder_path: str = 'twitter_w
 def generate_plot():
     os.makedirs(SAVE_PLOT_FOLDER, exist_ok=True)
 
+    # 🔹 Set all font sizes globally
+    plt.rcParams.update({
+        'font.size': 22,  # default font size for all text
+        'axes.titlesize': 22,  # title size
+        'axes.labelsize': 22,  # x/y label size
+        'xtick.labelsize': 22,  # x-axis tick labels
+        'ytick.labelsize': 22,  # y-axis tick labels
+        'legend.fontsize': 22,  # legend text
+    })
+
     datasets = {
         'semeval': load_semeval_dataset(),
         'mustard': load_mustard_dataset(),
@@ -240,10 +250,12 @@ def generate_plot():
         plt.xlabel("Label")
         plt.ylabel("Count")
         plt.xticks(rotation=0)
+        plt.ylim(0, max(label_counts) * 1.15)
 
         # Add count labels on top of each bar
         for i, count in enumerate(label_counts):
-            ax.text(i, count + max(label_counts) * 0.02, str(count), ha='center', fontsize=11, fontweight='bold')
+            ax.text(i, count + max(label_counts) * 0.02, str(count),
+                    ha='center', fontsize=22, fontweight='bold')
 
         plt.tight_layout()
 
